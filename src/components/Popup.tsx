@@ -28,7 +28,7 @@ const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorP
 
           if (data && data.city) {
             onLocationSelect({ city: data.city });
-            // console.log(data.city);
+            console.log(data.city);
             onClose();
           } else {
             setError("Unable to get city name.");
@@ -49,7 +49,7 @@ const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorP
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-sm">
       <div className="bg-white flex flex-col items-start w-full max-w-4xl mx-6 sm:mx-8 md:mx-14 rounded-2xl p-6 shadow-lg">
         {/* Top Div */}
         <div className="w-full text-center">

@@ -30,3 +30,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.view-button {
+  cursor: pointer;
+  transform: translateY(80px);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.view-button {
+  transform: translateY(0);
+}
+
+

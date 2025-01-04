@@ -296,7 +296,7 @@ const ManualCityPopup = ({ onClose }: { onClose: () => void }) => {
   );
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 p-4">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 p-4 backdrop-blur-sm">
       <div className="bg-white rounded-xl shadow-lg w-full max-w-4xl h-[75vh] overflow-hidden">
         <div className="p-4 border-b">
           <h2 className="text-md text-gray-800 font-semibold">Select your city</h2>

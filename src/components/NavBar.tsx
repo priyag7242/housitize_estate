@@ -1,61 +1,108 @@
-import React, { useState } from 'react';
-import { Search, Home, TrendingUp, BookOpen, UserCircle, LogIn, Menu } from 'lucide-react';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { Search, UserCircle, LogIn, Menu } from "lucide-react";
+import Link from "next/link";
 
-const Navbar: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav
+      className={`fixed w-screen top-0  z-50 bg-tranparent transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-8xl mx-20 px-7 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <span className="text-xl font-bold text-gray-800">DEMIGOD ESTATE</span>
-          </div>
+          <Link
+            href="/"
+            className={`divide-x-2 flex items-center gap-10 ${
+              isScrolled ? "text-gray-700 " : ""
+            }`}
+          >
+            <div className="text-xs font-bold ">
+              <div>DEMIGOD</div>
+              <div className="">REAL</div>
+              <div className="">ESTATE</div>
+            </div>
 
-          {/* Navigation Items - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link href="/ai-search" className="text-gray-600 hover:text-gray-900">
-              <Search className="h-5 w-5" />
-            </Link>
-            <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
-            <Link href="/properties" className="text-gray-600 hover:text-gray-900">Properties</Link>
-            <Link href="/market-trends" className="text-gray-600 hover:text-gray-900">
-              <div className="flex items-center">
-                <TrendingUp className="h-5 w-5 mr-1" />
-                <span>Market trends</span>
-              </div>
-            </Link>
-            <Link href="/resources" className="text-gray-600 hover:text-gray-900">
-              <div className="flex items-center">
-                <BookOpen className="h-5 w-5 mr-1" />
-                <span>Resources</span>
-              </div>
-            </Link>
-            <Link 
-              href="/contact" 
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+            <div
+              className={`text-sm px-7 ${isScrolled ? "text-gray-700 " : ""}`}
             >
-              Contact us
-            </Link>
-            {isLoggedIn ? (
-              <Link href="/dashboard" className="text-gray-600 hover:text-gray-900">
+              INDIA
+            </div>
+          </Link>
+
+          {/* Navigation Items Right side - Desktop */}
+          <div className="hidden md:flex md:gap-6 text-xs font-normal items-center space-x-4">
+            {[
+              { href: "/about", text: "ABOUT" },
+              { href: "/properties", text: "PROPERTIES" },
+              { href: "/market-trends", text: "MARKET TRENDS" },
+              { href: "/resources", text: "PUBLICATIONS" },
+              { href: "/contact", text: "CONTACT US" },
+            ].map((link) => (
+              <Link
+                key={link.text}
+                href={link.href}
+                className={`px-4 py-2 hover:text-slate-300 ${
+                  isScrolled ? "text-gray-800 " : ""
+                } transition-transform duration-300 transform hover:-translate-y-1`}
+              >
+                {link.text}
+              </Link>
+            ))}
+
+            <div className="flex items-center px-4 py-2 cursor-pointer space-x-2">
+              <div className={`${isScrolled ? "text-gray-800 " : ""}`}>
+                MENU
+              </div>
+              <Menu
+                className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
+              />
+            </div>
+
+            {/*User Account/Dashboard Icon*/}
+            {/* {isLoggedIn ? (
+              <Link
+                href="/dashboard"
+                className={` hover:text-gray-900 ${
+                  isScrolled ? "text-gray-800  " : ""
+                }`}
+              >
                 <UserCircle className="h-6 w-6" />
               </Link>
             ) : (
-              <Link href="/login" className="text-gray-600 hover:text-gray-900">
+              <Link
+                href="/login"
+                className={` hover:text-gray-900 ${
+                  isScrolled ? "text-gray-800  " : ""
+                }`}
+              >
                 <LogIn className="h-6 w-6" />
               </Link>
-            )}
+            )} */}
           </div>
 
           {/* Navigation Items - Mobile */}
           <div className="flex md:hidden items-center space-x-4">
-            <Link href="/ai-search" className="text-gray-600 hover:text-gray-900">
-              <Search className="h-5 w-5" />
-            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
@@ -71,15 +118,50 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</Link>
-            <Link href="/properties" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Properties</Link>
-            <Link href="/market-trends" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Market trends</Link>
-            <Link href="/resources" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Resources</Link>
-            <Link href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact us</Link>
+            <Link
+              href="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Home
+            </Link>
+            <Link
+              href="/properties"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Properties
+            </Link>
+            <Link
+              href="/market-trends"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Market trends
+            </Link>
+            <Link
+              href="/resources"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Resources
+            </Link>
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Contact us
+            </Link>
             {isLoggedIn ? (
-              <Link href="/dashboard" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</Link>
+              <Link
+                href="/dashboard"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              >
+                Dashboard
+              </Link>
             ) : (
-              <Link href="/login" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Login/Signup</Link>
+              <Link
+                href="/login"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              >
+                Login/Signup
+              </Link>
             )}
           </div>
         </div>
@@ -89,4 +171,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-

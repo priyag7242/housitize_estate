@@ -35,8 +35,10 @@ const Home = () => {
         />
       )}
       {showManualPopup && <ManualCityPopup onClose={closeManualPopup} />}
-      <NavBar />
-      <Hero />
+      <div className={showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""}>
+        <NavBar />
+        <Hero />
+      </div>
     </div>
   );
 };
