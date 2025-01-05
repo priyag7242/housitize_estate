@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
+          {/* <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
               { num: "01", text: "HOUSE" },
               { num: "02", text: "LAND" },
@@ -53,7 +53,7 @@ const Hero = () => {
                 </button>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

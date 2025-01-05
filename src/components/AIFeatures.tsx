@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Features = () => {
+const AIFeatures = () => {
   return (
     <main className="min-h-screen w-full bg-white px-10 py-28 md:px-8 lg:px-16">
       {/* Header Section */}
@@ -29,10 +29,10 @@ const Features = () => {
               src="/assets/images/ai-assistant4.jpg"
               alt="Exclusive Listings"
               fill
-              className="object-cover opacity-80 transition-transform duration-300 group-hover:scale-105"
+              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white">
+            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20">
               Dynamic Recommendations
             </h3>
           </div>
@@ -44,10 +44,10 @@ const Features = () => {
               src="/assets/images/trend-graph.jpg"
               alt="Property Trends"
               fill
-              className="object-cover opacity-80 transition-transform duration-300 group-hover:scale-105"
+              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white">
+            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20">
               Property Trends
             </h3>
           </div>
@@ -59,10 +59,10 @@ const Features = () => {
               src="/assets/images/ai-chatbot.jpg"
               alt="AI Chatbot"
               fill
-              className="object-cover opacity-80 transition-transform duration-300 group-hover:scale-105"
+              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white">
+            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20 ">
               AI Chatbot
             </h3>
           </div>
@@ -72,4 +72,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default AIFeatures;
