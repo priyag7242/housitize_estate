@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative w-full">
-      <div className=" absolute top-0 object-cover left-0 right-0 -z-10 bg-slate-600 h-screen w-full  ">
+    <div className="object-cover w-full">
+      <div className="bg-slate-600 h-screen w-full  ">
         <video
           src="/assets/hero.mp4"
           autoPlay
@@ -18,8 +18,7 @@ const Hero = () => {
               className="mb-8 max-w-3xl text-lg md:text-xl text-white tracking-wide"
               style={{ fontFamily: "Avenir, sans-serif" }}
             >
-              REPRESENTING THE SALE OR ACQUISITION OF EXTRAORDINARY PROPERTIES
-              IN LUXURY MARKETS
+              DISCOVER THE FUTURE OF REAL ESTATE
             </h5>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-wider"
@@ -30,7 +29,7 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex flex-col md:flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
               { num: "01", text: "HOUSE" },
               { num: "02", text: "LAND" },
@@ -55,8 +54,7 @@ const Hero = () => {
               </div>
             ))}
           </div>
-        {/* </div> */}
-      </div>
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import ManualCityPopup from "../components/ManualCityPopup";
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
+import Features from "@/components/Features";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -38,6 +39,7 @@ const Home = () => {
       <div className={showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""}>
         <NavBar />
         <Hero />
+        <Features />
       </div>
     </div>
   );
