@@ -1,18 +1,80 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
+
+const HeroImages = [
+  {
+    name: "pic1",
+    image: "/assets/images/hero-pic1.jpg",
+  },
+  {
+    name: "pic2",
+    image: "/assets/images/hero-pic2.jpg",
+  },
+  {
+    name: "pic3",
+    image: "/assets/images/hero-pic3.jpg",
+  },
+  {
+    name: "pic4",
+    image: "/assets/images/hero-pic4.jpg",
+  },
+];
 
 const Hero = () => {
+  const slider = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 400,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="object-cover w-full">
-      <div className="bg-slate-600 h-screen w-full  ">
-        <video
-          src="/assets/hero.mp4"
-          autoPlay
-          muted
-          loop
-          className="opacity-50 w-full h-full min-w-full min-h-full absolute top-0 left-0 object-cover"
-        />
+      <div className="relative h-screen w-full">
+        {/* Hero Images */}
+        <Slider ref={slider} {...settings} className="absolute inset-0 z-0">
+          {HeroImages.map((heroImage, index) => (
+            <div key={index} className="relative opacity-80 w-full h-screen">
+              <Image
+                src={heroImage.image}
+                alt={heroImage.name}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+            </div>
+          ))}
+        </Slider>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+        {/* Hero Text */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
           <div className="mb-16 translate-y-16">
             <h5
               className="mb-8 max-w-3xl text-lg md:text-xl text-white tracking-wide"
@@ -29,7 +91,7 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          {/* <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
               { num: "01", text: "HOUSE" },
               { num: "02", text: "LAND" },
@@ -53,7 +115,53 @@ const Hero = () => {
                 </button>
               </div>
             ))}
-          </div> */}
+          </div>
+        </div>
+
+        {/* Bottom-Right Navigation */}
+        <div className="absolute bottom-8 right-8 z-20 flex items-center gap-4 bg-white/80 rounded-lg p-2 shadow-lg">
+          {/* Left Arrow */}
+          <button onClick={() => slider?.current?.slickPrev()} className="p-2 text-gray-900 hover:text-gray-900 transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          {/* Counter */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-gray-900">{String(currentSlide + 1).padStart(2, '0')}</span>
+            <span className="text-sm text-gray-500">—</span>
+            <span className="text-sm font-bold text-gray-600">0{HeroImages.length}</span>
+          </div>
+
+          {/* Right Arrow */}
+          <button onClick={() => slider?.current?.slickNext()} className="p-2 text-gray-900 hover:text-gray-900 transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

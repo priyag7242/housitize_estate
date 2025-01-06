@@ -59,7 +59,7 @@ const FeaturedListings = () => {
       bathrooms: 2,
       area: "2000 SQ.FT.",
     },
-  }
+  };
   return (
     <section className="relative bg-graybackground  w-full  px-4  py-16 md:py-24">
       <div className="flex flex-col md:px-28 items-center md:items-start">

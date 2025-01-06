@@ -9,7 +9,7 @@ const ImmersivePropertyExperience = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+            <h2 className="text-3xl sm:text-5xl font-thin text-slate-900">
               Experience Properties Like Never Before
             </h2>
             <p className="text-xl text-slate-600">

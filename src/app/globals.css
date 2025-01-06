@@ -92,5 +92,20 @@ body {
   }
 }
 
+.testimonial-slider .slick-track {
+  display: flex !important;
+}
+
+.testimonial-slider .slick-slide {
+  height: inherit !important;
+  display: flex !important;
+}
+
+.testimonial-slider .slick-slide > div {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+ 
 
 

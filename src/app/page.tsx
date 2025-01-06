@@ -7,6 +7,7 @@ import Popup from "@/components/Popup";
 import AIFeatures from "@/components/AIFeatures";
 import FeaturedListings from "@/components/FeaturedListings";
 import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
+import Testimonial from "@/components/Testimonial";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -39,11 +40,12 @@ const Home = () => {
       )}
       {showManualPopup && <ManualCityPopup onClose={closeManualPopup} />}
       <div className={showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""}>
-        {/* <NavBar /> */}
+        <NavBar selectedLocation={selectedLocation} />
         <Hero />
         <AIFeatures />
         <FeaturedListings />
         <ImmersivePropertyExperience />
+        {/* <Testimonial /> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { Navigation, MapPin, LocateFixed } from "lucide-react";
 interface LocationSelectorProps {
   onClose: () => void;
   onLocationSelect: (location: { city: string }) => void;
-  openManualPopup: () => void; 
+  openManualPopup: () => void;
 }
 
 const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorProps) => {
