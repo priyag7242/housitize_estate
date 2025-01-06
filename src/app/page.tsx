@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
 import AIFeatures from "@/components/AIFeatures";
 import FeaturedListings from "@/components/FeaturedListings";
+import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -42,6 +43,7 @@ const Home = () => {
         <Hero />
         <AIFeatures />
         <FeaturedListings />
+        <ImmersivePropertyExperience />
       </div>
     </div>
   );
