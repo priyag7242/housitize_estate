@@ -1,19 +1,77 @@
+import React, { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const AIFeaturesItems = [
+  {
+    title: "Dynamic Recommendations",
+    image: "/assets/images/ai-assistant4.jpg",
+    description: "Discover more about this feature.",
+  },
+  {
+    title: "Property Trends",
+    image: "/assets/images/graph2.jpeg",
+    description: "Discover more about this feature.",
+  },
+  {
+    title: "AI Chatbot",
+    image: "/assets/images/ai-robot.jpg",
+    description: "Discover more about this feature.",
+  },
+  {
+    title: "3D Model",
+    image: "/assets/images/ai-featured-pic.jpg",
+    description: "Discover more about this feature.",
+  },
+  {
+    title: "Easy To Use",
+    image: "/assets/images/chatbot-ai.jpg",
+    description: "Discover more about this feature.",
+  },
+];
 
 const AIFeatures = () => {
+  const slider = useRef(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 600,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen w-full bg-white px-10 py-28 md:px-8 lg:px-16">
       {/* Header Section */}
       <section className="mx-auto max-w-6xl text-center">
-        <h2 className="mb-8 text-sm uppercase tracking-widest  text-gray-500">
+        <h2 className="mb-8 text-sm uppercase tracking-widest text-gray-500">
           Elevating the Beauty & Business of Real Estate
         </h2>
-
         <h1 className="mb-12 text-3xl font-thin uppercase tracking-wider text-gray-700 md:text-4xl lg:text-5xl">
           Revolutionizing Real Estate
         </h1>
-
         <p className="mx-auto mb-16 max-w-4xl text-center text-gray-600 md:text-base">
           Unlock the future of real estate with AI-powered recommendations,
           immersive AR/VR property tours, and tailored insights designed to make
@@ -21,83 +79,104 @@ const AIFeatures = () => {
         </p>
       </section>
 
-      {/* Image Cards Section */}
-      <section className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <Link href="/" className="group relative shadow-2xl overflow-hidden">
-          <div className="relative h-[400px] w-full">
-            <Image
-              src="/assets/images/ai-assistant4.jpg"
-              alt="Exclusive Listings"
-              fill
-              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20">
-              Dynamic Recommendations
-            </h3>
-          </div>
-        </Link>
-
-        <Link href="/" className="group relative shadow-2xl overflow-hidden">
-          <div className="relative h-[400px] w-full">
-            <Image
-              src="/assets/images/trend-graph.jpg"
-              alt="Property Trends"
-              fill
-              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20">
-              Property Trends
-            </h3>
-          </div>
-        </Link>
-
-        <Link href="/" className="group relative shadow-2xl overflow-hidden">
-          <div className="relative h-[400px] w-full">
-            <Image
-              src="/assets/images/ai-chatbot.jpg"
-              alt="AI Chatbot"
-              fill
-              className="object-cover opacity-80 group-hover:opacity-70 transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/30" />
-            <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-20 ">
-              AI Chatbot
-            </h3>
-          </div>
-        </Link>
+      {/* Image Cards Carousel Section */}
+      <section className="mx-auto max-w-6xl">
+        <Slider ref={slider} {...settings}>
+          {AIFeaturesItems.map((item, index) => (
+            <div
+              key={index}
+              className="group relative h-[300px] w-[300px] sm:h-[400px] overflow-hidden overflow-x-hidden px-2"
+            >
+              <div className="relative h-full w-full overflow-hidden flex items-center justify-center">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover opacity-80 transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* To give the black opacity */}
+                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute text-center">
+                  <h3 className="text-2xl font-light uppercase tracking-wider text-white transition-transform duration-300 group-hover:-translate-y-5">
+                    {item.title}
+                  </h3>
+                  <p className="text-base text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </section>
 
-      {/*bottom ratings and statistics*/}
-      <div className="w-full py-12 mt-24 ">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-              {/* Years of existence */}
-              <div className="flex flex-col items-center">
-                <span className="text-4xl lg:text-5xl font-light text-gray-600">
-                  22
-                </span>
-                <span className="mt-2 text-sm text-gray-500">
-                  years of existence
-                </span>
-              </div>
+      {/* Bottom Buttons */}
+      <section className="flex justify-center items-center gap-4 mt-12">
+        <button
+          onClick={() => slider?.current?.slickPrev()}
+          className="px-6 py-2 text-sm md:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-full hover:bg-gray-200 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={() => slider?.current?.slickNext()}
+          className="px-6 py-2 text-sm md:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-full hover:bg-gray-200 hover:translate-x-1 transition-all duration-300 ease-in-out"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </section>
 
-              {/* buyer's satisfaction */}
-              <div className="flex flex-col items-center">
-                <div className="flex items-center gap-2">
-                  <span className="text-4xl lg:text-5xl font-light text-gray-600">
-                    4.85
-                  </span>
-                  <span className="text-4xl lg:text-5xl font-light text-gray-600">
-                    /5
-                  </span>
-                </div>
-                <div className="flex items-center gap-1 mt-1">
+      {/* Bottom Ratings and Statistics */}
+      <div className="w-full py-12 mt-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="flex flex-col items-center justify-between">
+              <span className="text-4xl lg:text-5xl font-light text-gray-600">
+                22
+              </span>
+              <span className="mt-2 text-sm text-gray-500">
+                years of existence
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-4xl lg:text-5xl font-light text-gray-600">
+                  4.85
+                </span>
+                <span className="text-4xl lg:text-5xl font-light text-gray-600">
+                  /5
+                </span>
+                <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="w-4 h-4 text-gray-300"
+                      className="w-3 h-3 text-gray-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -111,31 +190,26 @@ const AIFeatures = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="mt-2 text-sm text-gray-500">
-                  buyer satisfaction 2023-2024
-                </span>
               </div>
-
-              {/* some text */}
-              <div className="flex flex-col items-center">
-                <span className="text-4xl lg:text-5xl font-light text-gray-600">
-                  100%
-                </span>
-                <span className="mt-2 text-sm text-gray-500">
-                  some demo text 
-                </span>
-              </div>
-
-              {/* Property */}
-              <div className="flex flex-col items-center">
-                <span className="text-4xl lg:text-5xl font-light text-gray-600">
-                  190
-                </span>
-                <span className="mt-2 text-sm text-gray-500">properties</span>
-              </div>
+              <span className="mt-2 text-sm text-gray-500">
+                buyer satisfaction 2023-2024
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-between">
+              <span className="text-4xl lg:text-5xl font-light text-gray-600">
+                100%
+              </span>
+              <span className="mt-2 text-sm text-gray-500">some demo text</span>
+            </div>
+            <div className="flex flex-col items-center justify-between">
+              <span className="text-4xl lg:text-5xl font-light text-gray-600">
+                190
+              </span>
+              <span className="mt-2 text-sm text-gray-500">properties</span>
             </div>
           </div>
         </div>
+      </div>
     </main>
   );
 };

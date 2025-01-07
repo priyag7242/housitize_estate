@@ -1,25 +1,24 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
-const HeroImages = [
+const HeroVideos = [
   {
-    name: "pic1",
-    image: "/assets/images/hero-pic1.jpg",
+    name: "video1",
+    video: "/assets/hero.mp4",
   },
   {
-    name: "pic2",
-    image: "/assets/images/hero-pic2.jpg",
+    name: "video2",
+    video: "/assets/hero-vid3.mp4",
   },
   {
-    name: "pic3",
-    image: "/assets/images/hero-pic3.jpg",
+    name: "video3",
+    video: "/assets/hero-dog.mp4",
   },
   {
-    name: "pic4",
-    image: "/assets/images/hero-pic4.jpg",
+    name: "video4",
+    video: "/assets/hero-vid5.mp4",
   },
 ];
 
@@ -60,15 +59,17 @@ const Hero = () => {
       <div className="relative h-screen w-full">
         {/* Hero Images */}
         <Slider ref={slider} {...settings} className="absolute inset-0 z-0">
-          {HeroImages.map((heroImage, index) => (
-            <div key={index} className="relative opacity-80 w-full h-screen">
-              <Image
-                src={heroImage.image}
-                alt={heroImage.name}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
+          {HeroVideos.map((heroVideo, index) => (
+            <div key={index} className="relative w-full h-screen">
+              <video
+                src={heroVideo.video}
+                autoPlay
+                muted
+                loop
+                className="w-full h-full min-w-full min-h-full absolute top-0 left-0 object-cover"
               />
+              {/* To give the black opacity */}
+              <div className="absolute inset-0 bg-black/40" />
             </div>
           ))}
         </Slider>
@@ -121,7 +122,10 @@ const Hero = () => {
         {/* Bottom-Right Navigation */}
         <div className="absolute bottom-8 right-8 z-20 flex items-center gap-4 bg-white/80 rounded-lg p-2 shadow-lg">
           {/* Left Arrow */}
-          <button onClick={() => slider?.current?.slickPrev()} className="p-2 text-gray-900 hover:text-gray-900 transition-colors">
+          <button
+            onClick={() => slider?.current?.slickPrev()}
+            className="p-2 text-gray-900 hover:text-gray-900 hover:-translate-x-1 transition-all duration-300 ease-in-out"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -140,13 +144,20 @@ const Hero = () => {
 
           {/* Counter */}
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-gray-900">{String(currentSlide + 1).padStart(2, '0')}</span>
+            <span className="text-sm font-bold text-gray-900">
+              {String(currentSlide + 1).padStart(2, "0")}
+            </span>
             <span className="text-sm text-gray-500">—</span>
-            <span className="text-sm font-bold text-gray-600">0{HeroImages.length}</span>
+            <span className="text-sm font-bold text-gray-600">
+              0{HeroVideos.length}
+            </span>
           </div>
 
           {/* Right Arrow */}
-          <button onClick={() => slider?.current?.slickNext()} className="p-2 text-gray-900 hover:text-gray-900 transition-colors">
+          <button
+            onClick={() => slider?.current?.slickNext()}
+            className="p-2 text-gray-900 hover:text-gray-900 hover:translate-x-1 transition-all duration-300 ease-in-out "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

@@ -8,10 +8,12 @@ import AIFeatures from "@/components/AIFeatures";
 import FeaturedListings from "@/components/FeaturedListings";
 import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
 import Testimonial from "@/components/Testimonial";
+import Departments from "@/components/Departments";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
-  const [showManualPopup, setShowManualPopup] = useState(false); 
+  const [showManualPopup, setShowManualPopup] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState<{
     city: string;
   } | null>(null);
@@ -32,20 +34,26 @@ const Home = () => {
   return (
     <div>
       {showPopup && (
-        <Popup 
-          onClose={closePopup} 
-          onLocationSelect={setSelectedLocation} 
-          openManualPopup={openManualPopup} 
+        <Popup
+          onClose={closePopup}
+          onLocationSelect={setSelectedLocation}
+          openManualPopup={openManualPopup}
         />
       )}
       {showManualPopup && <ManualCityPopup onClose={closeManualPopup} />}
-      <div className={showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""}>
+      <div
+        className={
+          showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
+        }
+      >
         <NavBar selectedLocation={selectedLocation} />
         <Hero />
         <AIFeatures />
         <FeaturedListings />
         <ImmersivePropertyExperience />
-        {/* <Testimonial /> */}
+        <Departments />
+        <Testimonial />
+        <Footer />
       </div>
     </div>
   );
