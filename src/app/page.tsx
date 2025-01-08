@@ -5,10 +5,9 @@ import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
 import AIFeatures from "@/components/AIFeatures";
-import FeaturedListings from "@/components/FeaturedListings";
 import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
 import Testimonial from "@/components/Testimonial";
-import Departments from "@/components/Departments";
+import FeaturedListings from "@/components/FeatureListings";
 import Footer from "@/components/Footer";
 
 const Home = () => {
@@ -46,14 +45,12 @@ const Home = () => {
           showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
         }
       >
-        <NavBar selectedLocation={selectedLocation} />
+        {/* <NavBar selectedLocation={selectedLocation} /> */}
         <Hero />
         <AIFeatures />
         <FeaturedListings />
         <ImmersivePropertyExperience />
-        <Departments />
         <Testimonial />
-        <Footer />
       </div>
     </div>
   );

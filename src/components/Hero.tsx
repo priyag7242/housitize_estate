@@ -18,7 +18,7 @@ const HeroVideos = [
   },
   {
     name: "video4",
-    video: "/assets/hero-vid5.mp4",
+    video: "/assets/hero-vid4.mp4",
   },
 ];
 
@@ -57,7 +57,7 @@ const Hero = () => {
   return (
     <div className="object-cover w-full">
       <div className="relative h-screen w-full">
-        {/* Hero Images */}
+        {/* Hero videos */}
         <Slider ref={slider} {...settings} className="absolute inset-0 z-0">
           {HeroVideos.map((heroVideo, index) => (
             <div key={index} className="relative w-full h-screen">

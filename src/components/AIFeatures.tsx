@@ -69,7 +69,7 @@ const AIFeatures = () => {
         <h2 className="mb-8 text-sm uppercase tracking-widest text-gray-500">
           Elevating the Beauty & Business of Real Estate
         </h2>
-        <h1 className="mb-12 text-3xl font-thin uppercase tracking-wider text-gray-700 md:text-4xl lg:text-5xl">
+        <h1 className="mb-12 text-xl sm:text-3xl font-thin uppercase tracking-wider text-gray-700 md:text-4xl lg:text-5xl">
           Revolutionizing Real Estate
         </h1>
         <p className="mx-auto mb-16 max-w-4xl text-center text-gray-600 md:text-base">
@@ -132,7 +132,6 @@ const AIFeatures = () => {
           </svg>
         </button>
         <button
-          onClick={() => slider?.current?.slickNext()}
           className="px-6 py-2 text-sm md:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-full hover:bg-gray-200 hover:translate-x-1 transition-all duration-300 ease-in-out"
         >
           <svg

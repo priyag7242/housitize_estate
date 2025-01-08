@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import { Search, UserCircle, LogIn, Menu } from "lucide-react";
 import Link from "next/link";
@@ -31,27 +32,16 @@ const Navbar = () => {
     >
       <div className="max-w-8xl mx-20 px-7 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <Link
-            href="/"
-            className={`divide-x-2 flex items-center gap-10 ${
-              isScrolled ? "text-gray-700 " : ""
-            }`}
-          >
-            <div className="text-xs font-bold ">
-              <div>DEMIGOD</div>
-              <div className="">REAL</div>
-              <div className="">ESTATE</div>
-            </div>
-
-            <div
-              className={`text-sm px-7 ${isScrolled ? "text-gray-700 " : ""}`}
-            >
-              INDIA
-            </div>
-          </Link>
-
           {/* Navigation Items Right side - Desktop */}
           <div className="hidden md:flex md:gap-6 text-xs font-normal items-center space-x-4">
+          <div className="flex items-center px-4 py-2 cursor-pointer space-x-2">
+              <Menu
+                className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
+              />
+              <div className={`${isScrolled ? "text-gray-800 " : ""}`}>
+                MENU
+              </div>
+            </div>
             {[
               { href: "/about", text: "ABOUT" },
               { href: "/properties", text: "PROPERTIES" },
@@ -70,14 +60,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <div className="flex items-center px-4 py-2 cursor-pointer space-x-2">
-              <div className={`${isScrolled ? "text-gray-800 " : ""}`}>
-                MENU
-              </div>
-              <Menu
-                className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
-              />
-            </div>
+            
 
             {/*User Account/Dashboard Icon*/}
             {/* {isLoggedIn ? (
@@ -100,6 +83,25 @@ const Navbar = () => {
               </Link>
             )} */}
           </div>
+          <Link 
+            href="/"
+            className={`divide-x-2 flex items-center gap-10 ${
+              isScrolled ? "text-gray-700 " : ""
+            }`}
+          >
+
+            <div
+              className={`text-sm px-7 ${isScrolled ? "text-gray-700 " : ""}`}
+            >
+              INDIA
+            </div>
+            <div className="text-xs font-bold ">
+              <div>DEMIGOD</div>
+              <div className="">REAL</div>
+              <div className="">ESTATE</div>
+            </div>
+          </Link>
+
 
           {/* Navigation Items - Mobile */}
           <div className="flex md:hidden items-center space-x-4">

@@ -54,9 +54,9 @@ const TestimonialsCarousel = () => {
     infinite: true,
     speed: 500,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 1000,
     arrows: false,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {

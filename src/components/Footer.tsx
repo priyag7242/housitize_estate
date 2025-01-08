@@ -29,10 +29,10 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
             <div className="flex space-x-4 justify-center">
-              <a href="#" className="hover:text-gray-900"><Facebook size={24} /></a>
-              <a href="#" className="hover:text-gray-900"><Instagram size={24} /></a>
-              <a href="#" className="hover:text-gray-900"><Twitter size={24} /></a>
-              <a href="#" className="hover:text-gray-900"><Linkedin size={24} /></a>
+              <a href="#" className="hover:text-gray-900 hover:-translate-y-1 transition-transform duration-200"><Facebook size={24} /></a>
+              <a href="#" className="hover:text-gray-900 hover:-translate-y-1 transition-transform duration-200"><Instagram size={24} /></a>
+              <a href="#" className="hover:text-gray-900 hover:-translate-y-1 transition-transform duration-200"><Twitter size={24} /></a>
+              <a href="#" className="hover:text-gray-900 hover:-translate-y-1 transition-transform duration-200"><Linkedin size={24} /></a>
             </div>
           </div>
 
