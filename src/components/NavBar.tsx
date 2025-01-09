@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { Search, UserCircle, LogIn, Menu } from "lucide-react";
+import { Search, UserCircle, LogIn, Menu, UserRound } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -39,7 +39,9 @@ const Navbar = () => {
                 className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
               />
               <div className={`${isScrolled ? "text-gray-800 " : ""}`}>
-                MENU
+              <UserRound
+                className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
+              />
               </div>
             </div>
             {[

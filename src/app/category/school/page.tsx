@@ -65,8 +65,8 @@ const page = () => {
       <PropertyInfo {...propertyInfo} />
       <Description {...descriptionData} />
       <PropertyAmenities data={propertyData} />
-      <SimilarListings />
       <Map />
+      <SimilarListings /> 
     </div>
   );
 };
