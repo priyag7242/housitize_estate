@@ -48,12 +48,12 @@ const images = [
   {
     id: 3,
     title: "image3",
-    image: "/assets/images/school-property/property-carousel-img5.jpg",
+    image: "/assets/images/school-property/property-carousel-img7.jpg",
   },
   {
     id: 4,
     title: "image4",
-    image: "/assets/images/school-property/property-carousel-img1.jpg",
+    image: "/assets/images/school-property/property-carousel-img8.jpg",
   },
 ];
 const categories: Category[] = [

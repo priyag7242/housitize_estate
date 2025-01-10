@@ -120,7 +120,7 @@ const Hero = () => {
         </div>
 
         {/* Bottom-Right Navigation */}
-        <div className="absolute bottom-8 right-8 z-20 flex items-center gap-4 bg-white/80 rounded-lg p-2 shadow-lg">
+        <div className="absolute bottom-8 right-24 z-20 flex items-center bg-white/40 rounded-lg px-1 py-1 shadow-lg">
           {/* Left Arrow */}
           <button
             onClick={() => slider?.current?.slickPrev()}
