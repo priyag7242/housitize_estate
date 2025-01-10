@@ -26,7 +26,7 @@ const About = () => {
             Meet
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-wider">
-            THE FRIDMAN GROUP
+            THE DEMIGOD TEAM
           </h1>
         </div>
       </div>

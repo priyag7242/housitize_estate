@@ -1,3 +1,4 @@
+'use client'
 import Description from "@/components/reusable-component/Description";
 import Map from "@/components/reusable-component/Map";
 import PropertyAmenities from "@/components/reusable-component/PropertyAmenities";
@@ -8,26 +9,10 @@ import React from "react";
 
 const page = () => {
   const images = [
-    {
-      id: 1,
-      title: "image1",
-      image: "/assets/images/school-property/property-carousel-img1.jpg",
-    },
-    {
-      id: 2,
-      title: "image2",
-      image: "/assets/images/school-property/property-carousel-img5.jpg",
-    },
-    {
-      id: 3,
-      title: "image3",
-      image: "/assets/images/school-property/property-carousel-img6.jpg",
-    },
-    {
-      id: 4,
-      title: "image4",
-      image: "/assets/images/school-property/property-carousel-img4.jpg",
-    },
+    "/assets/images/school-property/property-carousel-img4.jpg",
+    "/assets/images/property-carousel2new.jpg",
+    "/assets/images/property-carousel3new.jpg",
+    "/assets/images/property-carousel4.jpg",
   ];
 
   const propertyInfo = {
@@ -66,7 +51,7 @@ const page = () => {
       <Description {...descriptionData} />
       <PropertyAmenities data={propertyData} />
       <Map />
-      <SimilarListings /> 
+      <SimilarListings />
     </div>
   );
 };

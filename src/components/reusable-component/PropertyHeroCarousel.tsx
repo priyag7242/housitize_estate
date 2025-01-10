@@ -1,90 +1,87 @@
 "use client";
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface DataItem {
-  id: number;
-  title: string;
-  image: string;
+  images: string[];
 }
 
-interface Props {
-  images: DataItem[];
-}
+const PropertyHeroCarousel = ({ images }: DataItem) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-const PropertyHeroCarousel = ({ images }: Props) => {
-  const slider = useRef<Slider>(null);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        setIsAnimating(false);
+      }, 1000);
+    }, 5000);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 400,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+    return () => clearInterval(interval);
+  }, []);
 
-  const handlePrev = () => {
-    slider.current?.slickPrev();
-  };
-
-  const handleNext = () => {
-    slider.current?.slickNext();
-  };
+  const getImageIndex = (index: number) => (currentIndex + index) % 4;
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      <Slider ref={slider} {...settings} className="absolute inset-0 z-0">
-        {images.map((image, index) => (
-          <div key={index} className="relative w-full h-screen">
+    <div
+      className="relative w-full h-[90vh] pt-28 px-8 pb-8 bg-gray-500"
+      style={{
+        backgroundImage: `url(${images[getImageIndex(0)]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Black shade on the background image */}
+      <div className="absolute inset-0 h-full bg-black/50 pointer-events-none" />
+
+      <div className="relative w-full h-full flex flex-col md:flex-row gap-4">
+        {/* Left half */}
+        <div className="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden shadow-lg">
+          <div
+            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
+              isAnimating ? "scale-105" : "scale-100"
+            }`}
+          >
             <Image
-              src={image.image}
-              alt={image.title}
+              src={images[getImageIndex(0)]}
+              alt={`Main Image ${getImageIndex(0) + 1}`}
               fill
-              className="w-full h-full object-cover"
+              className="object-cover"
             />
-            {/* Black overlay */}
-            <div className="absolute inset-0 bg-black/40" />
           </div>
-        ))}
-      </Slider>
-      {/* Navigation buttons */}
-      <button
-        onClick={handlePrev}
-        className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-white/30 text-white backdrop-blur-md rounded-full p-3 shadow-md z-10 hover:bg-white/50 transition hover:-translate-x-2 duration-300"
-      >
-        {/* Left arrow */}
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={handleNext}
-        className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-white/30 text-white backdrop-blur-md rounded-full p-3 shadow-md z-10 hover:bg-white/50 transition hover:translate-x-2 duration-300"
-      >
-        {/* Right arrow */}
-        <ChevronRight className="w-6 h-6" />
-      </button>
+        </div>
+
+        {/* Right half */}
+        <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col gap-4">
+          {[1, 2, 3].map((offset) => (
+            <div
+              key={offset}
+              className="w-full h-1/3 relative overflow-hidden shadow-lg"
+            >
+              <div
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                  isAnimating
+                    ? offset === 1
+                      ? "-translate-x-full scale-150 opacity-0"
+                      : offset === 3
+                      ? "translate-y-full opacity-0"
+                      : "-translate-y-full"
+                    : "translate-x-0 translate-y-0 scale-100 opacity-100"
+                }`}
+              >
+                <Image
+                  src={images[getImageIndex(offset)]}
+                  alt={`Thumbnail Image ${getImageIndex(offset) + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
