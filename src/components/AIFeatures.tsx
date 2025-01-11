@@ -132,6 +132,7 @@ const AIFeatures = () => {
           </svg>
         </button>
         <button
+          onClick={() => slider?.current?.slickNext()}
           className="px-6 py-2 text-sm md:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-full hover:bg-gray-200 hover:translate-x-1 transition-all duration-300 ease-in-out"
         >
           <svg
