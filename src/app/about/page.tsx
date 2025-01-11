@@ -9,6 +9,32 @@ import Marquee from "react-fast-marquee";
 import DummyScroll from "@/components/DummyScroll";
 
 const About = () => {
+  const coreValues = [
+    {
+      number: "01",
+      title: "Experience",
+      description:
+        "We are one of the most seasoned real estate investment teams in the Western United States, investing across multiple market cycles with an elite group of capital providers for over 50 years. The 21 most senior SteelWave professionals have an average tenure of 23 years working together as a team, and 32 years in the real estate industry.",
+    },
+    {
+      number: "02",
+      title: "Execution",
+      description:
+        "The saying goes: if you want something done right, do it yourself. That's why we do it all. We believe that an all-hands-on-deck team approach to managing real estate assets are superior to an allocator's model of outsourcing to a variety of third-party service providers. We work collaboratively as a team to manage every aspect of each project, enabling us to provide consistent execution and attention to detail.",
+    },
+    {
+      number: "03",
+      title: "Integrity",
+      description:
+        "Our business is built on trust, transparency, and ethical practices that have earned us long-standing relationships with partners and investors. Our business is built on trust, transparency, and ethical practices that have earned us long-standing relationships with partners and investors.",
+    },
+    {
+      number: "04",
+      title: "Passion",
+      description:
+        "We are deeply passionate about what we do, how we do it and when we do it. We hire and nurture team members who have demonstrated a track record of passion and a commitment to excellence in everything that they do. These are the attributes that define the essence of who we are as individuals and as a company.",
+    },
+  ];
   return (
     <div>
       {/*Hero*/}
@@ -98,9 +124,37 @@ const About = () => {
         - Read out our story - read out our story
       </Marquee>
 
+      {/* <DummyScroll /> */}
 
-      <DummyScroll />
-
+      {/*CORE VALUES*/}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl sticky top-32 sm:text-4xl font-normal mb-16">Core Values</h2>
+        <div className="space-y-20">
+          {coreValues.map((value) => (
+            <div
+              key={value.number}
+              className="flex flex-col lg:flex-row justify-end items-start"
+            >
+              <div className="lg:w-2/3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center lg:items-start">
+                  <div>
+                    <span className="text-[120px] sm:text-[180px] font-light leading-none mr-12 sm:mr-20 lg:mr-12">
+                      {value.number}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl mb-6 text-gray-700">{value.title}</h3>
+                    <p className="text-gray-600 tracking-widest text-lg leading-relaxed">
+                      {value.description}
+                    </p>
+                    <Separator className="my-8 w-full" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Hero */}
       {/* <div className="relative w-full h-[50vh] sm:h-[85vh] "> */}
