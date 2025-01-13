@@ -1,14 +1,25 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useState } from "react";
+// import { Button } from "@/components/ui/button";
+// import { Separator } from "@/components/ui/separator";
+import { ArrowRight, MoveRight } from "lucide-react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import DummyScroll from "@/components/DummyScroll";
+// import DummyScroll from "@/components/DummyScroll";
+import CoreValues from "@/components/CoreValues";
+
+interface TeamMember {
+  name: string;
+  title: string;
+}
 
 const About = () => {
+  const [activeTab, setActiveTab] = useState("team");
+
   const coreValues = [
     {
       number: "01",
@@ -35,6 +46,115 @@ const About = () => {
         "We are deeply passionate about what we do, how we do it and when we do it. We hire and nurture team members who have demonstrated a track record of passion and a commitment to excellence in everything that they do. These are the attributes that define the essence of who we are as individuals and as a company.",
     },
   ];
+  const teamMembers: TeamMember[] = [
+    {
+      name: "Regional Vice President",
+      title: "Denver Metropolitan Area and Texas",
+    },
+    {
+      name: "Chief Administrative Officer",
+      title: "Accounting Officer",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Seattle & Portland",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Denver Metropolitan Area and Texas",
+    },
+    {
+      name: "Chief Administrative Officer",
+      title: "Accounting Officer",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Seattle & Portland",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Denver Metropolitan Area and Texas",
+    },
+    {
+      name: "Chief Administrative Officer",
+      title: "Accounting Officer",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Seattle & Portland",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Denver Metropolitan Area and Texas",
+    },
+    {
+      name: "Chief Administrative Officer",
+      title: "Accounting Officer",
+    },
+    {
+      name: "Regional Vice President",
+      title: "Seattle & Portland",
+    },
+  ];
+
+  const boardMembers: TeamMember[] = [
+    {
+      name: "Co-Founder",
+      title: "Chief Executive Officer & Chairman",
+    },
+    {
+      name: "Senior Vice President",
+      title: "Property Management Services & CDS",
+    },
+    {
+      name: "Co-Founder",
+      title: "Chief Executive Officer & Chairman",
+    },
+    {
+      name: "Senior Vice President",
+      title: "Property Management Services & CDS",
+    },
+    {
+      name: "Senior Vice President",
+      title: "Property Management Services & CDS",
+    },
+    {
+      name: "Co-Founder",
+      title: "Chief Executive Officer & Chairman",
+    },
+    {
+      name: "Senior Vice President",
+      title: "Property Management Services & CDS",
+    },
+  ];
+
+  const executiveMembers: TeamMember[] = [
+    {
+      name: "Managing Director",
+      title: "A&D, Seattle, Portland",
+    },
+    {
+      name: "Creative Director",
+      title: "Design & Innovation",
+    },
+    {
+      name: "Creative Director",
+      title: "Design & Innovation",
+    },
+    {
+      name: "Managing Director",
+      title: "A&D, Seattle, Portland",
+    },
+    {
+      name: "Creative Director",
+      title: "Design & Innovation",
+    },
+    {
+      name: "Creative Director",
+      title: "Design & Innovation",
+    },
+  ];
+
   return (
     <div>
       {/*Hero*/}
@@ -126,33 +246,97 @@ const About = () => {
 
       {/* <DummyScroll /> */}
 
-      {/*CORE VALUES*/}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl sticky top-32 sm:text-4xl font-normal mb-16">Core Values</h2>
-        <div className="space-y-20">
-          {coreValues.map((value) => (
-            <div
-              key={value.number}
-              className="flex flex-col lg:flex-row justify-end items-start"
+      <CoreValues coreValues={coreValues} />
+
+      {/*Team*/}
+      <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-16 py-16">
+        <div className="space-y-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:space-x-8 space-y-4 lg:space-y-0">
+            <h1 className=" sm:text-[100px] md:text-[130px] lg:text-[150px] font-light tracking-tight whitespace-nowrap">
+              <span className="font-normal">Our</span>
+              <span
+                style={{
+                  WebkitTextStroke: "1.5px gray",
+                }}
+                className="text-transparent"
+              >
+                Team
+              </span>
+            </h1>
+            <p className="text-lg text-gray-600 lg:pr-10 md:-translate-x-20 max-w-lg">
+              As creative problem-solvers, we create exceptional environments
+              and delivers enduring value for every investor, partner, and
+              client.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            <Tabs
+              defaultValue="team"
+              className="w-full"
+              onValueChange={setActiveTab}
             >
-              <div className="lg:w-2/3">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center lg:items-start">
-                  <div>
-                    <span className="text-[120px] sm:text-[180px] font-light leading-none mr-12 sm:mr-20 lg:mr-12">
-                      {value.number}
-                    </span>
+              <TabsList className="h-auto bg-transparent space-x-2 flex flex-row justify-start w-full lg:w-auto overflow-x-auto">
+                <TabsTrigger
+                  value="team"
+                  className="justify-start text-lg md:text-xl hover:-translate-y-1 data-[state=active]:bg-transparent data-[state=active]:text-gray-700 whitespace-nowrap"
+                >
+                  Team
+                </TabsTrigger>
+                <TabsTrigger
+                  value="board"
+                  className="justify-start text-lg md:text-xl hover:-translate-y-1 data-[state=active]:bg-transparent data-[state=active]:text-gray-700 whitespace-nowrap"
+                >
+                  Board of Directors
+                </TabsTrigger>
+                <TabsTrigger
+                  value="executive"
+                  className="justify-start text-lg md:text-xl hover:-translate-y-1 data-[state=active]:bg-transparent data-[state=active]:text-gray-700 whitespace-nowrap"
+                >
+                  Executive Committee
+                </TabsTrigger>
+              </TabsList>
+              <Separator className="my-2" />
+            </Tabs>
+
+            <div className="flex-1">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                {(activeTab === "team"
+                  ? teamMembers
+                  : activeTab === "board"
+                  ? boardMembers
+                  : executiveMembers
+                ).map((member, index) => (
+                  <div key={index} className="space-y-4">
+                    <h3 className="text-2xl text-gray-600 font-normal">
+                      {member.name}
+                    </h3>
+                    <p className="text-gray-500">{member.title}</p>
                   </div>
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl mb-6 text-gray-700">{value.title}</h3>
-                    <p className="text-gray-600 tracking-widest text-lg leading-relaxed">
-                      {value.description}
-                    </p>
-                    <Separator className="my-8 w-full" />
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+        </div>
+      </section>
+
+      <Marquee
+        speed={100}
+        style={{
+          WebkitTextStroke: "1.5px gray",
+        }}
+        className="text-[150px] overflow-hidden uppercase p-2 w-full text-transparent"
+      >
+        - Backed by the best - Backed by the best
+      </Marquee>
+
+      <div className="flex justify-start items-center px-20 w-full h-[60vh]">
+        {/*content*/}
+        <div className="flex flex-row justify-start items-center text-[30px] sm:text-[90px] md:text-[120px] lg:text-[160px] group">
+          <div className="cursor-pointer">Let&apos;s talk</div>
+          <div className="ml-4 transform transition-transform group-hover:translate-x-3">
+            <MoveRight className="h-[40px] w-[50px] sm:h-[80px] sm:w-[90px] lg:h-[100px] lg:w-[120px]" />
+          </div>
         </div>
       </div>
 
