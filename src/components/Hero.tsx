@@ -1,4 +1,6 @@
+'use client'
 import React, { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
@@ -23,6 +25,7 @@ const HeroVideos = [
 ];
 
 const Hero = () => {
+  const router = useRouter();
   const slider = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -52,6 +55,11 @@ const Hero = () => {
         },
       },
     ],
+  };
+
+  // Function to handle navigation with a dynamic parameter
+  const handleBottomNavClick = (category: string) => {
+    router.push(`/category?category=${category}`);
   };
 
   return (
@@ -92,13 +100,13 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
+          {/* <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
               { num: "01", text: "HOUSE" },
               { num: "02", text: "LAND" },
-              { num: "03", text: "SCHOOLS" },
-              { num: "04", text: "DEMOTEXT" },
-              { num: "05", text: "AGAINTEXT" },
+              { num: "03", text: "SCHOOL" },
+              { num: "04", text: "Beachfront" },
+              { num: "05", text: "Castle" },
             ].map((item) => (
               <div
                 key={item.text}
@@ -111,12 +119,15 @@ const Hero = () => {
                     {item.text}
                   </span>
                 </div>
-                <button className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2">
+                <button
+                  onClick={() => handleBottomNavClick(item.text.toLowerCase())}
+                  className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2"
+                >
                   VIEW
                 </button>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom-Right Navigation */}

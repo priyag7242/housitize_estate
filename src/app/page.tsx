@@ -39,7 +39,12 @@ const Home = () => {
           openManualPopup={openManualPopup}
         />
       )}
-      {showManualPopup && <ManualCityPopup onClose={closeManualPopup} />}
+      {showManualPopup && (
+        <ManualCityPopup
+          onLocationSelect={setSelectedLocation}
+          onClose={closeManualPopup}
+        />
+      )}
       <div
         className={
           showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""

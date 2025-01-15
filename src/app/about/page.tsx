@@ -2,14 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 // import { Button } from "@/components/ui/button";
 // import { Separator } from "@/components/ui/separator";
 import { ArrowRight, MoveRight } from "lucide-react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-// import DummyScroll from "@/components/DummyScroll";
 import CoreValues from "@/components/CoreValues";
 
 interface TeamMember {
@@ -244,8 +243,6 @@ const About = () => {
         - Read out our story - read out our story
       </Marquee>
 
-      {/* <DummyScroll /> */}
-
       <CoreValues coreValues={coreValues} />
 
       {/*Team*/}
@@ -330,6 +327,7 @@ const About = () => {
         - Backed by the best - Backed by the best
       </Marquee>
 
+      {/*Let's talk*/}
       <div className="flex justify-start items-center px-20 w-full h-[60vh]">
         {/*content*/}
         <div className="flex flex-row justify-start items-center text-[30px] sm:text-[90px] md:text-[120px] lg:text-[160px] group">

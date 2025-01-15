@@ -4,7 +4,7 @@ import { Search, UserCircle, LogIn, Menu, UserRound } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -30,10 +30,10 @@ const Navbar = () => {
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-8xl mx-20 px-7 sm:px-6 lg:px-8">
+      <div className="max-w-8xl lg:mx-20 px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Navigation Items Right side - Desktop */}
-          <div className="hidden md:flex md:gap-6 text-xs font-normal items-center space-x-4">
+          <div className="hidden lg:flex lg:gap-6 text-xs font-normal items-center ">
           <div className="flex items-center px-4 py-2 cursor-pointer space-x-2">
               <Menu
                 className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
@@ -46,7 +46,7 @@ const Navbar = () => {
             </div>
             {[
               { href: "/about", text: "ABOUT" },
-              { href: "/properties", text: "PROPERTIES" },
+              { href: "/category", text: "PROPERTIES" },
               { href: "/market-trends", text: "MARKET TRENDS" },
               { href: "/resources", text: "PUBLICATIONS" },
               { href: "/contact", text: "CONTACT US" },
@@ -106,7 +106,7 @@ const Navbar = () => {
 
 
           {/* Navigation Items - Mobile */}
-          <div className="flex md:hidden items-center space-x-4">
+          <div className="flex lg:hidden items-center space-x-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
