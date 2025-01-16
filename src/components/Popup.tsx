@@ -53,7 +53,7 @@ const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorP
       <div className="bg-white flex flex-col items-start w-full max-w-4xl mx-6 sm:mx-8 md:mx-14 rounded-2xl p-6 shadow-lg">
         {/* Top Div */}
         <div className="w-full text-center">
-          <h2 className="text-base text-gray-800 font-semibold mb-4">Select your city</h2>
+          <h2 className="text-base text-gray-700 font-semibold mb-4">Select your country</h2>
         </div>
 
         {/* Location Div */}
@@ -86,7 +86,7 @@ const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorP
             </div>
             <div className="flex flex-col items-center sm:items-start">
               <h3 className="font-bold text-blue-location text-lg">Select Manually</h3>
-              <p className="text-sm text-gray-600 text-center sm:text-left mb-4">Search by your City</p>
+              <p className="text-sm text-gray-600 text-center sm:text-left mb-4">Search by your Country</p>
               <button 
                 className="bg-orange-500 text-white font-medium py-2 px-4 rounded-full hover:bg-orange-600 transition"
                 onClick={openManualPopup} 

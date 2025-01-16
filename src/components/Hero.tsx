@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
+import Image from "next/image";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
@@ -26,7 +27,8 @@ const HeroVideos = [
 
 const Hero = () => {
   const router = useRouter();
-  const slider = useRef(null);
+  const [hoverCategory, setHoverCategory] = useState<string | null>(null);
+  const slider = useRef<Slider | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -57,6 +59,23 @@ const Hero = () => {
     ],
   };
 
+  const displayHoverImage = (category: string | null) => {
+    switch (category) {
+      case "home":
+        return "/assets/images/home-hover.jpg";
+      case "land":
+        return "/assets/images/land-hover.jpg";
+      case "school":
+        return "/assets/images/school-hover.jpg";
+      case "beachfront":
+        return "/assets/images/beachfront-hover.jpg";
+      case "castle":
+        return "/assets/images/castle-hover.jpg";
+      default:
+        return null;
+    }
+  };
+
   // Function to handle navigation with a dynamic parameter
   const handleBottomNavClick = (category: string) => {
     router.push(`/category?category=${category}`);
@@ -82,6 +101,27 @@ const Hero = () => {
           ))}
         </Slider>
 
+        {/*Image on hover*/}
+        <div className="absolute inset-0">
+          <div
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              hoverCategory ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* Image */}
+            {hoverCategory && (
+              <Image
+                src={displayHoverImage(hoverCategory)!}
+                alt={hoverCategory}
+                layout="fill" // Ensuring the image stretches to fill its container
+                className="w-full h-full object-cover" // Ensures image covers the container without distortion
+              />
+            )}
+            {/* Black Overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+        </div>
+
         {/* Hero Text */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
           <div className="mb-16 translate-y-16">
@@ -100,9 +140,9 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          {/* <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
-              { num: "01", text: "HOUSE" },
+              { num: "01", text: "HOME" },
               { num: "02", text: "LAND" },
               { num: "03", text: "SCHOOL" },
               { num: "04", text: "Beachfront" },
@@ -112,10 +152,12 @@ const Hero = () => {
                 key={item.text}
                 className="group relative pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
                 style={{ fontFamily: "Avenir, sans-serif" }}
+                onMouseEnter={() => setHoverCategory(item.text.toLowerCase())}
+                onMouseLeave={() => setHoverCategory(null)}
               >
                 <div className="flex divide-x-2 items-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
                   <span className="text-sm opacity-75">{item.num}</span>
-                  <span className="text-2xl px-4 tracking-wider">
+                  <span className="text-2xl px-4 uppercase tracking-wider">
                     {item.text}
                   </span>
                 </div>
@@ -127,7 +169,7 @@ const Hero = () => {
                 </button>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
 
         {/* Bottom-Right Navigation */}

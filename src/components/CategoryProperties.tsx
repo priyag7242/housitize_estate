@@ -625,7 +625,7 @@ const CategoryProperties = ({
 
   useEffect(() => {
     switch (selectedCategory) {
-      case "house":
+      case "home":
         setPropertyList(houseProperties);
         break;
       case "land":

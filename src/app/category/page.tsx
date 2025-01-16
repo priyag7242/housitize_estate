@@ -36,7 +36,7 @@ interface Category {
 }
                    
 const categories: Category[] = [
-  { id: "house", label: "House", icon: Home },
+  { id: "home", label: "Home", icon: Home },
   { id: "land", label: "Land", icon: LandPlot },
   { id: "school", label: "School", icon: University },
   { id: "beachfront", label: "Beachfront", icon: Palmtree },
@@ -44,7 +44,7 @@ const categories: Category[] = [
 ];
 
 const Category = () => {
-  const [category, setCategory] = useState("house");
+  const [category, setCategory] = useState("home");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
