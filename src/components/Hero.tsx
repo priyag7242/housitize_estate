@@ -142,11 +142,11 @@ const Hero = () => {
           {/* Bottom Navigation */}
           <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
             {[
-              { num: "01", text: "HOME" },
-              { num: "02", text: "LAND" },
-              { num: "03", text: "SCHOOL" },
-              { num: "04", text: "Beachfront" },
-              { num: "05", text: "Castle" },
+              { num: "01", text: "LAND" },
+              { num: "02", text: "construction" },
+              { num: "03", text: "Interior" },
+              { num: "04", text: "Exterior" },
+              { num: "05", text: "house" },
             ].map((item) => (
               <div
                 key={item.text}
