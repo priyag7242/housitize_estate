@@ -85,24 +85,24 @@ const Navbar = () => {
               </Link>
             )} */}
           </div>
-          <Link 
+            <Link 
             href="/"
-            className={`divide-x-2 flex items-center gap-10 ${
+            className={`flex items-center gap-10 ${
               isScrolled ? "text-gray-700 " : ""
             }`}
-          >
-
+            >
             <div
               className={`text-sm px-7 ${isScrolled ? "text-gray-700 " : ""}`}
             >
               INDIA
             </div>
+            <div className="h-12 border"></div>
             <div className="text-xs font-bold ">
               <div>DEMIGOD</div>
               <div className="">REAL</div>
               <div className="">ESTATE</div>
             </div>
-          </Link>
+            </Link>
 
 
           {/* Navigation Items - Mobile */}

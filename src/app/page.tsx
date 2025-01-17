@@ -1,18 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import ManualCityPopup from "../components/ManualCityPopup";
-import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
 import AIFeatures from "@/components/AIFeatures";
 import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
 import Testimonial from "@/components/Testimonial";
 import FeaturedListings from "@/components/FeatureListings";
-import Footer from "@/components/Footer";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
-  const [showManualPopup, setShowManualPopup] = useState(false);
+  const [showManualPopup, setShowManualPopup] = useState(false)
   const [selectedLocation, setSelectedLocation] = useState<{
     city: string;
   } | null>(null);
