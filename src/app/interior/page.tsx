@@ -16,6 +16,7 @@ import {
   Sparkles,
   Star,
   ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { FileText, PenToolIcon as Tool, Handshake, Wrench } from "lucide-react";
@@ -230,6 +231,34 @@ const Interior = () => {
     },
   ];
 
+  const companiesMarquee = [
+    {
+      name: "Nestle",
+      logo: "/assets/images/nestle-logo.png",
+    },
+    {
+      name: "Nissan",
+      logo: "/assets/images/nissan-logo.webp",
+    },
+    {
+      name: "Mercedes-Benz",
+      logo: "/assets/images/mercedes-logo.webp",
+    },
+    {
+      name: "IBM",
+      logo: "/assets/images/ibm-logo.png",
+    },
+    {
+      name: "Deloitte",
+      logo: "/assets/images/demigod-logo.webp",
+    },
+    {
+      name: "Apple",
+      logo: "/assets/images/apple-logo.webp",
+    },
+    
+  ]
+
   const recentProjects = [
     {
       name: "DLF Cyber City",
@@ -283,7 +312,7 @@ const Interior = () => {
         {/* To give the black opacity */}
         <div className="absolute inset-0 bg-black/20" />
 
-        <div className="z-0 px-4 lg:-translate-x-3/4 lg:-translate-y-1/4">
+        <div className="z-0 px-4 lg:-translate-x-3/4 lg:-translate-y-1/4 relative">
           <h1 className="text-white z-0 text-xl sm:text-2xl mb-4 md:text-3xl font-bold text-start">
             We design your imagination,
           </h1>
@@ -295,23 +324,37 @@ const Interior = () => {
             Our goal is to build your dream house with care and effort.
           </p>
 
-          <div className="z-0 flex gap-4">
-            <Button className="text-white bg-white/10 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm  tracking-wide rounded-full px-6 text-sm z-0">
+          <div className="z-0 flex gap-4 mb-8">
+            <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm  tracking-wide rounded-full px-6 text-sm z-0">
               Visit
             </Button>
-            <Button className="text-white bg-white/10 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm tracking-wide rounded-full px-6 text-sm z-0">
+            <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 text-sm z-0">
               Call
             </Button>
           </div>
 
           {/*Explore more*/}
-          {/* <div className="absolute bottom-0 right-0 flex transform -rotate-90 origin-bottom-right">
+          <div className="absolute hidden bottom-0 left-0 md:-translate-x-36 lg:flex transform -rotate-90 origin-bottom-right">
             <ChevronLeft className="h-8 w-8 text-white" />
             <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
               Explore More
             </span>
-          </div> */}
+          </div>
+          <div className="absolute flex lg:hidden text-xs">
+            <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
+              Explore More
+            </span>
+            <ChevronRight className="h-8 w-8 text-white" />
+          </div>
         </div>
+
+        <Link
+          href="/"
+          className="uppercase absolute z-0 text-xs lg:text-base px-4 py-1 text-white border bg-black/10 hover:scale-105 backdrop-blur-sm border-white rounded-full md:px-8 sm:py-3
+         tracking-widest bottom-0 right-0 -translate-y-16 -translate-x-8 sm:-translate-y-28 sm:-translate-x-28"
+        >
+          GET QUOTE
+        </Link>
 
         {/*bottom marquee*/}
         <div
@@ -474,6 +517,34 @@ const Interior = () => {
           </div>
         </div>
       </section>
+
+      {/*Logo Marquee*/}
+      <div className="w-full bg-white">
+      <Marquee gradient={false} speed={50} pauseOnHover={true} className="[&>*]:mx-auto bg-blue-50  py-5">
+        <div className="flex items-center justify-center gap-16 px-8">
+          {companiesMarquee.map((company) => (
+            <Image
+              key={company.name}
+              src={company.logo}
+              alt={`${company.name} logo`}
+              width={100}
+              height={40}
+              className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            />
+          ))}
+          {companiesMarquee.map((company) => (
+            <Image
+              key={company.name}
+              src={company.logo}
+              alt={`${company.name} logo`}
+              width={100}
+              height={40}
+              className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            />
+          ))}
+        </div>
+      </Marquee>
+    </div>
 
       {/*Services*/}
       <section className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
