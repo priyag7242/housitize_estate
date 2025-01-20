@@ -212,6 +212,24 @@ const Interior = () => {
     },
   ];
 
+  const services = [
+    {
+      title: "Interior design",
+      description:
+        "Transform your space with our expert interior design services, tailored to your unique style and preferences.",
+    },
+    {
+      title: "Civil Work",
+      description:
+        "Our civil work services ensure a solid foundation and structure for your dream home, with quality and precision.",
+    },
+    {
+      title: "Modular Furniture",
+      description:
+        "Discover our range of modular furniture, designed to maximize space and functionality in your home.",
+    },
+  ];
+
   const recentProjects = [
     {
       name: "DLF Cyber City",
@@ -243,41 +261,56 @@ const Interior = () => {
     },
   ];
 
+  //for focus shift of whyChooseUsFeatures div
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((current) => (current + 1) % whyChooseUsFeatures.length);
     }, 2000);
     return () => clearInterval(timer);
   }, [whyChooseUsFeatures.length]);
+
   return (
     <div>
       {/*Hero*/}
-      <div className="h-[70vh] sm:h-[80vh] pt-16 relative w-full bg-gray-50 flex flex-col items-center justify-center">
+      <div className="h-[75vh] sm:h-[85vh] pt-16 relative w-full bg-gray-50 flex flex-col items-center justify-center">
         {/*Gradient background*/}
         {/* <div className="bg-slate-200 absolute inset-0 bg-[radial-gradient(circle,_rgba(255,219,247,1)_0%,_rgba(182,199,186,1)_100%)]"></div> */}
         <Image
-          src="/assets/images/interior-hero.jpg"
+          src="/assets/images/interior-hero-sofa.jpg"
           alt="Interior Image"
           fill
         />
         {/* To give the black opacity */}
         <div className="absolute inset-0 bg-black/20" />
 
-        <h1 className="text-white z-0 text-4xl md:text-5xl font-bold mb-2 text-center">
-          5000+ Happy Homes Delivered
-        </h1>
+        <div className="z-0 px-4 lg:-translate-x-3/4 lg:-translate-y-1/4">
+          <h1 className="text-white z-0 text-xl sm:text-2xl mb-4 md:text-3xl font-bold text-start">
+            We design your imagination,
+          </h1>
+          <h1 className="text-white z-0 text-xl text-start sm:text-2xl md:text-3xl font-bold mb-3">
+            we build your home.
+          </h1>
 
-        <p className="text-white z-0 mb-8 text-center text-sm md:text-base">
-          Start your journey by meeting a design expert
-        </p>
+          <p className="text-white text-start z-0 mb-8 text-xs md:text-sm">
+            Our goal is to build your dream house with care and effort.
+          </p>
 
-        <div className="z-0 flex gap-4">
-          <Button className="text-white bg-black/50 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm font-semibold tracking-wide sm:px-10 sm:text-lg sm:py-6 z-0">
-            Visit
-          </Button>
-          <Button className="text-white bg-black/50 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm font-semibold tracking-wide  sm:px-10 sm:text-lg sm:py-6 z-0">
-            Call
-          </Button>
+          <div className="z-0 flex gap-4">
+            <Button className="text-white bg-white/10 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm  tracking-wide rounded-full px-6 text-sm z-0">
+              Visit
+            </Button>
+            <Button className="text-white bg-white/10 backdrop-blur-sm hover:bg-black/30 hover:backdrop-blur-sm tracking-wide rounded-full px-6 text-sm z-0">
+              Call
+            </Button>
+          </div>
+
+          {/*Explore more*/}
+          {/* <div className="absolute bottom-0 right-0 flex transform -rotate-90 origin-bottom-right">
+            <ChevronLeft className="h-8 w-8 text-white" />
+            <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
+              Explore More
+            </span>
+          </div> */}
         </div>
 
         {/*bottom marquee*/}
@@ -337,51 +370,194 @@ const Interior = () => {
         </div>
       </div>
 
-      {/*Recent Projects*/}
-      <section className="w-full py-12 px-4 md:px-8 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="mb-2 text-3xl tracking-wide font-bold text-gray-800">
-            Our Recent Projects
-          </h2>
-          <p className="mb-8 text-lg text-muted-foreground">
-            5000+ houses turned into homes in India.
-          </p>
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {recentProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-lg bg-background shadow-lg transition-all hover:shadow-xl"
-              >
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+      {/*About Us*/}
+      <section className="w-full min-h-screen bg-gray-50 px-4 py-16 md:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className=" max-w-4xl mb-16">
+            <h2 className="text-sm tracking-[6px] text-gray-600 mb-1">ABOUT</h2>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 text-gray-700">
+              We are the best interior design studio in Colarado
+            </h1>
+            <p className="text-base text-gray-600">
+              At DEMIGOD, we bring your vision to life through exceptional
+              interior design. Our passion lies in creating functional and
+              aesthetic spaces tailored to your unique style. With a focus on
+              innovation, craftsmanship, and attention to detail, we transform
+              houses into homes and spaces into experiences.
+            </p>
+          </div>
+
+          {/* Stats and Images Grid */}
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Stats Column */}
+            <div className="space-y-12 flex gap-8">
+              <div className="flex lg:grid gap-6 sm:gap-10">
+                <div>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">
+                    2K+
+                  </h3>
+                  <p className="text-sm tracking-widest text-gray-600">
+                    PROJECTS
+                    <br />
+                    DONE
+                  </p>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
-                  <div className="mb-2 flex items-center gap-2">
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-sm backdrop-blur-sm">
-                      {project.location}
-                    </span>
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-sm backdrop-blur-sm">
-                      {project.style}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">{project.name}</h3>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-current" />
-                      <span className="text-sm">{project.rating}/5</span>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">
+                    20+
+                  </h3>
+                  <p className="text-sm tracking-widest text-gray-600">
+                    PRO
+                    <br />
+                    TEAMS
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">
+                    300+
+                  </h3>
+                  <p className="text-sm tracking-widest text-gray-600">
+                    GLOBAL
+                    <br />
+                    CLIENTS
+                  </p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Images Grid */}
+            <div className="lg:col-span-3 grid md:grid-cols-3 gap-4">
+              <div className="relative h-[250px] md:h-[350px] overflow-hidden rounded-lg">
+                <Image
+                  src="/assets/images/living-room-recent-interior.jpg"
+                  alt="Modern chair and table in sunlight"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative h-[250px] md:h-[350px] overflow-hidden rounded-lg">
+                <Image
+                  src="/assets/images/bedroom-recent-interior.jpg"
+                  alt="Pendant lamp and sculpture"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative">
+                <div className="relative h-[250px] md:h-[270px] overflow-hidden rounded-lg">
+                  <Image
+                    src="/assets/images/kitchen-recent-interior.jpg"
+                    alt="Office chair and desk setup"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute bottom-4 left-0 w-full hidden md:flex justify-center">
+                  <Button
+                    variant="outline"
+                    className="border-[#B28863] text-[#5b3e2af5] rounded-full text-sm sm:px-8 py-0 tracking-widest hover:bg-[#5b3e2af5] transition duration-300 hover:text-white "
+                  >
+                    LEARN ABOUT
+                  </Button>
+                </div>
+              </div>
+              <div className="flex justify-center md:hidden">
+                <Button
+                  variant="outline"
+                  className="border-[#B28863] text-[#5b3e2af5] w-fit rounded-full text-sm sm:px-8 py-0 tracking-widest hover:bg-[#5b3e2af5] transition duration-300 hover:text-white "
+                >
+                  LEARN ABOUT
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/*Services*/}
+      <section className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div className="space-y-20">
+          {services.map((service, index) => (
+            <div key={service.title}>
+              <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+                <div className="relative">
+                  <h2 className="text-3xl font-medium tracking-tight text-gray-800 sm:text-4xl">
+                    {service.title}
+                  </h2>
+                </div>
+                <div className="space-y-6">
+                  <p className="text-base leading-8 text-gray-600">
+                    {service.description}
+                  </p>
+                  <Button
+                    variant="link"
+                    className="group text-gray-700 text-sm font-semibold p-0 h-auto no-underline hover:no-underline"
+                  >
+                    LEARN MORE{" "}
+                    <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
+              </div>
+              {index !== services.length - 1 && (
+                <hr className="my-8 border-gray-300" />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/*Get Inspired*/}
+      <div className=" px-4 md:px-12 lg:px-24 py-12 bg-[#f9ede07b]">
+        <div className="max-w-7xl mx-auto sm:mx-8 ">
+          <div className="mb-4 sm:mb-8 flex justify-between">
+            <div>
+              <h2 className="text-xl sm:text-3xl font-semibold tracking-wider text-gray-700 mb-2">
+                Get Inspired
+              </h2>
+              <p className="text-sm sm:text-lg tracking-wider text-gray-500">
+                Save ideas for your home
+              </p>
+            </div>
+            <Link
+              href="/interior"
+              className="flex group tracking-wide w-fit h-fit text-green-700 "
+            >
+              View All{" "}
+              <ChevronRight className="h-6 w-6 group-hover:translate-x-1 transition duration-300" />
+            </Link>
+          </div>
+
+          {/* Slider */}
+          <div className="relative rounded-lg ">
+            <Slider ref={sliderRef} {...getInspiredSettings}>
+              {getInspiredSlides.map((slide) => (
+                <Link href="/interior" key={slide.id}>
+                  <div className="grid  md:grid-cols-9 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-[180px] md:col-span-6">
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover w-full h-full"
+                        priority
+                      />
+                    </div>
+                    <div className="bg-white h-[180px] p-4 flex flex-col justify-center md:col-span-3">
+                      <div className="text-white  ">
+                        <button className=" text-black gap-4 py-3 inline-flex items-center transition-colors">
+                          <span>{slide.title}</span>
+                          <span className="ml-2 -translate-x-3">→</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </div>
 
       {/*how it works div*/}
       <section className="bg-white py-24 px-4 md:px-8 lg:px-16">
@@ -454,57 +630,51 @@ const Interior = () => {
         </div>
       </section>
 
-      {/*Get Inspired*/}
-      <div className="w-full px-4 lg:px-24 py-12 bg-[#f9ede07b]">
-        <div>
-          <div className="mb-4 sm:mb-8 flex justify-between">
-            <div>
-              <h2 className="text-xl sm:text-3xl font-semibold tracking-wider text-gray-700 mb-2">
-                Get Inspired
-              </h2>
-              <p className="text-sm sm:text-lg tracking-wider text-gray-500">
-                Save ideas for your home
-              </p>
-            </div>
-            <Link
-              href="/interior"
-              className="flex group tracking-wide w-fit h-fit text-green-700 "
-            >
-              View All{" "}
-              <ChevronRight className="h-6 w-6 group-hover:translate-x-1 transition duration-300" />
-            </Link>
-          </div>
-
-          {/* Slider */}
-          <div className="relative rounded-lg ">
-            <Slider ref={sliderRef} {...getInspiredSettings}>
-              {getInspiredSlides.map((slide) => (
-                <Link href="/interior" key={slide.id}>
-                  <div className="grid  md:grid-cols-9 rounded-lg overflow-hidden">
-                    <div className="relative w-full h-[180px] md:col-span-6">
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover w-full h-full"
-                        priority
-                      />
-                    </div>
-                    <div className="bg-white h-[180px] p-4 flex flex-col justify-center md:col-span-3">
-                      <div className="text-white  ">
-                        <button className=" text-black gap-4 py-3 inline-flex items-center transition-colors">
-                          <span>{slide.title}</span>
-                          <span className="ml-2 -translate-x-3">→</span>
-                        </button>
-                      </div>
+      {/*Recent Projects*/}
+      <section className="w-full py-12 px-4 md:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="mb-2 text-3xl tracking-wide font-bold text-gray-800">
+            Our Recent Projects
+          </h2>
+          <p className="mb-8 text-lg text-muted-foreground">
+            5000+ houses turned into homes in India.
+          </p>
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {recentProjects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-lg bg-background shadow-lg transition-all hover:shadow-xl"
+              >
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="rounded-full bg-white/20 px-3 py-1 text-sm backdrop-blur-sm">
+                      {project.location}
+                    </span>
+                    <span className="rounded-full bg-white/20 px-3 py-1 text-sm backdrop-blur-sm">
+                      {project.style}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">{project.name}</h3>
+                    <div className="flex items-center gap-1">
+                      <Star className="h-4 w-4 fill-current" />
+                      <span className="text-sm">{project.rating}/5</span>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </Slider>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/*why choose us*/}
       <section className="py-24 px-4 md:px-8 lg:px-16">
