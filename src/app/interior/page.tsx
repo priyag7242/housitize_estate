@@ -256,8 +256,7 @@ const Interior = () => {
       name: "Apple",
       logo: "/assets/images/apple-logo.webp",
     },
-    
-  ]
+  ];
 
   const recentProjects = [
     {
@@ -301,7 +300,7 @@ const Interior = () => {
   return (
     <div>
       {/*Hero*/}
-      <div className="h-[75vh] sm:h-[85vh] pt-16 relative w-full bg-gray-50 flex flex-col items-center justify-center">
+      <div className="h-[75vh] sm:h-[85vh] relative pt-16 w-full bg-gray-50 flex flex-col items-center justify-center">
         {/*Gradient background*/}
         {/* <div className="bg-slate-200 absolute inset-0 bg-[radial-gradient(circle,_rgba(255,219,247,1)_0%,_rgba(182,199,186,1)_100%)]"></div> */}
         <Image
@@ -312,46 +311,51 @@ const Interior = () => {
         {/* To give the black opacity */}
         <div className="absolute inset-0 bg-black/20" />
 
-        <div className="z-0 px-4 lg:-translate-x-3/4 lg:-translate-y-1/4 relative">
-          <h1 className="text-white z-0 text-xl sm:text-2xl mb-4 md:text-3xl font-bold text-start">
-            We design your imagination,
-          </h1>
-          <h1 className="text-white z-0 text-xl text-start sm:text-2xl md:text-3xl font-bold mb-3">
-            we build your home.
-          </h1>
-
-          <p className="text-white text-start z-0 mb-8 text-xs md:text-sm">
-            Our goal is to build your dream house with care and effort.
-          </p>
-
-          <div className="z-0 flex gap-4 mb-8">
-            <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm  tracking-wide rounded-full px-6 text-sm z-0">
-              Visit
-            </Button>
-            <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 text-sm z-0">
-              Call
-            </Button>
-          </div>
-
-          {/*Explore more*/}
-          <div className="absolute hidden bottom-0 left-0 md:-translate-x-36 lg:flex transform -rotate-90 origin-bottom-right">
-            <ChevronLeft className="h-8 w-8 text-white" />
+        <div className="relative w-full h-full flex items-center justify-start">
+          {/* Explore More Desktop */}
+          <div className="group absolute hidden lg:flex transform -rotate-90 top-1/2 -translate-y-1/2 left-6 px-4 py-2 cursor-pointer transition-all duration-300">
+            <ChevronLeft className="h-8 w-8 text-white group-hover:-translate-x-1" />
             <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
               Explore More
             </span>
           </div>
-          <div className="absolute flex lg:hidden text-xs">
-            <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
-              Explore More
-            </span>
-            <ChevronRight className="h-8 w-8 text-white" />
+
+          {/* Content */}
+          <div className="z-0 px-4 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[55%] mx-auto text-start lg:text-left relative -translate-x-6">
+            <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+              We design your imagination,
+            </h1>
+            <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              we build your home.
+            </h1>
+
+            <p className="text-white text-sm sm:text-base md:text-lg mb-6">
+              Our goal is to build your dream house with care and effort.
+            </p>
+
+            <div className="z-0 flex flex-wrap gap-4 justify-start mb-6">
+              <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
+                Visit
+              </Button>
+              <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
+                Call
+              </Button>
+            </div>
+
+            {/* Explore More (Mobile) */}
+            <div className="absolute flex lg:hidden text-xs items-center justify-center">
+              <span className="text-white text-xs sm:tracking-[5px] uppercase">
+                Explore More
+              </span>
+              <ChevronRight className="h-8 w-8 text-white" />
+            </div>  
           </div>
         </div>
 
         <Link
           href="/"
           className="uppercase absolute z-0 text-xs lg:text-base px-4 py-1 text-white border bg-black/10 hover:scale-105 backdrop-blur-sm border-white rounded-full md:px-8 sm:py-3
-         tracking-widest bottom-0 right-0 -translate-y-16 -translate-x-8 sm:-translate-y-28 sm:-translate-x-28"
+         tracking-widest bottom-0 right-0 -translate-y-14 -translate-x-8 lg:-translate-y-16 lg:-translate-x-24"
         >
           GET QUOTE
         </Link>
@@ -520,31 +524,36 @@ const Interior = () => {
 
       {/*Logo Marquee*/}
       <div className="w-full bg-white">
-      <Marquee gradient={false} speed={50} pauseOnHover={true} className="[&>*]:mx-auto bg-blue-50  py-5">
-        <div className="flex items-center justify-center gap-16 px-8">
-          {companiesMarquee.map((company) => (
-            <Image
-              key={company.name}
-              src={company.logo}
-              alt={`${company.name} logo`}
-              width={100}
-              height={40}
-              className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            />
-          ))}
-          {companiesMarquee.map((company) => (
-            <Image
-              key={company.name}
-              src={company.logo}
-              alt={`${company.name} logo`}
-              width={100}
-              height={40}
-              className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            />
-          ))}
-        </div>
-      </Marquee>
-    </div>
+        <Marquee
+          gradient={false}
+          speed={50}
+          pauseOnHover={true}
+          className="[&>*]:mx-auto bg-blue-50  py-5"
+        >
+          <div className="flex items-center justify-center gap-16 px-8">
+            {companiesMarquee.map((company) => (
+              <Image
+                key={company.name}
+                src={company.logo}
+                alt={`${company.name} logo`}
+                width={100}
+                height={40}
+                className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            ))}
+            {companiesMarquee.map((company) => (
+              <Image
+                key={company.name}
+                src={company.logo}
+                alt={`${company.name} logo`}
+                width={100}
+                height={40}
+                className="h-8 md:h-10 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            ))}
+          </div>
+        </Marquee>
+      </div>
 
       {/*Services*/}
       <section className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
