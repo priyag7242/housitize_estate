@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -26,6 +26,7 @@ const HeroVideos = [
 ];
 
 const Hero = () => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   const router = useRouter();
   const [hoverCategory, setHoverCategory] = useState<string | null>(null);
   const slider = useRef<Slider | null>(null);
@@ -59,22 +60,68 @@ const Hero = () => {
     ],
   };
 
+  useEffect(() => {
+    const updateView = () => {
+      setIsMobileOrTablet(window.innerWidth < 1260);
+    };
+
+    updateView();
+    window.addEventListener("resize", updateView);
+
+    return () => {
+      window.removeEventListener("resize", updateView);
+    };
+  }, []);
+
   const displayHoverImage = (category: string | null) => {
     switch (category) {
-      case "home":
-        return "/assets/images/home-hover.jpg";
       case "land":
+        return "/assets/images/home-hover.jpg";
+      case "construction":
         return "/assets/images/land-hover.jpg";
-      case "school":
+      case "interior":
         return "/assets/images/school-hover.jpg";
-      case "beachfront":
+      case "exterior":
         return "/assets/images/beachfront-hover.jpg";
-      case "castle":
+      case "house":
         return "/assets/images/castle-hover.jpg";
       default:
         return null;
     }
   };
+
+  const bottomNavSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // Mobile view
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024, // Tablet view
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const heroItems = [
+    { num: "01", text: "Land" },
+    { num: "02", text: "Construction" },
+    { num: "03", text: "Interior" },
+    { num: "04", text: "Exterior" },
+    { num: "05", text: "House" },
+  ];
 
   // Function to handle navigation with a dynamic parameter
   const handleBottomNavClick = (category: string) => {
@@ -140,35 +187,66 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex flex-row translate-y-40 items-center justify-center gap-8 md:gap-16">
-            {[
-              { num: "01", text: "LAND" },
-              { num: "02", text: "construction" },
-              { num: "03", text: "Interior" },
-              { num: "04", text: "Exterior" },
-              { num: "05", text: "house" },
-            ].map((item) => (
-              <div
-                key={item.text}
-                className="group relative pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
-                style={{ fontFamily: "Avenir, sans-serif" }}
-                onMouseEnter={() => setHoverCategory(item.text.toLowerCase())}
-                onMouseLeave={() => setHoverCategory(null)}
-              >
-                <div className="flex divide-x-2 items-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
-                  <span className="text-sm opacity-75">{item.num}</span>
-                  <span className="text-2xl px-4 uppercase tracking-wider">
-                    {item.text}
-                  </span>
-                </div>
-                <button
-                  onClick={() => handleBottomNavClick(item.text.toLowerCase())}
-                  className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2"
-                >
-                  VIEW
-                </button>
+          <div className="absolute bottom-8 z-20">
+            {isMobileOrTablet ? (
+              <Slider {...bottomNavSettings}>
+                {heroItems.map((item) => (
+                  <div
+                    key={item.text}
+                    className="group relative pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
+                    style={{ fontFamily: "Avenir, sans-serif" }}
+                    onMouseEnter={() =>
+                      setHoverCategory(item.text.toLowerCase())
+                    }
+                    onMouseLeave={() => setHoverCategory(null)}
+                  >
+                    <div className="flex divide-x-2 items-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
+                      <span className="text-sm opacity-75">{item.num}</span>
+                      <span className="text-2xl px-4 uppercase tracking-wider">
+                        {item.text}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() =>
+                        handleBottomNavClick(item.text.toLowerCase())
+                      }
+                      className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2"
+                    >
+                      VIEW
+                    </button>
+                  </div>
+                ))}
+              </Slider>
+            ) : (
+              <div className="flex flex-row items-center justify-center gap-8 md:gap-16">
+                {heroItems.map((item) => (
+                  <div
+                    key={item.text}
+                    className="group relative pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
+                    style={{ fontFamily: "Avenir, sans-serif" }}
+                    onMouseEnter={() =>
+                      setHoverCategory(item.text.toLowerCase())
+                    }
+                    onMouseLeave={() => setHoverCategory(null)}
+                  >
+                    <div className="flex divide-x-2 items-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
+                      <span className="text-sm opacity-75">{item.num}</span>
+                      <span className="text-2xl px-4 uppercase tracking-wider">
+                        {item.text}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() =>
+                        handleBottomNavClick(item.text.toLowerCase())
+                      }
+                      className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2"
+                    >
+                      VIEW
+                    </button>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
 

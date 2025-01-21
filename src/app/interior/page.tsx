@@ -312,43 +312,44 @@ const Interior = () => {
         <div className="absolute inset-0 bg-black/20" />
 
         <div className="relative w-full h-full flex items-center justify-start">
-          {/* Explore More Desktop */}
-          <div className="group absolute hidden lg:flex transform -rotate-90 top-1/2 -translate-y-1/2 left-6 px-4 py-2 cursor-pointer transition-all duration-300">
-            <ChevronLeft className="h-8 w-8 text-white group-hover:-translate-x-1" />
-            <span className="text-white text-xs tracking-[5px] uppercase flex items-center">
-              Explore More
-            </span>
-          </div>
-
           {/* Content */}
-          <div className="z-0 px-4 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[55%] mx-auto text-start lg:text-left relative -translate-x-6">
-            <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
-              We design your imagination,
-            </h1>
-            <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              we build your home.
-            </h1>
-
-            <p className="text-white text-sm sm:text-base md:text-lg mb-6">
-              Our goal is to build your dream house with care and effort.
-            </p>
-
-            <div className="z-0 flex flex-wrap gap-4 justify-start mb-6">
-              <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
-                Visit
-              </Button>
-              <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
-                Call
-              </Button>
-            </div>
-
-            {/* Explore More (Mobile) */}
-            <div className="absolute flex lg:hidden text-xs items-center justify-center">
-              <span className="text-white text-xs sm:tracking-[5px] uppercase">
+          <div className="z-0 px-4 w-full lg:flex max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[55%] mx-auto text-start lg:text-left relative xl:-translate-x-96 lg:-translate-x-72">
+            {/* Explore More Desktop */}
+            <div className="group  hidden lg:flex items-center max-w-56 transform -rotate-90  px-4 py-2 cursor-pointer transition-all duration-300">
+              <ChevronLeft className="h-8 w-8 text-white group-hover:-translate-x-1" />
+              <span className="text-white text-xs tracking-[5px] w-full uppercase flex items-center">
                 Explore More
               </span>
-              <ChevronRight className="h-8 w-8 text-white" />
-            </div>  
+            </div>
+            <div>
+              <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+                We design your imagination,
+              </h1>
+              <h1 className="text-white z-0 text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                we build your home.
+              </h1>
+
+              <p className="text-white text-sm sm:text-base md:text-lg mb-6">
+                Our goal is to build your dream house with care and effort.
+              </p>
+
+              <div className="z-0 flex flex-wrap gap-4 justify-start mb-6">
+                <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
+                  Visit
+                </Button>
+                <Button className="text-white bg-black/40 backdrop-blur-sm border border-white hover:bg-black/10 hover:backdrop-blur-sm tracking-wide rounded-full px-6 py-2 text-sm">
+                  Call
+                </Button>
+              </div>
+
+              {/* Explore More (Mobile) */}
+              <div className="absolute flex lg:hidden text-xs items-center justify-center">
+                <span className="text-white text-xs sm:tracking-[5px] uppercase">
+                  Explore More
+                </span>
+                <ChevronRight className="h-8 w-8 text-white" />
+              </div>
+            </div>
           </div>
         </div>
 
