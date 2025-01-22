@@ -33,11 +33,12 @@ const AIFeaturesItems = [
 ];
 
 const AIFeatures = () => {
-  const slider = useRef(null);
+  const slider = useRef<Slider | null>(null);
 
   const settings = {
     dots: false,
     infinite: true,
+    pauseOnHover: false,
     speed: 600,
     autoplay: true,
     autoplaySpeed: 3000,
