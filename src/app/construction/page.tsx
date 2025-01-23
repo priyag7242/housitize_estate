@@ -14,7 +14,6 @@ import {
   AlertTriangle,
   User,
   Tractor,
-  HardHat,
   Pickaxe,
   Trophy,
 } from "lucide-react";
@@ -483,8 +482,8 @@ const Construction = () => {
               <h2 className="text-3xl font-semibold mb-4">Design</h2>
               <p className="text-gray-200 text-lg leading-relaxed">
                 Our user experience designers have years of experience
-                developing intuitive interfaces. We'll go into detail, so you
-                don't have to, and we'll show your business how the application
+                developing intuitive interfaces. We&apos;ll go into detail, so you
+                don&apos;t have to, and we&apos;ll show your business how the application
                 will be brought to life.
               </p>
             </Card>
