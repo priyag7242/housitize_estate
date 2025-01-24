@@ -528,7 +528,7 @@ const Interior = () => {
         <Marquee
           gradient={false}
           speed={50}
-          pauseOnHover={true}
+          pauseOnHover={false}
           className="[&>*]:mx-auto bg-blue-50  py-5"
         >
           <div className="flex items-center justify-center gap-16 px-8">
