@@ -109,7 +109,6 @@ body {
  
 .slick-track {
   display: flex !important;
-  gap: 1rem;
 }
 .slick-slide {
   float: none !important;

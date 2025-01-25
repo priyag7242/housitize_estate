@@ -32,7 +32,7 @@ const Hero = () => {
   const slider = useRef<Slider | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const settings = {
+  const heroVideosSettings = {
     dots: false,
     infinite: true,
     speed: 400,
@@ -41,7 +41,8 @@ const Hero = () => {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    beforeChange: (oldIndex: unknown, newIndex: React.SetStateAction<number>) =>
+      setCurrentSlide(newIndex),
     responsive: [
       {
         breakpoint: 1024,
@@ -125,22 +126,26 @@ const Hero = () => {
 
   // Function to handle navigation with a dynamic parameter
   const handleBottomNavClick = (category: string) => {
-    router.push(`/category?category=${category}`);
+    router.push(`/${category}`);
   };
 
   return (
-    <div className="object-cover w-full">
+    <div className="w-full">
       <div className="relative h-screen w-full">
         {/* Hero videos */}
-        <Slider ref={slider} {...settings} className="absolute inset-0 z-0">
+        <Slider
+          ref={slider}
+          {...heroVideosSettings}
+          className="absolute inset-0 z-0"
+        >
           {HeroVideos.map((heroVideo, index) => (
-            <div key={index} className="relative w-full h-screen">
+            <div key={index} className="relative w-full h-screen bg-yellow-600">
               <video
                 src={heroVideo.video}
                 autoPlay
                 muted
                 loop
-                className="w-full h-full min-w-full min-h-full absolute top-0 left-0 object-cover"
+                className="w-full h-full absolute inset-0 object-cover"
               />
               {/* To give the black opacity */}
               <div className="absolute inset-0 bg-black/40" />
@@ -160,8 +165,8 @@ const Hero = () => {
               <Image
                 src={displayHoverImage(hoverCategory)!}
                 alt={hoverCategory}
-                layout="fill" // Ensuring the image stretches to fill its container
-                className="w-full h-full object-cover" // Ensures image covers the container without distortion
+                layout="fill"
+                className="w-full h-full object-cover"
               />
             )}
             {/* Black Overlay */}
