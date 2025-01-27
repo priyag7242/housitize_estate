@@ -215,7 +215,7 @@ const MarketTrends = () => {
             <div className="relative">
               <Slider {...settings} className="flex gap-4">
                 {insightCards.map((card, index) => (
-                  <Link key={index} href="/market-trends" className="block">
+                  <Link key={index} href="/market-trends" className="block px-2">
                     <div className="bg-blue-50 rounded-lg p-6 h-full shadow-sm hover:shadow-md transition-shadow duration-200">
                       <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                         {card.icon}

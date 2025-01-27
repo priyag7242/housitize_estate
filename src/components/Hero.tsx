@@ -96,6 +96,8 @@ const Hero = () => {
     infinite: true,
     speed: 500,
     autoplay: true,
+    autoplayspeed: 3000,
+    pauseonhover: false,
     slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
@@ -117,7 +119,7 @@ const Hero = () => {
   };
 
   const heroItems = [
-    { num: "01", text: "Land" },
+    { num: "01", text: "Loan" },
     { num: "02", text: "Construction" },
     { num: "03", text: "Interior" },
     { num: "04", text: "Exterior" },
@@ -139,7 +141,7 @@ const Hero = () => {
           className="absolute inset-0 z-0"
         >
           {HeroVideos.map((heroVideo, index) => (
-            <div key={index} className="relative w-full h-screen bg-yellow-600">
+            <div key={index} className="relative w-full h-screen">
               <video
                 src={heroVideo.video}
                 autoPlay
