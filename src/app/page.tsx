@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div>
-      {showPopup && (
+      {/* {showPopup && (
         <Popup
           onClose={closePopup}
           onLocationSelect={setSelectedLocation}
@@ -42,11 +42,11 @@ const Home = () => {
           onLocationSelect={setSelectedLocation}
           onClose={closeManualPopup}
         />
-      )}
+      )} */}
       <div
-        className={
-          showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
-        }
+        // className={
+        //   showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
+        // }
       >
         {/* <NavBar selectedLocation={selectedLocation} /> */}
         <Hero />

@@ -45,15 +45,16 @@ const Navbar = () => {
               </div>
             </div>
             {[
-              { href: "/about", text: "ABOUT" },
-              { href: "/category", text: "PROPERTIES" },
-              { href: "/market-trends", text: "MARKET TRENDS" },
-              { href: "/resources", text: "PUBLICATIONS" },
-              { href: "/contact", text: "CONTACT US" },
+              { href: "/about", text: "ABOUT", title: "About us" },
+              { href: "/category", text: "PROPERTIES", title: "Properties" },
+              { href: "/market-trends", text: "MARKET TRENDS", title: "Market Trends" },
+              { href: "/blog/resources", text: "Blog", title: "Blog Resources" },
+              { href: "/contact", text: "CONTACT US", title: "Contact Us" },
             ].map((link) => (
               <Link
                 key={link.text}
                 href={link.href}
+                title={link.title}
                 className={`px-4 py-2 hover:text-slate-300 ${
                   isScrolled ? "text-gray-800 " : ""
                 } transition-transform duration-300 transform hover:-translate-y-1`}
