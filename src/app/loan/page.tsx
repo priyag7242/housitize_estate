@@ -167,7 +167,7 @@ const Loan = () => {
                       alt="Left Image"
                       priority
                       width={384}
-                        height={384}
+                      height={384}
                       quality={100}
                       className="w-96 h-96 hidden sm:block object-cover mb-8"
                     />

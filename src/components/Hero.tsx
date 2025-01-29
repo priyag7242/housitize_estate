@@ -102,9 +102,16 @@ const Hero = () => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 768, // Mobile view
+        breakpoint: 560, // Mobile view
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // Larger Mobile view
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -194,20 +201,20 @@ const Hero = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="absolute bottom-8 z-20">
+          <div className="absolute bottom-8 z-20 w-full overflow-hidden">
             {isMobileOrTablet ? (
               <Slider {...bottomNavSettings}>
                 {heroItems.map((item) => (
                   <div
                     key={item.text}
-                    className="group relative pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
+                    className="group relative  pb-10 py-10 flex flex-col items-center gap-3 text-white hover:text-gray-300 transition-colors"
                     style={{ fontFamily: "Avenir, sans-serif" }}
                     onMouseEnter={() =>
                       setHoverCategory(item.text.toLowerCase())
                     }
                     onMouseLeave={() => setHoverCategory(null)}
                   >
-                    <div className="flex divide-x-2 items-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
+                    <div className="flex divide-x-2 items-center justify-center gap-3 group-hover:translate-y-[-30px] transition-transform duration-300">
                       <span className="text-sm opacity-75">{item.num}</span>
                       <span className="text-2xl px-4 uppercase tracking-wider">
                         {item.text}
@@ -217,7 +224,7 @@ const Hero = () => {
                       onClick={() =>
                         handleBottomNavClick(item.text.toLowerCase())
                       }
-                      className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-0 group-hover:opacity-100 px-4 py-2 transition-opacity duration-300 text-xs mt-2"
+                      className="view-button hover:bg-white border-2 hover:text-black border-white w-28 opacity-100  px-4 py-2 transition-opacity duration-300 text-xs mt-8"
                     >
                       VIEW
                     </button>
