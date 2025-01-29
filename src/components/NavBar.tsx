@@ -222,9 +222,12 @@ const Navbar = () => {
                   {link.text === "RESIDENTIAL" && (
                     <ChevronDown className="h-4 w-4 inline-block" />
                   )}
+                  {link.text === "COMMERCIAL" && (
+                    <ChevronDown className="h-4 w-4 inline-block" />
+                  )}
                 </Link>
                 {link.text === "RESIDENTIAL" && (
-                  <div className="absolute -left-[100px] w-[80vw] hidden group-hover:block">
+                  <div className="absolute -left-[200px] w-[80vw] hidden group-hover:block">
                     <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg gap-10 p-4 sm:grid-cols-3 md:grid-cols-5">
                       <ResidentialHover
                         href="#"
@@ -238,14 +241,13 @@ const Navbar = () => {
                         title="Rent A Home"
                         tag="New"
                       />
-                      
+
                       <ResidentialHover
                         href="#"
                         icon={HousePlug}
                         title="Lease"
                       />
-                      
-                      
+
                       <ResidentialHover
                         href="#"
                         icon={PaintBucket}
@@ -256,6 +258,43 @@ const Navbar = () => {
                         href="#"
                         icon={HandCoins}
                         title="Avail Home Loan"
+                      />
+                    </div>
+                  </div>
+                )}
+                {link.text === "COMMERCIAL" && (
+                  <div className="absolute -left-[250px] w-[80vw] hidden group-hover:block">
+                    <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg gap-10 p-4 sm:grid-cols-3 md:grid-cols-5">
+                      <ResidentialHover
+                        href="#"
+                        icon={Home}
+                        title="Buy A Commercial"
+                        tag="New"
+                      />
+                      <ResidentialHover
+                        href="#"
+                        icon={HousePlus}
+                        title="Rent A Commercial"
+                        tag="New"
+                      />
+
+                      <ResidentialHover
+                        href="#"
+                        icon={HousePlug}
+                        title="Lease"
+                      />
+
+                      <ResidentialHover
+                        href="#"
+                        icon={PaintBucket}
+                        title="Interiors"
+                        tag="10% off"
+                      />
+                      <ResidentialHover
+                        href="#"
+                        icon={HandCoins}
+                        title="Avail Commercial Loan"
+                        tag="lowest rate"
                       />
                     </div>
                   </div>
@@ -421,7 +460,7 @@ function ResidentialHover({
   return (
     <a
       href={href}
-      className="group relative flex flex-col items-center justify-center p-8 transition-colors"
+      className="group relative flex flex-col items-center justify-center py-8 transition-colors"
     >
       {tag && (
         <span className="absolute -top-2 rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-900">
@@ -431,7 +470,9 @@ function ResidentialHover({
       <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-black/10 text-white  ">
         <Icon className="h-5 w-5" />
       </div>
-      <span className="text-xs font-medium text-white ">{title}</span>
+      <span className="text-xs font-medium w-full text-center text-white ">
+        {title}
+      </span>
     </a>
   );
 }
