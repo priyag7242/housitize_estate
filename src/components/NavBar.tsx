@@ -184,12 +184,12 @@ const Navbar = () => {
                 title: "Home",
               },
               {
-                href: "/",
+                href: "/residential",
                 text: "RESIDENTIAL",
                 title: "Residential",
               },
               {
-                href: "/",
+                href: "/commercial",
                 text: "COMMERCIAL",
                 title: "Commercial",
               },
@@ -227,7 +227,7 @@ const Navbar = () => {
                   )}
                 </Link>
                 {link.text === "RESIDENTIAL" && (
-                  <div className="absolute -left-[200px] w-[80vw] hidden group-hover:block">
+                  <div className="absolute -left-[100px] w-[50vw] hidden group-hover:block">
                     <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg gap-10 p-4 sm:grid-cols-3 md:grid-cols-5">
                       <ResidentialHover
                         href="#"
@@ -263,41 +263,40 @@ const Navbar = () => {
                   </div>
                 )}
                 {link.text === "COMMERCIAL" && (
-                  <div className="absolute -left-[250px] w-[80vw] hidden group-hover:block">
-                    <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg gap-10 p-4 sm:grid-cols-3 md:grid-cols-5">
+                    <div className="absolute -left-[200px] w-[50vw] hidden group-hover:block">
+                    <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg p-4 gap-10 sm:grid-cols-3 md:grid-cols-5">
                       <ResidentialHover
-                        href="#"
-                        icon={Home}
-                        title="Buy A Commercial"
-                        tag="New"
+                      href="#"
+                      icon={Home}
+                      title="Buy A Commercial"
+                      tag="New"
                       />
                       <ResidentialHover
-                        href="#"
-                        icon={HousePlus}
-                        title="Rent A Commercial"
-                        tag="New"
-                      />
-
-                      <ResidentialHover
-                        href="#"
-                        icon={HousePlug}
-                        title="Lease"
+                      href="#"
+                      icon={HousePlus}
+                      title="Rent A Commercial"
                       />
 
                       <ResidentialHover
-                        href="#"
-                        icon={PaintBucket}
-                        title="Interiors"
-                        tag="10% off"
+                      href="#"
+                      icon={HousePlug}
+                      title="Lease"
+                      />
+
+                      <ResidentialHover
+                      href="#"
+                      icon={PaintBucket}
+                      title="Interiors"
+                      tag="10% off"
                       />
                       <ResidentialHover
-                        href="#"
-                        icon={HandCoins}
-                        title="Avail Commercial Loan"
-                        tag="lowest rate"
+                      href="#"
+                      icon={HandCoins}
+                      title="Avail Commercial Loan"
+                      tag="lowest rate"
                       />
                     </div>
-                  </div>
+                    </div>
                 )}
               </div>
             ))}
@@ -460,14 +459,14 @@ function ResidentialHover({
   return (
     <a
       href={href}
-      className="group relative flex flex-col items-center justify-center py-8 transition-colors"
+      className="group my-2 relative flex flex-col items-center justify-center transition-colors"
     >
       {tag && (
         <span className="absolute -top-2 rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-900">
           {tag}
         </span>
       )}
-      <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-black/10 text-white  ">
+      <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/10 text-white  ">
         <Icon className="h-5 w-5" />
       </div>
       <span className="text-xs font-medium w-full text-center text-white ">
