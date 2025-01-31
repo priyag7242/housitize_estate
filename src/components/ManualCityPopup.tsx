@@ -2,17 +2,17 @@
 import { Search } from "lucide-react";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useDispatch } from 'react-redux'
+import { setSelectedLocation } from '@/redux/selected-location/selectedLocationSlice'
+
 
 interface LocationSelectorProps {
   onClose: () => void;
-  onLocationSelect: (location: { city: string }) => void;
 }
 
-const ManualCityPopup = ({
-  onClose,
-  onLocationSelect,
-}: LocationSelectorProps) => {
+const ManualCityPopup = ({ onClose }: LocationSelectorProps) => {
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch()
 
   const popularCountries: {
     name: string;
@@ -254,6 +254,7 @@ const ManualCityPopup = ({
     country.name.toLowerCase().includes(search.toLowerCase())
   );
 
+
   // Group countries by first letter
   const groupedCountries = country.reduce(
     (acc: { [key: string]: string[] }, city) => {
@@ -270,9 +271,9 @@ const ManualCityPopup = ({
     {}
   );
 
-  const setLocationAndClosePopup = ({ city }: { city: string }) => {
-    onLocationSelect({ city: city });
-    // console.log(city);
+  const setLocationAndClosePopup = ({ country }: { country: string }) => {
+    dispatch(setSelectedLocation(country))
+    console.log(country);
     onClose();
   };
 
@@ -305,7 +306,7 @@ const ManualCityPopup = ({
               {filteredPopularCountries.map((country, index) => (
                 <button
                   onClick={() =>
-                    setLocationAndClosePopup({ city: country.name })
+                    setLocationAndClosePopup({ country: country.name })
                   }
                   key={`${country.name}-${index}`}
                   className="group relative flex flex-col items-center text-center"
@@ -335,13 +336,13 @@ const ManualCityPopup = ({
                   <div key={letter} className="mb-6">
                     <h3 className="text-lg font-semibold mb-3">{letter}</h3>
                     <div className="flex flex-wrap gap-3">
-                      {letterCountries.map((city) => (
+                      {letterCountries.map((country) => (
                         <button
-                          key={city}
-                          onClick={() => setLocationAndClosePopup({ city })}
+                          key={country}
+                          onClick={() => setLocationAndClosePopup({ country })}
                           className="px-4 py-1 rounded-lg hover:bg-gray-100 transition-colors border text-sm"
                         >
-                          {city}
+                          {country}
                         </button>
                       ))}
                     </div>

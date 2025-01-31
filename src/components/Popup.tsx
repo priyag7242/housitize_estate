@@ -3,11 +3,10 @@ import { Navigation, MapPin, LocateFixed } from "lucide-react";
 
 interface LocationSelectorProps {
   onClose: () => void;
-  onLocationSelect: (location: { city: string }) => void;
   openManualPopup: () => void;
 }
 
-const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorProps) => {
+const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,7 +26,6 @@ const Popup = ({ onClose, onLocationSelect, openManualPopup }: LocationSelectorP
           const data = await response.json();
 
           if (data && data.city) {
-            onLocationSelect({ city: data.city });
             console.log(data.city);
             onClose();
           } else {

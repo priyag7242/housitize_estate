@@ -113,6 +113,9 @@ const Residential = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
     responsive: [
@@ -176,6 +179,65 @@ const Residential = () => {
       },
     ],
   };
+
+  const cities = [
+    {
+      city: "Jaipur",
+      country: "Rajasthan",
+      properties: "300+ Properties",
+      image:
+        "/assets/images/jaipur.jpg",
+    },
+    {
+      city: "Delhi",
+      country: "NCR",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/delhi.jpg",
+    },
+    {
+      city: "Moscow",
+      country: "Russia",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/italy.jpg",
+    },
+    {
+      city: "Beijing",
+      country: "China",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/spain.jpg",
+    },
+    {
+      city: "Berlin",
+      country: "Germany",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/japan.jpg",
+    },
+    {
+      city: "Paris",
+      country: "France",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/france.jpg",
+    },
+    {
+      city: "London",
+      country: "United Kingdom",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/italy.jpg",
+    },
+    {
+      city: "Mumbai",
+      country: "Maharastra",
+      properties: "180+ Properties",
+      image:
+        "/assets/images/mumbai.jpg",
+    },
+  ];
 
   interface InsightCard {
     title: string;
@@ -268,6 +330,9 @@ const Residential = () => {
                     onClick={() => {
                       setIsDropdownOpen(!isDropdownOpen);
                       setIsMiniDropdownOpen(false);
+                      setIsBudgetOpen(false);
+                      setIsBedroomOpen(false);
+                      setIsConstructionStatusOpen(false);
                     }}
                   >
                     Property Types
@@ -549,6 +614,42 @@ const Residential = () => {
               </div>
             ))}
           </CarouselSlider>
+        </div>
+      </div>
+
+      {/* Explore Real Estate All Over the World  */}
+      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">
+          Explore Real Estate in World Capital&apos;s
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {cities.map((city, index) => (
+            <Link
+              href="#"
+              key={index}
+              className="group relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src={city.image}
+                  alt={`${city.city}, ${city.country}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                <div className="absolute bottom-0 p-4 text-white">
+                  <h2 className="text-lg md:text-xl font-semibold">
+                    {city.city}/{city.country}
+                  </h2>
+                  <p className="text-sm md:text-base opacity-90">
+                    {city.properties}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
 

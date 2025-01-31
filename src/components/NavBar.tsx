@@ -23,11 +23,16 @@ import {
   HousePlug,
 } from "lucide-react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/redux/store";
 
 const Navbar = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const selectedLocation = useSelector(
+    (state: RootState) => state.selectedLocation.selectedLocation
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -263,40 +268,40 @@ const Navbar = () => {
                   </div>
                 )}
                 {link.text === "COMMERCIAL" && (
-                    <div className="absolute -left-[200px] w-[50vw] hidden group-hover:block">
+                  <div className="absolute -left-[200px] w-[50vw] hidden group-hover:block">
                     <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg p-4 gap-10 sm:grid-cols-3 md:grid-cols-5">
                       <ResidentialHover
-                      href="#"
-                      icon={Home}
-                      title="Buy A Commercial"
-                      tag="New"
+                        href="#"
+                        icon={Home}
+                        title="Buy A Commercial"
+                        tag="New"
                       />
                       <ResidentialHover
-                      href="#"
-                      icon={HousePlus}
-                      title="Rent A Commercial"
+                        href="#"
+                        icon={HousePlus}
+                        title="Rent A Commercial"
                       />
 
                       <ResidentialHover
-                      href="#"
-                      icon={HousePlug}
-                      title="Lease"
+                        href="#"
+                        icon={HousePlug}
+                        title="Lease"
                       />
 
                       <ResidentialHover
-                      href="#"
-                      icon={PaintBucket}
-                      title="Interiors"
-                      tag="10% off"
+                        href="#"
+                        icon={PaintBucket}
+                        title="Interiors"
+                        tag="10% off"
                       />
                       <ResidentialHover
-                      href="#"
-                      icon={HandCoins}
-                      title="Avail Commercial Loan"
-                      tag="lowest rate"
+                        href="#"
+                        icon={HandCoins}
+                        title="Avail Commercial Loan"
+                        tag="lowest rate"
                       />
                     </div>
-                    </div>
+                  </div>
                 )}
               </div>
             ))}
@@ -310,9 +315,11 @@ const Navbar = () => {
             }`}
           >
             <div
-              className={`text-sm px-7 ${isScrolled ? "text-gray-700 " : ""}`}
+              className={`text-sm px-7 uppercase ${
+                isScrolled ? "text-gray-700 " : ""
+              }`}
             >
-              INDIA
+              {selectedLocation || "Mars"}
             </div>
             <div className="h-12 border"></div>
             <div className="text-xs font-bold ">

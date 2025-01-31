@@ -11,9 +11,6 @@ import FeaturedListings from "@/components/FeatureListings";
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
   const [showManualPopup, setShowManualPopup] = useState(false)
-  const [selectedLocation, setSelectedLocation] = useState<{
-    city: string;
-  } | null>(null);
 
   const closePopup = () => {
     setShowPopup(false);
@@ -30,25 +27,22 @@ const Home = () => {
 
   return (
     <div>
-      {/* {showPopup && (
+      {showPopup && (
         <Popup
           onClose={closePopup}
-          onLocationSelect={setSelectedLocation}
           openManualPopup={openManualPopup}
         />
       )}
       {showManualPopup && (
         <ManualCityPopup
-          onLocationSelect={setSelectedLocation}
           onClose={closeManualPopup}
         />
-      )} */}
+      )}
       <div
-        // className={
-        //   showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
-        // }
+        className={
+          showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
+        }
       >
-        {/* <NavBar selectedLocation={selectedLocation} /> */}
         <Hero />
         <AIFeatures />
         <FeaturedListings />
