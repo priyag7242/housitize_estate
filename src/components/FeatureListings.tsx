@@ -10,52 +10,52 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
   {
     id: 1,
-    title: "India",
-    subtitle: "TECHNOLOGY HUB",
+    title: "Hotel",
+    subtitle: "Luxury Stay",
     description:
-      "Explore India's dynamic IT sector, software development excellence, and innovative tech startups across major metropolitan cities",
-    image: "/assets/images/india.jpg",
+      "Experience world-class hospitality, premium amenities, and a comfortable stay designed for relaxation and convenience",
+    image: "/assets/images/hotel.jpg",
   },
   {
     id: 2,
-    title: "France",
-    subtitle: "LUXURY & FASHION",
+    title: "Restaurant",
+    subtitle: "Fine Dining",
     description:
-      "Discover France's renowned fashion industry, luxury brands, and sophisticated design heritage in the heart of Paris",
-    image: "/assets/images/france.jpg",
+      "Enjoy delicious cuisine, expertly crafted dishes, and a welcoming ambiance for a memorable dining experience",
+    image: "/assets/images/restaurant.jpg",
   },
   {
     id: 3,
-    title: "Italy",
-    subtitle: "DESIGN & CULTURE",
+    title: "Farm House",
+    subtitle: "Nature Retreat",
     description:
-      "Experience Italy's world-famous design industry, architectural excellence, and rich artistic heritage across historic cities",
-    image: "/assets/images/italy.jpg",
+      "Escape to a peaceful farmhouse surrounded by greenery, offering fresh air, organic food, and serene landscapes",
+    image: "/assets/images/farm-house.jpg",
   },
   {
     id: 4,
-    title: "Spain",
-    subtitle: "TOURISM & GASTRONOMY",
+    title: "Hospital",
+    subtitle: "Advanced Care",
     description:
-      "Discover Spain's vibrant tourism industry, world-renowned culinary arts, and rich cultural heritage across its diverse regions",
-    image: "/assets/images/spain.jpg",
+      "Providing expert medical services, state-of-the-art facilities, and compassionate care for better health and well-being",
+    image: "/assets/images/hospital.jpeg",
   },
   {
     id: 5,
-    title: "Japan",
-    subtitle: "INNOVATION & TRADITION",
+    title: "Club House",
+    subtitle: "Leisure Hub",
     description:
-      "Discover Japan's cutting-edge technology, robotics advancement, and unique blend of modern innovation with traditional values",
-    image: "/assets/images/japan.jpg",
+      "A vibrant space for social gatherings, recreation, and relaxation with top-notch facilities and entertainment options",
+    image: "/assets/images/club-house.jpeg",
   },
 ];
 
 const navItems = [
-  { id: 1, label: "India" },
-  { id: 2, label: "France" },
-  { id: 3, label: "Italy" },
-  { id: 4, label: "Spain" },
-  { id: 5, label: "Japan" },
+  { id: 1, label: "Hotel" },
+  { id: 2, label: "Restaurant" },
+  { id: 3, label: "Farm House" },
+  { id: 4, label: "Hospital" },
+  { id: 5, label: "Club House" },
 ];
 
 const DepartmentsShowcase = () => {
@@ -97,18 +97,18 @@ const DepartmentsShowcase = () => {
     <div className="w-full px-4 lg:px-24 py-12">
       <div>
         <div className="flex flex-col lg:flex-row md:gap-4 justify-between items-start lg:items-center mb-8">
-          <h1 className="text-3xl sm:text-5xl uppercase text-slate-700 font-thin mb-4 md:mb-0">
-            Our 5 Countries
+          <h1 className="text-3xl sm:text-5xl uppercase text-[#57353a] font-thin mb-4 md:mb-0">
+            Hospitality
           </h1>
-          <nav className="flex flex-wrap  md:mr-8 border-b-2 border-[#dabdb5] font-thin ">
+          <nav className="flex flex-wrap  md:mr-8 border-b-2 border-[#b29fa1de] font-thin ">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => goToSlide(index)}
                 className={`text-sm sm:text-base tracking-widest px-2 md:px-8 hover:-translate-y-1 duration-300 transition-all ${
                   currentSlide === index
-                    ? "text-gray-600 border-b-2 border-[#97746b]"
-                    : "text-gray-500 hover:text-gray-400"
+                    ? "text-gray-700 border-b-2 border-[#603D42]"
+                    : "text-gray-600 hover:text-gray-500"
                 }`}
               >
                 {item.label}
@@ -132,7 +132,7 @@ const DepartmentsShowcase = () => {
                       priority
                     />
                   </div>
-                  <div className="bg-[#B39B84] p-8 md:p-16 flex flex-col justify-center min-h-[300px] md:min-h-[530px]">
+                  <div className="bg-[#603D42] p-8 md:p-16 flex flex-col justify-center min-h-[300px] md:min-h-[530px]">
                     <div className="text-white space-y-6">
                       <p className="text-lg">
                         {String(slide.id).padStart(2, "0")} — 05
@@ -140,7 +140,7 @@ const DepartmentsShowcase = () => {
                       <h2 className="text-4xl md:text-6xl font-serif mb-4">
                         {slide.title}
                       </h2>
-                      <p className="text-xl mb-4">{slide.subtitle}</p>
+                      <p className="text-xl italic uppercase mb-4">{slide.subtitle}</p>
                       <p className="text-lg mb-8 max-w-md">
                         {slide.description}
                       </p>

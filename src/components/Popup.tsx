@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Navigation, MapPin, LocateFixed } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { setSelectedLocation } from "@/redux/selected-location/selectedLocationSlice";
+import { closePopup, openManualPopup } from "@/redux/popup/popupSlice";
 
-interface LocationSelectorProps {
-  onClose: () => void;
-  openManualPopup: () => void;
-}
-
-const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
+const Popup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  const dispatch = useDispatch();
 
   const getLocation = () => {
     setIsLoading(true);
@@ -19,19 +17,23 @@ const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
-        
+
         try {
           // geocoding API to convert lat/long to a city name
-          const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`);
+          const response = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
           const data = await response.json();
 
-          if (data && data.city) {
-            console.log(data.city);
-            onClose();
+          if (data && data.city && data.countryName) {
+            console.log(`City: ${data.city}, Country: ${data.countryName}`);
+            dispatch(setSelectedLocation(data.countryName));
+            dispatch(closePopup());
           } else {
-            setError("Unable to get city name.");
+            setError("Unable to get city or country name.");
           }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (err) {
           setError("Failed to fetch city.");
         } finally {
@@ -51,7 +53,9 @@ const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
       <div className="bg-white flex flex-col items-start w-full max-w-4xl mx-6 sm:mx-8 md:mx-14 rounded-2xl p-6 shadow-lg">
         {/* Top Div */}
         <div className="w-full text-center">
-          <h2 className="text-base text-gray-700 font-semibold mb-4">Select your country</h2>
+          <h2 className="text-base text-gray-700 font-semibold mb-4">
+            Select your country
+          </h2>
         </div>
 
         {/* Location Div */}
@@ -62,7 +66,9 @@ const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
               <Navigation className="h-10 w-10 text-blue-location sm:-translate-y-6 md:-translate-y-6" />
             </div>
             <div className="flex flex-col items-center sm:items-start">
-              <h3 className="font-bold text-blue-location text-lg">Use my current location</h3>
+              <h3 className="font-bold text-blue-location text-lg">
+                Use my current location
+              </h3>
               <p className="text-sm text-gray-600 text-center sm:text-left mb-4">
                 We&apos;ll need permission to use your device&apos;s location
               </p>
@@ -83,11 +89,15 @@ const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
               <MapPin className="h-10 w-10 text-blue-location sm:-translate-y-6 md:-translate-y-6" />
             </div>
             <div className="flex flex-col items-center sm:items-start">
-              <h3 className="font-bold text-blue-location text-lg">Select Manually</h3>
-              <p className="text-sm text-gray-600 text-center sm:text-left mb-4">Search by your Country</p>
-              <button 
+              <h3 className="font-bold text-blue-location text-lg">
+                Select Manually
+              </h3>
+              <p className="text-sm text-gray-600 text-center sm:text-left mb-4">
+                Search by your Country
+              </p>
+              <button
                 className="bg-orange-500 text-white font-medium py-2 px-4 rounded-full hover:bg-orange-600 transition"
-                onClick={openManualPopup} 
+                onClick={() => dispatch(openManualPopup())}
               >
                 SELECT MANUALLY
               </button>
@@ -105,7 +115,6 @@ const Popup = ({ onClose, openManualPopup }: LocationSelectorProps) => {
           </button>
         </div>
       </div>
-
     </div>
   );
 };

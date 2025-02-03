@@ -3,32 +3,53 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
-const AIFeaturesItems = [
+const selfSustainableHomeItems = [
   {
-    title: "Dynamic Recommendations",
-    image: "/assets/images/ai-assistant4.jpg",
-    description: "Discover more about this feature.",
+    title: "Passive Home",
+    image: "/assets/images/passive-home.jpg",
+    description: "Energy-efficient with airtight insulation",
+    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
+    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
+    queryDescription:
+      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
-    title: "Property Trends",
-    image: "/assets/images/graph2.jpeg",
-    description: "Discover more about this feature.",
+    title: "Earthship Home",
+    image: "/assets/images/earthship-home.webp",
+    description: "Built from recycled, self-sustaining materials.",
+    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
+    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
+    queryDescription:
+      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
-    title: "AI Chatbot",
-    image: "/assets/images/ai-robot.jpg",
-    description: "Discover more about this feature.",
+    title: "Tiny Home (Off-Grid)",
+    image: "/assets/images/tiny-home.jpg",
+    description: "Compact, solar-powered, and eco-friendly.",
+    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
+    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
+    queryDescription:
+      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
-    title: "3D Model",
-    image: "/assets/images/ai-featured-pic.jpg",
-    description: "Discover more about this feature.",
+    title: "Green Roof Home",
+    image: "/assets/images/green-roof.jpg",
+    description: "Homes with vegetation-covered, insulating roofs.",
+    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
+    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
+    queryDescription:
+      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
-    title: "Easy To Use",
-    image: "/assets/images/chatbot-ai.jpg",
-    description: "Discover more about this feature.",
+    title: "Off-Grid Cabin",
+    image: "/assets/images/off-grid-cabin.webp",
+    description: "Remote, renewable-powered, and independent.",
+    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
+    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
+    queryDescription:
+      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
 ];
 
@@ -68,25 +89,34 @@ const AIFeatures = () => {
       {/* Header Section */}
       <section className="mx-auto max-w-6xl text-center">
         <h2 className="mb-8 text-sm uppercase tracking-widest text-gray-500">
-          Elevating the Beauty & Business of Real Estate
+          Building a Greener, Smarter Future
         </h2>
         <h1 className="mb-12 text-xl sm:text-3xl font-thin uppercase tracking-wider text-gray-700 md:text-4xl lg:text-5xl">
-          Revolutionizing Real Estate
+          Self Sustainable Homes
         </h1>
         <p className="mx-auto mb-16 max-w-4xl text-center text-gray-600 md:text-base">
-          Unlock the future of real estate with AI-powered recommendations,
-          immersive AR/VR property tours, and tailored insights designed to make
-          your dream home search seamless and exciting
+          Experience the next generation of eco-friendly living with
+          energy-efficient designs, smart automation, and sustainable materials.
+          Discover homes that reduce carbon footprints while maximizing comfort
+          and innovation.
         </p>
       </section>
 
       {/* Image Cards Carousel Section */}
       <section className="mx-auto max-w-6xl">
         <Slider ref={slider} {...settings}>
-          {AIFeaturesItems.map((item, index) => (
-            <div
+          {selfSustainableHomeItems.map((item, index) => (
+            <Link
               key={index}
-              className="group relative h-[300px] w-[300px] sm:h-[400px] overflow-hidden overflow-x-hidden px-2"
+              href={{
+                pathname: "/know-more",
+                query: {
+                  imageUrl: item.queryImage,
+                  heading: item.queryHeading,
+                  description: item.queryDescription,
+                },
+              }}
+              className="group relative hover: cursor-pointer h-[300px] w-[300px] sm:h-[400px] overflow-hidden overflow-x-hidden px-2"
             >
               <div className="relative h-full w-full overflow-hidden flex items-center justify-center">
                 <Image
@@ -106,7 +136,7 @@ const AIFeatures = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </section>

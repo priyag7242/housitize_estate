@@ -76,16 +76,14 @@ const Hero = () => {
 
   const displayHoverImage = (category: string | null) => {
     switch (category) {
-      case "land":
+      case "self sustainable house":
         return "/assets/images/home-hover.jpg";
       case "construction":
         return "/assets/images/land-hover.jpg";
       case "interior":
         return "/assets/images/school-hover.jpg";
-      case "exterior":
+      case "hospitality":
         return "/assets/images/beachfront-hover.jpg";
-      case "house":
-        return "/assets/images/castle-hover.jpg";
       default:
         return null;
     }
@@ -126,11 +124,10 @@ const Hero = () => {
   };
 
   const heroItems = [
-    { num: "01", text: "Loan" },
+    { num: "01", text: "Self Sustainable House" },
     { num: "02", text: "Construction" },
     { num: "03", text: "Interior" },
-    { num: "04", text: "Exterior" },
-    { num: "05", text: "House" },
+    { num: "04", text: "Hospitality" },
   ];
 
   // Function to handle navigation with a dynamic parameter

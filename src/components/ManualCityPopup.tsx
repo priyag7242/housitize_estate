@@ -2,17 +2,13 @@
 import { Search } from "lucide-react";
 import React, { useState } from "react";
 import Image from "next/image";
-import { useDispatch } from 'react-redux'
-import { setSelectedLocation } from '@/redux/selected-location/selectedLocationSlice'
+import { useDispatch } from "react-redux";
+import { setSelectedLocation } from "@/redux/selected-location/selectedLocationSlice";
+import { closeManualPopup } from "@/redux/popup/popupSlice";
 
-
-interface LocationSelectorProps {
-  onClose: () => void;
-}
-
-const ManualCityPopup = ({ onClose }: LocationSelectorProps) => {
+const ManualCityPopup = () => {
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const popularCountries: {
     name: string;
@@ -254,7 +250,6 @@ const ManualCityPopup = ({ onClose }: LocationSelectorProps) => {
     country.name.toLowerCase().includes(search.toLowerCase())
   );
 
-
   // Group countries by first letter
   const groupedCountries = country.reduce(
     (acc: { [key: string]: string[] }, city) => {
@@ -272,9 +267,9 @@ const ManualCityPopup = ({ onClose }: LocationSelectorProps) => {
   );
 
   const setLocationAndClosePopup = ({ country }: { country: string }) => {
-    dispatch(setSelectedLocation(country))
+    dispatch(setSelectedLocation(country));
     console.log(country);
-    onClose();
+    dispatch(closeManualPopup());
   };
 
   return (

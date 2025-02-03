@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import selectedLocationReducer from '@/redux/selected-location/selectedLocationSlice'
+import popupReducer from '@/redux/popup/popupSlice'
 
 export const store = configureStore({
   reducer: {
-    selectedLocation: selectedLocationReducer
+    selectedLocation: selectedLocationReducer,
+    popup: popupReducer,
   },
 })
 

@@ -1,90 +1,158 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Glasses, Play } from "lucide-react";
-import Link from "next/link";
+import {
+  ArrowRight,
+  Bath,
+  HousePlus,
+  LeafyGreen,
+  PackageOpen,
+  Palette,
+  Scale,
+  ScrollText,
+  Sun,
+  UsersRound,
+} from "lucide-react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Card, CardContent } from "@/components/ui/card";
+
+const services = [
+  {
+    icon: LeafyGreen,
+    title: "Eco-Infra Tech",
+  },
+  {
+    icon: HousePlus,
+    title: "Next Gen. Housing",
+  },
+  {
+    icon: Palette,
+    title: "Interior & Decor",
+  },
+  {
+    icon: Sun,
+    title: "Solar Rooftop",
+  },
+  {
+    icon: UsersRound,
+    title: "Architect",
+  },
+  {
+    icon: PackageOpen,
+    title: "Packers/Movers",
+  },
+  {
+    icon: ScrollText,
+    title: "Property Management",
+  },
+  {
+    icon: Bath,
+    title: "Sanitary & Bathroom Fittings",
+  },
+  {
+    icon: Scale,
+    title: "Legal Services",
+  },
+];
 
 const ImmersivePropertyExperience = () => {
+  const servicesSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    autoplay: true,
+    pauseOnHover: false,
+    arrows: false,
+    autoplaySpeed: 3000,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-28">
           {/* Content */}
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-5xl font-thin text-slate-900">
-              Experience Properties Like Never Before
+              Unmatched Services for Every Client
             </h2>
             <p className="text-xl text-slate-600">
-              Take a virtual walk through your dream home from anywhere.
+              Your satisfaction is our priority with unmatched service offerings
             </p>
             <Button className="group" size="lg">
-              Experience Virtual Tours
+              Explore our services
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
           {/* AR/VR */}
-          <Link href="/" className="group relative shadow-2xl overflow-hidden">
-            <div className="relative aspect-video bg-slate-200  overflow-hidden shadow-lg transition-transform hover:scale-105">
+          <div className="relative shadow-2xl overflow-hidden">
+            <div className="relative aspect-video overflow-hidden shadow-lg">
               <div className="absolute inset-0 flex items-center justify-center">
-                <Glasses className="h-24 w-24 text-slate-400" />
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-sm rounded p-4">
-                <p className="text-sm font-medium text-slate-900">
-                  Interactive AR/VR Demo
-                </p>
-                <p className="text-xs text-slate-600">
-                  Click to explore a sample virtual property tour
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        {/* Features and Video Section */}
-        <div className="mt-16 bg-graybackground px-4 py-4 sm:px-8 sm:py-8 md:px-10 md:py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Features */}
-          <div className="grid grid-cols-1 gap-8">
-            {[
-              "360° Tours",
-              "AR Furniture Placement",
-              "VR Walkthroughs",
-            ].map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                  {feature}
-                </h3>
-                <p className="text-slate-600">
-                  Experience cutting-edge technology for immersive property
-                  viewing.
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Video Section */}
-          <div className="lg:col-span-2">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                How to Use AR/VR Feature
-              </h3>
-              <div className="relative aspect-video bg-slate-200 rounded-lg overflow-hidden">
-                <div className="absolute inset-0 z-10 flex items-center justify-center">
-                  <Button variant="outline" size="icon" className="rounded-full w-16 h-16">
-                    <Play className="h-8 w-8" />
-                    <span className="sr-only">Play video</span>
-                  </Button>
-                </div>
                 <video
-                  src="/assets/ar-vr-video.mp4"
+                  src="/assets/service-video.mp4"
+                  autoPlay
+                  muted
                   loop
-                  className=" w-full h-full min-w-full min-h-full absolute top-0 left-0 object-cover"
+                  className="w-full h-full absolute inset-0 object-cover"
                 />
               </div>
-              <p className="mt-4 text-sm text-slate-600">
-                Watch this quick tutorial to learn how to make the most of our
-                AR/VR features for your property search.
-              </p>
             </div>
           </div>
+        </div>
+
+        {/* services */}
+        <div className="relative bg-gray-100 p-6">
+          <Slider
+            {...servicesSettings}
+            className="featured-categories-slider -mx-4"
+          >
+            {services.map((service, index) => (
+              <div key={index} className="px-4">
+                <Card className="transition-shadow hover:shadow-lg h-full">
+                  <CardContent className="flex flex-col items-center p-6 h-48">
+                    <div className="mb-4 rounded-full bg-gray-100 p-6">
+                      <service.icon className="h-8 w-8 text-gray-600" />
+                    </div>
+                    <h3 className="mb-1 text-base text-gray-900 text-center">
+                      {service.title}
+                    </h3>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </div>

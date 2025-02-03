@@ -25,13 +25,23 @@ import {
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
+import Popup from "./Popup";
+import ManualCityPopup from "./ManualCityPopup";
+import { openPopup } from "@/redux/popup/popupSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const dispatch = useDispatch();
+
   const selectedLocation = useSelector(
     (state: RootState) => state.selectedLocation.selectedLocation
+  );
+  const showPopup = useSelector((state: RootState) => state.popup.showPopup);
+  const showManualPopup = useSelector(
+    (state: RootState) => state.popup.showManualPopup
   );
 
   useEffect(() => {
@@ -308,26 +318,30 @@ const Navbar = () => {
           </div>
 
           {/* Logo */}
-          <Link
-            href="/"
+          <div
             className={`flex items-center gap-10 ${
               isScrolled ? "text-gray-700 " : ""
             }`}
           >
-            <div
-              className={`text-sm px-7 uppercase ${
-                isScrolled ? "text-gray-700 " : ""
+            <button
+              onClick={() => dispatch(openPopup())}
+              className={`text-sm  px-2 py-1 rounded-sm flex items-center justify-center w-fit uppercase ${
+                isScrolled ? "text-gray-700 border border-gray-700" : "border border-white"
               }`}
             >
               {selectedLocation || "Mars"}
-            </div>
+              <ChevronDown className="h-4 w-4" />
+            </button>
+            {showPopup && <Popup />}
+            {showManualPopup && <ManualCityPopup />}
+
             <div className="h-12 border"></div>
-            <div className="text-xs font-bold ">
+            <Link href="/" className="text-xs font-bold ">
               <div>DEMIGOD</div>
               <div className="">REAL</div>
               <div className="">ESTATE</div>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           {/* Navigation Items - Mobile */}
           <div className="flex lg:hidden items-center space-x-4">
