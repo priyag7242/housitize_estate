@@ -53,7 +53,7 @@ const selfSustainableHomeItems = [
   },
 ];
 
-const AIFeatures = () => {
+const SelfSustainableHome = () => {
   const slider = useRef<Slider | null>(null);
 
   const settings = {
@@ -85,20 +85,17 @@ const AIFeatures = () => {
   };
 
   return (
-    <main className="min-h-screen w-full bg-white px-10 py-28 md:px-8 lg:px-16">
+    <main className="min-h-screen w-full bg-white px-10 pb-28 pt-20 md:px-8 lg:px-16">
       {/* Header Section */}
       <section className="mx-auto max-w-6xl text-center">
         <h2 className="mb-8 text-sm uppercase tracking-widest text-gray-500">
           Building a Greener, Smarter Future
         </h2>
         <h1 className="mb-12 text-xl sm:text-3xl font-thin uppercase tracking-wider text-gray-700 md:text-4xl lg:text-5xl">
-          Self Sustainable Homes
+          Self Sustainable Home
         </h1>
         <p className="mx-auto mb-16 max-w-4xl text-center text-gray-600 md:text-base">
-          Experience the next generation of eco-friendly living with
-          energy-efficient designs, smart automation, and sustainable materials.
-          Discover homes that reduce carbon footprints while maximizing comfort
-          and innovation.
+          Whether you want to <span className="font-bold">rent</span>, <span className="font-bold">lease</span>, <span className="font-bold">buy</span>, <span className="font-bold">sell</span>, or <span className="font-bold">construct</span> a self-sustainable home, contact us today to start your journey towards eco-friendly living.
         </p>
       </section>
 
@@ -245,4 +242,4 @@ const AIFeatures = () => {
   );
 };
 
-export default AIFeatures;
+export default SelfSustainableHome;

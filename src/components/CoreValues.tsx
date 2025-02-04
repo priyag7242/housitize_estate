@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { Separator } from "./ui/separator";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion} from "framer-motion";
 
 interface CoreValues {
   number: string;

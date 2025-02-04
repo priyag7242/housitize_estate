@@ -26,11 +26,11 @@ const slides = [
   },
   {
     id: 3,
-    title: "Farm House",
+    title: "Resort",
     subtitle: "Nature Retreat",
     description:
-      "Escape to a peaceful farmhouse surrounded by greenery, offering fresh air, organic food, and serene landscapes",
-    image: "/assets/images/farm-house.jpg",
+      "Discover a tranquil escape with luxurious accommodations, breathtaking views, and a variety of outdoor activities",
+    image: "/assets/images/resort.jpg",
   },
   {
     id: 4,
@@ -53,12 +53,12 @@ const slides = [
 const navItems = [
   { id: 1, label: "Hotel" },
   { id: 2, label: "Restaurant" },
-  { id: 3, label: "Farm House" },
+  { id: 3, label: "Resort" },
   { id: 4, label: "Hospital" },
   { id: 5, label: "Club House" },
 ];
 
-const DepartmentsShowcase = () => {
+const Hospitality = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
 
@@ -177,4 +177,4 @@ const DepartmentsShowcase = () => {
   );
 };
 
-export default DepartmentsShowcase;
+export default Hospitality;

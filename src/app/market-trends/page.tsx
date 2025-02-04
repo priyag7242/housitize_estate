@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import { Building2, Home, Newspaper, FileText, MapPinned } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import InsightsAndTools from "@/components/InsightAndTools";
 
 interface InsightCard {
   title: string;
@@ -194,9 +195,9 @@ const MarketTrends = () => {
       </div>
 
       {/*Insights & Tools*/}
-      <div className="flex justify-center px-4 sm:px-10 mb-10 md:mb-20">
-        <div className="max-w-6xl w-full py-12 px-4 md:px-8 lg:rounded-xl bg-[radial-gradient(circle,_rgba(255,219,247,1)_0%,_rgba(182,199,186,1)_100%)]">
-          <div className="max-w-7xl mx-auto px-8">
+      {/* <div className="w-full flex justify-center px-4 sm:px-10 mb-10 md:mb-20">
+        <div className=" w-full py-12 px-4 md:px-8 lg:rounded-xl bg-[radial-gradient(circle,_rgba(255,219,247,1)_0%,_rgba(182,199,186,1)_100%)]">
+          <div className="px-8">
             <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-8">
               <div className="mb-4 sm:mb-0">
                 <h2 className="text-2xl font-bold text-gray-700">
@@ -215,7 +216,7 @@ const MarketTrends = () => {
             <div className="relative">
               <Slider {...settings} className="flex gap-4">
                 {insightCards.map((card, index) => (
-                  <Link key={index} href="/market-trends" className="block px-2">
+                  <Link key={index} href="/market-trends" className="block px-2 ">
                     <div className="bg-blue-50 rounded-lg p-6 h-full shadow-sm hover:shadow-md transition-shadow duration-200">
                       <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                         {card.icon}
@@ -233,7 +234,12 @@ const MarketTrends = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+
+
+      {/* New Insights For Customer & Business */}
+      <InsightsAndTools />
     </div>
   );
 };

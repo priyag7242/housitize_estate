@@ -2,12 +2,13 @@
 import ManualCityPopup from "../components/ManualCityPopup";
 import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
-import AIFeatures from "@/components/AIFeatures";
-import ImmersivePropertyExperience from "@/components/ImmersivePropertyExperience";
-import Testimonial from "@/components/Testimonial";
-import FeaturedListings from "@/components/FeatureListings";
+import SelfSustainableHome from "@/components/SelfSustainableHome";
+import Services from "@/components/Services";
+import Hospitality from "@/components/Hospitality";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
+import HowWeOperate from "@/components/HowWeOperate";
+import Loan from "@/components/Loan";
 
 const Home = () => {
   const showPopup = useSelector((state: RootState) => state.popup.showPopup);
@@ -25,10 +26,13 @@ const Home = () => {
         }
       >
         <Hero />
-        <AIFeatures />
-        <FeaturedListings />
-        <ImmersivePropertyExperience />
-        <Testimonial />
+        <HowWeOperate />
+        <SelfSustainableHome />
+        <Hospitality />
+        <Services />
+        {/* <TheWayWeWork /> */}
+        <Loan />
+        {/* <Testimonial /> */}
       </div>
     </div>
   );

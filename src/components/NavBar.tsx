@@ -326,7 +326,9 @@ const Navbar = () => {
             <button
               onClick={() => dispatch(openPopup())}
               className={`text-sm  px-2 py-1 rounded-sm flex items-center justify-center w-fit uppercase ${
-                isScrolled ? "text-gray-700 border border-gray-700" : "border border-white"
+                isScrolled
+                  ? "text-gray-700 border border-gray-700"
+                  : "border border-white"
               }`}
             >
               {selectedLocation || "Mars"}
@@ -335,7 +337,7 @@ const Navbar = () => {
             {showPopup && <Popup />}
             {showManualPopup && <ManualCityPopup />}
 
-            <div className="h-12 border"></div>
+            <div className="h-12 border" />
             <Link href="/" className="text-xs font-bold ">
               <div>DEMIGOD</div>
               <div className="">REAL</div>

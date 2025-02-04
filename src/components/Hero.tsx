@@ -124,7 +124,7 @@ const Hero = () => {
   };
 
   const heroItems = [
-    { num: "01", text: "Self Sustainable House" },
+    { num: "01", text: "Self Sustainable Home" },
     { num: "02", text: "Construction" },
     { num: "03", text: "Interior" },
     { num: "04", text: "Hospitality" },
