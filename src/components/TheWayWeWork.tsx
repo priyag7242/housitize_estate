@@ -6,33 +6,33 @@ import { useEffect, useState } from "react";
 const steps = [
   {
     number: 1,
-    title: "Meet Us",
+    title: "Discover Needs",
     description:
-      "Let us know more about each other. We can meet over a cup of coffee or even online too.",
+      "We understand your vision, preferences, and budget to provide personalized property solutions",
   },
   {
     number: 2,
-    title: "Scope of Work",
+    title: "Analyze Market",
     description:
-      "We'll discuss your project requirements in detail and outline the scope of work to ensure we're aligned with your vision.",
+      "Get expert insights on market trends, pricing, and the best investment opportunities",
   },
   {
     number: 3,
-    title: "Seal the Deal",
+    title: "Evaluate Options",
     description:
-      "Once we agree on the scope and terms, we'll formalize our partnership and begin the exciting journey together.",
+      "We assess properties based on value, location, and future potential to match your goals",
   },
   {
     number: 4,
-    title: "Execution",
+    title: "Smart Strategies",
     description:
-      "Our team gets to work, bringing your vision to life with careful attention to detail and regular updates.",
+      "Receive strategic advice on buying, selling, or investing for maximum returns",
   },
   {
     number: 5,
-    title: "Stamp of Approval",
+    title: "Seamless Decisions",
     description:
-      "We'll present the final work for your review and make any necessary adjustments to ensure your complete satisfaction.",
+      "We guide you through negotiations, paperwork, and final choices with confidence",
   },
 ];
 
@@ -63,15 +63,16 @@ const TheWayWeWork = () => {
         <div className="order-1 md:order-2 space-y-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-              The Way We Work
+              Expert Property Consulting
             </h2>
             <p className="text-gray-600">
-              Five steps is all it takes to elevate your style of living.
+              Transforming your real estate dreams into reality with precision
+              and expertise.
             </p>
           </div>
 
           <div className="space-y-8">
-            <div className="flex items-center justify-between max-w-lg border-b md:border-none">
+            <div className="flex items-center justify-between max-w-2xl md:border-none">
               {steps.map((step, index) => (
                 <div key={step.number}>
                   <div className="relative flex flex-col items-center space-y-2">
@@ -86,10 +87,8 @@ const TheWayWeWork = () => {
                     </div>
 
                     <div
-                      className={`hidden md:block text-[14px]  ${
-                        activeStep === index
-                          ? "text-gray-800"
-                          : "text-gray-500"
+                      className={`hidden md:block text-[14px] text-center  ${
+                        activeStep === index ? "text-gray-800" : "text-gray-500"
                       }`}
                     >
                       {step.title}
@@ -100,7 +99,7 @@ const TheWayWeWork = () => {
                   </div>
                 </div>
               ))}
-              <div className="hidden lg:block absolute h-[1px] bg-gray-200 w-[450px] translate-x-[12px] -translate-y-[15px]  -z-10" />
+              <div className="hidden xl:block absolute h-[1px] bg-gray-200 w-[500px] translate-x-[35px] -translate-y-[15px]  -z-10" />
             </div>
 
             <div className="max-w-md">

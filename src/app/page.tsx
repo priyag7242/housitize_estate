@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
 import HowWeOperate from "@/components/HowWeOperate";
 import Loan from "@/components/Loan";
+import Interior from "@/components/Interior";
+import Commercial from "@/components/Commercial";
+import Residential from "@/components/Residential";
+import TheWayWeWork from "@/components/TheWayWeWork";
 
 const Home = () => {
   const showPopup = useSelector((state: RootState) => state.popup.showPopup);
@@ -30,9 +34,11 @@ const Home = () => {
         <SelfSustainableHome />
         <Hospitality />
         <Services />
-        {/* <TheWayWeWork /> */}
+        <TheWayWeWork />
         <Loan />
-        {/* <Testimonial /> */}
+        <Interior />
+        <Commercial />
+        <Residential />
       </div>
     </div>
   );

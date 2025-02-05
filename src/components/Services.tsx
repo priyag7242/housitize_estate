@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
+  ArrowDown,
   ArrowRight,
   HandCoins,
   HousePlus,
@@ -62,7 +63,7 @@ const Services = () => {
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Content */}
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-5xl font-thin text-slate-900">
@@ -73,7 +74,7 @@ const Services = () => {
             </p>
             <Button className="group" size="lg">
               Explore our services
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowDown className="ml-2 h-4 w-4" />
             </Button>
           </div>
 
@@ -95,9 +96,9 @@ const Services = () => {
 
         {/* services */}
         <div className="relative p-6">
-          <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 text-green-800 tracking-wide">
+          {/* <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 text-gray-800 tracking-wide">
             Our Services
-          </h1>
+          </h1> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -mx-4">
             {services.map((service, index) => (
               <div key={index} className="">
@@ -111,15 +112,15 @@ const Services = () => {
                         <h3 className="mb-1 text-base text-gray-900 text-start">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-600 tracking-[1px]">
                           {service.description}
                         </p>
                       </div>
-                      <Button className="bg-green-700 text-white group-hover:bg-green-800">
+                      <Button className="bg-gray-600 text-white">
                         Read More
                       </Button>
                       <div className=" absolute bottom-0 right-0 translate-x-20 translate-y-20 rounded-full bg-gray-200 pr-24 pb-24 pl-8 pt-8">
-                        <service.icon className="h-14 w-14 text-green-800" />
+                        <service.icon className="h-14 w-14 text-gray-600" />
                       </div>
                     </Link>
                   </CardContent>
