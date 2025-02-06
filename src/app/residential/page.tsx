@@ -185,57 +185,49 @@ const Residential = () => {
       city: "Jaipur",
       country: "Rajasthan",
       properties: "300+ Properties",
-      image:
-        "/assets/images/jaipur.jpg",
+      image: "/assets/images/jaipur.jpg",
     },
     {
       city: "Delhi",
       country: "NCR",
       properties: "180+ Properties",
-      image:
-        "/assets/images/delhi.jpg",
+      image: "/assets/images/delhi.jpg",
     },
     {
       city: "Moscow",
       country: "Russia",
       properties: "180+ Properties",
-      image:
-        "/assets/images/italy.jpg",
+      image: "/assets/images/italy.jpg",
     },
     {
       city: "Beijing",
       country: "China",
       properties: "180+ Properties",
-      image:
-        "/assets/images/spain.jpg",
+      image: "/assets/images/spain.jpg",
     },
     {
       city: "Berlin",
       country: "Germany",
       properties: "180+ Properties",
-      image:
-        "/assets/images/japan.jpg",
+      image: "/assets/images/japan.jpg",
     },
     {
       city: "Paris",
       country: "France",
       properties: "180+ Properties",
-      image:
-        "/assets/images/france.jpg",
+      image: "/assets/images/france.jpg",
     },
     {
       city: "London",
       country: "United Kingdom",
       properties: "180+ Properties",
-      image:
-        "/assets/images/italy.jpg",
+      image: "/assets/images/italy.jpg",
     },
     {
       city: "Mumbai",
       country: "Maharastra",
       properties: "180+ Properties",
-      image:
-        "/assets/images/mumbai.jpg",
+      image: "/assets/images/mumbai.jpg",
     },
   ];
 
@@ -280,6 +272,29 @@ const Residential = () => {
       title: "Check Articles",
       description: "On trending topics and policy updates",
       icon: <FileText className="w-8 h-8 text-gray-500" />,
+    },
+  ];
+
+  const communityFeatures = [
+    {
+      title: "Township",
+      image: "/assets/images/township.jpg",
+      icon: <Building2 className="w-8 h-8 text-white" />,
+    },
+    {
+      title: "Courtyard",
+      image: "/assets/images/courtyard.jpg",
+      icon: <Home className="w-8 h-8 text-white" />,
+    },
+    {
+      title: "Dormitory",
+      image: "/assets/images/dormitory.jpg",
+      icon: <FileText className="w-8 h-8 text-white" />,
+    },
+    {
+      title: "Tower-house",
+      image: "/assets/images/tower-house.avif",
+      icon: <ChevronUp className="w-8 h-8 text-white" />,
     },
   ];
 
@@ -577,6 +592,62 @@ const Residential = () => {
           </div>
         </div>
       </div>
+
+      {/* Comunity-based living */}
+      <section className="relative px-4 pt-48 pb-24 bg-[#C4C4C4] text-gray-700">
+        <div className="max-w-7xl mx-auto">
+          {/* Top Section */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {/* Left Column */}
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif">
+                Community Based,
+                <br />
+                Living
+              </h2>
+              <Button className="bg-[#4A4A4A] hover:bg-[#383838] transition duration-300 text-white border-none px-8 py-6 text-lg">
+                Know More
+              </Button>
+            </div>
+
+            {/* Right Column */}
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl">
+              Discover a vibrant community-based living experience with our
+              thoughtfully designed homes that foster connection and
+              engagement among residents.
+              </p>
+              <p className="text-lg md:text-xl">
+              Enjoy shared amenities, green spaces, and communal areas that
+              encourage social interaction and create a sense of belonging.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {communityFeatures.map((feature) => (
+              <div
+                key={feature.title}
+                className="relative group overflow-hidden rounded-lg aspect-[4/3]"
+              >
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-300"
+                />
+                <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-4">
+                  <span className="text-3xl mb-2">{feature.icon}</span>
+                  <h3 className="text-2xl text-white font-serif text-center">
+                    {feature.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/*Carousel 2nd Div*/}
       <div className="w-full max-w-[1440px] mx-auto mt-32 sm:mt-12 px-4 sm:px-6 lg:px-8 py-8 md:py-12">

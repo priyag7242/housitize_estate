@@ -11,8 +11,9 @@ import HowWeOperate from "@/components/HowWeOperate";
 import Loan from "@/components/Loan";
 import Interior from "@/components/Interior";
 import Commercial from "@/components/Commercial";
-import Residential from "@/components/Residential";
-import TheWayWeWork from "@/components/TheWayWeWork";
+import PropertyConsulting from "@/components/PropertyConsulting";
+import Architecture from "@/components/Architecture";
+import FacilityManagement from "@/components/FacilityManagement";
 
 const Home = () => {
   const showPopup = useSelector((state: RootState) => state.popup.showPopup);
@@ -34,11 +35,12 @@ const Home = () => {
         <SelfSustainableHome />
         <Hospitality />
         <Services />
-        <TheWayWeWork />
+        <PropertyConsulting />
         <Loan />
         <Interior />
         <Commercial />
-        <Residential />
+        <Architecture />
+        <FacilityManagement />
       </div>
     </div>
   );

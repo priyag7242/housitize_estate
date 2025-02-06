@@ -36,7 +36,7 @@ const steps = [
   },
 ];
 
-const TheWayWeWork = () => {
+const PropertyConsulting = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -117,4 +117,4 @@ const TheWayWeWork = () => {
   );
 };
 
-export default TheWayWeWork;
+export default PropertyConsulting;

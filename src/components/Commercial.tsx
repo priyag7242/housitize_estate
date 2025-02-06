@@ -5,6 +5,16 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const Commercial = () => {
+
+  const [resCommActiveTab, setResCommActiveTab] = useState<
+    | "sale"
+    | "rent"
+    | "most popular"
+    | "by budget"
+    | "by property type"
+    | "by bhk"
+    | "pg / co-living"
+  >("sale");
   const [activeTab, setActiveTab] = useState<
     | "sale"
     | "rent"
@@ -14,6 +24,15 @@ const Commercial = () => {
     | "by bhk"
     | "pg / co-living"
   >("sale");
+  // const [activeTab, setActiveTab] = useState<
+  //   | "sale"
+  //   | "rent"
+  //   | "most popular"
+  //   | "by budget"
+  //   | "by property type"
+  //   | "by bhk"
+  //   | "pg / co-living"
+  // >("sale");
 
   const activeCategory = (() => {
     switch (activeTab) {
@@ -229,14 +248,30 @@ const Commercial = () => {
             <Button
               variant={activeTab === "sale" ? "default" : "outline"}
               onClick={() => setActiveTab("sale")}
-              className="min-w-[100px] font-bold tracking-wider"
+              className={`min-w-[100px] font-bold tracking-wider`}
+            >
+              Residential
+            </Button>
+            <Button
+              variant={activeTab === "rent" ? "default" : "outline"}
+              onClick={() => setActiveTab("rent")}
+              className={`min-w-[100px] font-bold tracking-wider`}
+            >
+              Commercial
+            </Button>
+          </div>
+          <div className="flex justify-center gap-3">
+            <Button
+              variant={activeTab === "sale" ? "default" : "outline"}
+              onClick={() => setActiveTab("sale")}
+              className={`min-w-[100px] font-bold tracking-wider`}
             >
               Sale
             </Button>
             <Button
               variant={activeTab === "rent" ? "default" : "outline"}
               onClick={() => setActiveTab("rent")}
-              className="min-w-[100px] font-bold tracking-wider"
+              className={`min-w-[100px] font-bold tracking-wider`}
             >
               Rent
             </Button>
@@ -246,35 +281,35 @@ const Commercial = () => {
             <Button
               variant={activeTab === "most popular" ? "default" : "outline"}
               onClick={() => setActiveTab("most popular")}
-              className="min-w-[100px] font-bold"
+              className={`min-w-[100px] font-bold`}
             >
               Most Popular
             </Button>
             <Button
               variant={activeTab === "by budget" ? "default" : "outline"}
               onClick={() => setActiveTab("by budget")}
-              className="min-w-[100px] font-bold"
+              className={`min-w-[100px] font-bold`}
             >
               By Budget
             </Button>
             <Button
               variant={activeTab === "by property type" ? "default" : "outline"}
               onClick={() => setActiveTab("by property type")}
-              className="min-w-[100px] font-bold"
+              className={`min-w-[100px] font-bold`}
             >
               By Property Type
             </Button>
             <Button
               variant={activeTab === "by bhk" ? "default" : "outline"}
               onClick={() => setActiveTab("by bhk")}
-              className="min-w-[100px] font-bold"
+              className={`min-w-[100px] font-bold`}
             >
               By BHK
             </Button>
             <Button
               variant={activeTab === "pg / co-living" ? "default" : "outline"}
               onClick={() => setActiveTab("pg / co-living")}
-              className="min-w-[100px] font-bold"
+              className={`min-w-[100px] font-bold`}
             >
               PG / Co-living
             </Button>
