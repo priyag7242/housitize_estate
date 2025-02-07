@@ -582,6 +582,249 @@ const SearchHero = () => {
         </div>
       </div>
 
+      {/* Work & commerce */}
+      <div className=" bg-slate-800 px-4 pt-48 pb-24 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Left Content */}
+            <div className="flex items-start mt-16">
+              <div className="flex flex-col justify-center space-y-6">
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+                  Work & Commerce
+                </h1>
+                <p className="text-lg text-gray-300">
+                  Discover dynamic spaces meticulously crafted for unparalleled
+                  productivity, thriving commerce, and memorable guest
+                  experiences. Elevate your business environment with innovative
+                  designs that inspire success and foster growth.
+                </p>
+                <div>
+                  <button className="inline-flex items-center rounded-full bg-gray-700 px-6 py-3 text-base font-medium text-white hover:border hover:border-white">
+                    Know More
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Images Grid */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+              <div className="flex flex-col gap-8">
+                {/* office */}
+                <div className="relative flex-1  min-w-[300px] hover:cursor-pointer hover:scale-105 transition duration-300">
+                  <div className="relative h-64 sm:h-52 overflow-hidden rounded-2xl">
+                    <Image
+                      src="/assets/images/office.avif"
+                      alt="Office"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/60" />
+                    <h3 className="absolute inset-0 flex items-center justify-center text-xl font-semibold text-white">
+                      Office
+                    </h3>
+                  </div>
+                </div>
+
+                {/* retail */}
+                <div className="relative flex-1 min-w-[300px] hover:cursor-pointer hover:scale-105 transition duration-300">
+                  <div className="relative h-64 sm:h-80 overflow-hidden rounded-2xl">
+                    <Image
+                      src="/assets/images/retail.avif"
+                      alt="Retail"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/50" />
+                    <h3 className="absolute inset-0 flex items-center justify-center text-xl font-semibold text-white">
+                      Retail
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* hospitality */}
+              <div className="relative flex-1 flex-shrink hover:cursor-pointer hover:scale-105 transition duration-300">
+                <div className="relative sm:mt-24 h-64 sm:h-[500px] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/assets/images/hospitality.jpeg"
+                    alt="Hospitality"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/50" />
+                  <h3 className="absolute inset-0 flex items-center justify-center text-xl font-semibold text-white">
+                    Hospitality
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Production & Storage */}
+      <section className="max-w-7xl mx-auto px-4 py-12 md:py-16 lg:py-20">
+        {/* Hero Text */}
+        <h1 className="text-3xl md:text-3xl lg:text-4xl text-gray-700 tracking-wider text-center font-normal leading-tight mb-16 max-w-4xl mx-auto">
+          Optimized Spaces for High-Performance Production, Secure Storage, and
+          Streamlined Logistics
+        </h1>
+        <h1 className="text-base lg:text-lg text-gray-700 tracking-wider text-center font-normal leading-tight mb-16 max-w-4xl mx-auto">
+          <strong>Buy</strong>, <strong>sell</strong>, <strong>lease</strong>,
+          or <strong>construct</strong> your ideal warehouse—let’s make it
+          happen! Contact us today!
+        </h1>
+
+        {/* Industries */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* First Image */}
+          <div className="aspect-[4/3] relative">
+            <Image
+              src="/assets/images/industry1.jpg"
+              alt="Sliding door installation in concrete interior"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Second Image */}
+          <div className="aspect-[4/3] relative hidden lg:block">
+            <Image
+              src="/assets/images/industry2.jpg"
+              alt="Sliding door system showcase"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Product Info */}
+          <div className="space-y-6 md:mt-0 mt-4">
+            <div className="space-y-2">
+              <p className="text-2xl">Industries</p>
+            </div>
+
+            <p className="text-lg leading-relaxed text-gray-700">
+              Robust and versatile spaces built to support high-efficiency
+              manufacturing, production, and industrial growth.
+            </p>
+            <div className="inline-block text-lg hover:cursor-pointer underline underline-offset-4 hover:text-gray-600 transition-colors text-gray-700">
+              View more
+            </div>
+          </div>
+        </div>
+
+        {/* Warehouse */}
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-16 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* First Image */}
+          <div className="aspect-[4/3] relative">
+            <Image
+              src="/assets/images/warehouse1.jpg"
+              alt="Sliding door installation in concrete interior"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Second Image */}
+          <div className="aspect-[4/3] relative hidden lg:block">
+            <Image
+              src="/assets/images/warehouse2.jpg"
+              alt="Sliding door system showcase"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Product Info */}
+          <div className="space-y-6 md:mt-0 mt-4">
+            <div className="space-y-2">
+              <p className="text-2xl">Warehouse</p>
+            </div>
+
+            <p className="text-lg leading-relaxed text-gray-700">
+              Secure, spacious, and strategically designed for seamless storage,
+              distribution, and logistics efficiency.
+            </p>
+            <div className="inline-block hover:cursor-pointer text-lg underline underline-offset-4 hover:text-gray-600 transition-colors text-gray-700">
+              View more
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialized & growth sector */}
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="w-full ">
+            <h2 className="text-4xl sm:text-5xl font-light tracking-wider mb-6">
+              Unlocking Potential in
+              <br />
+              Specialized & Growth Sectors
+            </h2>
+            <p className="text-lg text-gray-600">
+              Discover innovative solutions tailored for specialized sectors,
+              driving growth and unlocking new opportunities.
+            </p>
+          </div>
+
+          {/* Images and Stats */}
+          <div className="space-y-12">
+            {/* Circular Images with Statistics */}
+            <div className="flex flex-wrap gap-8 justify-center lg:justify-end">
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                  <Image
+                    width={200}
+                    height={200}
+                    src="/assets/images/healthcare.jpg"
+                    alt="Interior view"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center lg:text-left">
+                  <p className="text-2xl lg:text-3xl font-medium mb-2">
+                    Healthcare
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                  <Image
+                    width={200}
+                    height={200}
+                    src="/assets/images/educational.jpg"
+                    alt="Building exterior"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center lg:text-left">
+                  <p className="text-2xl sm:text-3xl font-medium mb-2">
+                    Educational
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                  <Image
+                    width={200}
+                    height={200}
+                    src="/assets/images/joint-venture.jpg"
+                    alt="Modern interior"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center lg:text-left">
+                  <p className="text-2xl sm:text-3xl font-medium mb-2">
+                    Joint Venture
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/*Carousel 2nd Div*/}
       <div className="w-full max-w-[1440px] mx-auto mt-32 sm:mt-12 px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="mb-6 md:mb-8">

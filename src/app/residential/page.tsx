@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useState } from "react";
+import { useState } from "react";
 import CarouselSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,8 +12,8 @@ import {
   ChevronRight,
   Building2,
   Home,
-  Newspaper,
   FileText,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -152,33 +152,33 @@ const Residential = () => {
     ],
   };
 
-  const marketTrendSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  // const marketTrendSettings = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         slidesToShow: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 640,
+  //       settings: {
+  //         slidesToShow: 1,
+  //       },
+  //     },
+  //   ],
+  // };
 
   const cities = [
     {
@@ -231,51 +231,51 @@ const Residential = () => {
     },
   ];
 
-  interface InsightCard {
-    title: string;
-    description: string;
-    icon: JSX.Element;
-  }
+  // interface InsightCard {
+  //   title: string;
+  //   description: string;
+  //   icon: JSX.Element;
+  // }
 
-  const insightCards: InsightCard[] = [
-    {
-      title: "Transaction Prices",
-      description: "Check property transaction values and many more",
-      icon: <Building2 className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "About My Property",
-      description: "Track prices & analyse market demands",
-      icon: <Home className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "Read Latest News",
-      description: "Around real estate and allied industries",
-      icon: <Newspaper className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "Check Articles",
-      description: "On trending topics and policy updates",
-      icon: <FileText className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "About My Property",
-      description: "Track prices & analyse market demands",
-      icon: <Home className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "Read Latest News",
-      description: "Around real estate and allied industries",
-      icon: <Newspaper className="w-8 h-8 text-gray-500" />,
-    },
-    {
-      title: "Check Articles",
-      description: "On trending topics and policy updates",
-      icon: <FileText className="w-8 h-8 text-gray-500" />,
-    },
-  ];
+  // const insightCards: InsightCard[] = [
+  //   {
+  //     title: "Transaction Prices",
+  //     description: "Check property transaction values and many more",
+  //     icon: <Building2 className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "About My Property",
+  //     description: "Track prices & analyse market demands",
+  //     icon: <Home className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "Read Latest News",
+  //     description: "Around real estate and allied industries",
+  //     icon: <Newspaper className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "Check Articles",
+  //     description: "On trending topics and policy updates",
+  //     icon: <FileText className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "About My Property",
+  //     description: "Track prices & analyse market demands",
+  //     icon: <Home className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "Read Latest News",
+  //     description: "Around real estate and allied industries",
+  //     icon: <Newspaper className="w-8 h-8 text-gray-500" />,
+  //   },
+  //   {
+  //     title: "Check Articles",
+  //     description: "On trending topics and policy updates",
+  //     icon: <FileText className="w-8 h-8 text-gray-500" />,
+  //   },
+  // ];
 
-  const communityFeatures = [
+  const communityItems = [
     {
       title: "Township",
       image: "/assets/images/township.jpg",
@@ -295,6 +295,25 @@ const Residential = () => {
       title: "Tower-house",
       image: "/assets/images/tower-house.avif",
       icon: <ChevronUp className="w-8 h-8 text-white" />,
+    },
+  ];
+
+  const sustainableLivingItems = [
+    {
+      name: "Earth Shelter",
+      image: "/assets/images/earth-shelter.jpeg",
+    },
+    {
+      name: "Self-Sustainable",
+      image: "/assets/images/self-sustainable.jpg",
+    },
+    {
+      name: "Tent-Structure",
+      image: "/assets/images/tent-structure.avif",
+    },
+    {
+      name: "Pre-fabricate",
+      image: "/assets/images/pre-fabricate.jpg",
     },
   ];
 
@@ -613,20 +632,20 @@ const Residential = () => {
             {/* Right Column */}
             <div className="space-y-4">
               <p className="text-lg md:text-xl">
-              Discover a vibrant community-based living experience with our
-              thoughtfully designed homes that foster connection and
-              engagement among residents.
+                Discover a vibrant community-based living experience with our
+                thoughtfully designed homes that foster connection and
+                engagement among residents.
               </p>
               <p className="text-lg md:text-xl">
-              Enjoy shared amenities, green spaces, and communal areas that
-              encourage social interaction and create a sense of belonging.
+                Enjoy shared amenities, green spaces, and communal areas that
+                encourage social interaction and create a sense of belonging.
               </p>
             </div>
           </div>
 
           {/* Feature Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {communityFeatures.map((feature) => (
+            {communityItems.map((feature) => (
               <div
                 key={feature.title}
                 className="relative group overflow-hidden rounded-lg aspect-[4/3]"
@@ -646,6 +665,292 @@ const Residential = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Vacation & investment properties */}
+      <section className="w-full px-4 py-16 bg-[#f8f8f8]">
+        <h2 className="text-2xl md:text-3xl font-medium text-center mb-12 text-gray-800">
+          Vacation & Investment Properties
+        </h2>
+
+        <div className="max-w-6xl mx-auto ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-20 relative">
+            {/* Left Project */}
+            <div className="group cursor-pointer">
+              <div className="rounded-2xl overflow-hidden mb-4">
+                <Image
+                  src="/assets/images/time-share.png"
+                  alt="Time share"
+                  width={500}
+                  height={400}
+                  className="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+
+              <div className="flex flex-col items-start justify-between">
+                <h2 className="text-lg text-gray-700 mb-2 tracking-wider font-bold underline">
+                  Time-Share
+                </h2>
+                <div className="flex items-center justify-between w-full">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    Shared ownership is smart, and a <br />
+                    <strong>time-share</strong> is freedom.
+                  </h3>
+                  <ArrowRight className="w-5 h-5 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+
+            {/* Center Project - Offset on desktop */}
+            <div className="group cursor-pointer lg:translate-y-16">
+              <div className="rounded-2xl overflow-hidden mb-4">
+                <Image
+                  src="/assets/images/holiday-home.jpeg"
+                  alt="Modern farmhouse interior"
+                  width={500}
+                  height={400}
+                  className="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col items-start justify-between">
+                <h2 className="text-lg text-gray-700 mb-2 tracking-wider font-bold underline">
+                  Holiday Home
+                </h2>
+                <div className="flex items-center ">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    A <strong>holiday home</strong> is joy, a retreat forever
+                    yours.
+                  </h3>
+                  <ArrowRight className="w-6 h-6 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Project */}
+            <div className="group cursor-pointer">
+              <div className="rounded-2xl overflow-hidden mb-4">
+                <Image
+                  src="/assets/images/luxury.webp"
+                  alt="Garden with swimming pool"
+                  width={500}
+                  height={400}
+                  className="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col items-start justify-between">
+                <h2 className="text-lg text-gray-700 mb-2 tracking-wider font-bold underline">
+                  Luxury Home
+                </h2>
+                <div className="flex items-center ">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    Elegance meets comfort, a <strong>luxury home</strong>{" "}
+                    defines grand living.
+                  </h3>
+                  <ArrowRight className="w-7 h-7 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-24">
+            <button className="bg-gray-700 text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors">
+              Know More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Traditional Residential Properties */}
+      <div className="max-w px-4 sm:px-24 pt-24 pb-4 flex flex-col md:flex-row">
+        {/* left side  */}
+        <div className=" w-full flex flex-col justify-start mr-2 ">
+          <h3 className="text-3xl sm:text-4xl md:text-4xl tracking-widest uppercase pt-20 pb-8 px-3 text-gray-700">
+            Traditional Residential Properties
+          </h3>
+          {/* top div  */}
+          <div className="w-full mb-16 group cursor-pointer hover:scale-105 transition duration-300">
+            <Image
+              width={200}
+              height={200}
+              src="/assets/images/penthouse.jpg"
+              alt="bg image"
+              className="object-cover sm:h-[500px] w-full"
+            />
+            {/* content */}
+            <div className="p-4 flex flex-col items-start justify-between">
+              <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                Penthouse
+              </h2>
+              <div className="flex items-center justify-start w-full">
+                <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                  Skyline views and exclusivity at the pinnacle of luxury.
+                </h3>
+                <ArrowRight className="w-5 h-5 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+              </div>
+            </div>
+          </div>
+          {/* bottom div  */}
+          <div className="w-full flex flex-col sm:flex-row gap-4">
+            <div className="flex-1 group sm:mt-20 cursor-pointer hover:scale-105 transition duration-300">
+              <Image
+                width={200}
+                height={200}
+                src="/assets/images/individual-villa.jpg"
+                alt="bg image"
+                className="object-cover w-full"
+              />
+              {/* content */}
+              <div className="p-4 flex flex-col items-start justify-between">
+                <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                  Individual Villa
+                </h2>
+                <div className="flex items-center justify-start w-full">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    Serenity and space, your private escape from the world.
+                  </h3>
+
+                  <ArrowRight className="w-8 h-8 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 group cursor-pointer h-fit hover:scale-105 transition duration-300">
+              <Image
+                width={200}
+                height={200}
+                src="/assets/images/private-dwelling.jpeg"
+                alt="bg image"
+                className="object-cover w-full"
+              />
+              {/* content */}
+              <div className="p-4 flex flex-col items-start justify-between">
+                <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                  Private Dwelling
+                </h2>
+                <div className="flex items-center justify-start w-full">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    A secluded haven, where comfort and privacy unite.
+                  </h3>
+                  <ArrowRight className="w-7 h-7 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* right side  */}
+        <div className="w-full flex flex-col justify-start ml-2">
+          {/* top div  */}
+          <div className="flex flex-col sm:flex-row  gap-4 mb-16">
+            <div className="flex-1 group mt-20 cursor-pointer hover:scale-105 transition duration-300">
+              <Image
+                width={200}
+                height={200}
+                src="/assets/images/mansion.jpg"
+                alt="bg image"
+                className="object-cover w-full"
+              />
+              {/* content */}
+              <div className="p-4 flex flex-col items-start justify-between">
+                <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                  Mansion
+                </h2>
+                <div className="flex items-center justify-start w-full">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    Grandeur redefined, a masterpiece of space and
+                    sophistication.
+                  </h3>
+                  <ArrowRight className="w-6 h-6 text-gray-700 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 group cursor-pointer h-fit hover:scale-105 transition duration-300">
+              <Image
+                width={200}
+                height={200}
+                src="/assets/images/apartment.avif"
+                alt="bg image"
+                className="object-cover w-full"
+              />
+              {/* content */}
+              <div className="p-4 flex flex-col items-start justify-between">
+                <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                  Apartment
+                </h2>
+                <div className="flex items-center justify-start w-full">
+                  <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                    Modern living made simple, stylish, and conveniently yours.
+                  </h3>
+                  <ArrowRight className="w-7 h-7 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* bottom div  */}
+          <div className="group cursor-pointer hover:scale-105 transition duration-300">
+            <Image
+              width={200}
+              height={200}
+              src="/assets/images/chateau.jpg"
+              alt="bg image"
+              className="object-cover sm:h-[800px] w-full"
+            />
+            {/* content */}
+            <div className="p-4 flex flex-col items-start justify-between">
+              <h2 className="text-2xl text-gray-700 mb-2 tracking-wider underline">
+                Chateau
+              </h2>
+              <div className="flex items-center justify-start w-full">
+                <h3 className="text-sm uppercase tracking-wider text-gray-700">
+                  Timeless elegance, a regal retreat in breathtaking
+                  surroundings.
+                </h3>
+                <ArrowRight className="w-5 h-5 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* sustainable living  */}
+      <section className="px-4 py-20 max-w-7xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light">
+            Sustainable Living
+          </h2>
+          <div className="flex items-center gap-6">
+            <div className="hidden md:block hover:cursor-pointer text-sm uppercase tracking-wider border-b border-black hover:border-gray-600 pb-1 transition-colors hover:text-gray-600">
+              Know More
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {sustainableLivingItems.map((item, index) => (
+            <div
+              key={index}
+              className="group space-y-4 hover:cursor-pointer hover:scale-105 transition duration-300"
+            >
+              <div className="aspect-square relative bg-white p-4 rounded-lg">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="space-y-2 px-4">
+                <h3 className="text-lg md:text-xl flex items-center text-gray-700 group-hover:text-gray-600 underline group-hover:no-underline font-medium">
+                  {item.name}{" "}
+                  <ArrowRight className="w-5 h-5 text-gray-700 transition-transform duration-300 group-hover:translate-x-1 ml-2" />
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="md:hidden hover:cursor-pointer block text-sm uppercase tracking-wider text-center mt-8 border-b border-black pb-1 w-fit mx-auto">
+          Know More
         </div>
       </section>
 
@@ -725,7 +1030,7 @@ const Residential = () => {
       </div>
 
       {/*Insights & Tools*/}
-      <div className="flex justify-center px-4 sm:px-10 mb-10 md:mb-20">
+      {/* <div className="flex justify-center px-4 sm:px-10 mb-10 md:mb-20">
         <div className="max-w-6xl w-full py-12 px-4 md:px-8 lg:rounded-xl bg-[radial-gradient(circle,_rgba(255,219,247,1)_0%,_rgba(182,199,186,1)_100%)]">
           <div className="max-w-7xl mx-auto px-8">
             <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-8">
@@ -768,7 +1073,7 @@ const Residential = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

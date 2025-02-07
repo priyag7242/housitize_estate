@@ -44,6 +44,24 @@ const Navbar = () => {
     (state: RootState) => state.popup.showManualPopup
   );
 
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -64,7 +82,10 @@ const Navbar = () => {
     <nav
       className={`fixed w-screen top-0 text-white  z-50 bg-tranparent transition-all duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      }
+        transition-transform duration-500 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="max-w-8xl xl:mx-20 px-2 xl:px-8">
         <div className="flex justify-between items-center h-24">
