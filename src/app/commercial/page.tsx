@@ -754,7 +754,7 @@ const SearchHero = () => {
 
       {/* Specialized & growth sector */}
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-12 items-center">
           {/* Text Content */}
           <div className="w-full ">
             <h2 className="text-4xl sm:text-5xl font-light tracking-wider mb-6">
@@ -768,12 +768,12 @@ const SearchHero = () => {
             </p>
           </div>
 
-          {/* Images and Stats */}
+          {/* Images */}
           <div className="space-y-12">
             {/* Circular Images with Statistics */}
             <div className="flex flex-wrap gap-8 justify-center lg:justify-end">
               <div className="flex flex-col items-center lg:items-start">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                <div className="w-32 h-32 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-4">
                   <Image
                     width={200}
                     height={200}
@@ -782,14 +782,14 @@ const SearchHero = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl lg:text-3xl font-medium mb-2">
+                <div className="text-center w-full lg:text-left">
+                  <p className="text-2xl lg:text-3xl text-center font-medium mb-2">
                     Healthcare
                   </p>
                 </div>
               </div>
               <div className="flex flex-col items-center lg:items-start">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                <div className="w-32 h-32 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-4">
                   <Image
                     width={200}
                     height={200}
@@ -798,14 +798,14 @@ const SearchHero = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl sm:text-3xl font-medium mb-2">
+                <div className="text-center w-full lg:text-left">
+                  <p className="text-2xl sm:text-3xl text-center font-medium mb-2">
                     Educational
                   </p>
                 </div>
               </div>
               <div className="flex flex-col items-center lg:items-start">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4">
+                <div className="w-32 h-32 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-4">
                   <Image
                     width={200}
                     height={200}
@@ -814,8 +814,8 @@ const SearchHero = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl sm:text-3xl font-medium mb-2">
+                <div className="text-center w-full lg:text-left">
+                  <p className="text-2xl sm:text-3xl text-center font-medium mb-2">
                     Joint Venture
                   </p>
                 </div>
