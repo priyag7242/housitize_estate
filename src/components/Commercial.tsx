@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import ContactPopup from "./ContactPopup";
 
 const Commercial = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   const [resCommActiveTab, setResCommActiveTab] = useState<
     | "sale"
@@ -225,6 +227,10 @@ const Commercial = () => {
 
   return (
     <div className="w-full ">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl md:text-4xl font-semibold text-center mb-4">
           Commercial Properties Available
@@ -321,6 +327,9 @@ const Commercial = () => {
             (property, index) => (
               <div
                 key={index}
+                onClick={() => {
+                  setIsContactPopupOpen(true);
+                }}
                 className="relative hover:cursor-pointer group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="relative h-48 w-full">
@@ -346,6 +355,6 @@ const Commercial = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Commercial;

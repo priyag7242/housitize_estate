@@ -21,6 +21,7 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import * as Slider from "@radix-ui/react-slider";
 import Link from "next/link";
+import ContactPopup from "@/components/ContactPopup";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const PrevArrow = (props: any) => (
@@ -45,6 +46,7 @@ const NextArrow = (props: any) => (
 );
 
 const Residential = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [budgetValue, setBudgetValue] = useState([0, 100]);
 
   const [activeTab, setActiveTab] = useState("Buy");
@@ -951,6 +953,51 @@ const Residential = () => {
 
         <div className="md:hidden hover:cursor-pointer block text-sm uppercase tracking-wider text-center mt-8 border-b border-black pb-1 w-fit mx-auto">
           Know More
+        </div>
+      </section>
+
+      {/*Sell any property*/}
+      <section className="min-h-[600px] bg-[#f5f5f3] px-4 py-16 md:py-24">
+        <ContactPopup
+          isContactPopupOpen={isContactPopupOpen}
+          setIsContactPopupOpen={setIsContactPopupOpen}
+        />
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+            <div className="text-center lg:text-left space-y-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
+                List or Sell Your Property with Us
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Whether you are looking to list or sell your property, our
+                platform provides the tools and support you need to reach
+                potential buyers and achieve your real estate goals.
+              </p>
+              <div className="pt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsContactPopupOpen(true);
+                  }}
+                  className="rounded-full px-8 py-6 text-base border-gray-400 hover:bg-gray-100 transition-colors"
+                >
+                  Contact us
+                </Button>
+              </div>
+            </div>
+            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <Image
+                  src="/assets/images/luxury.webp"
+                  alt="Elegant table setting with cutlery and herbs"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

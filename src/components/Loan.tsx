@@ -19,13 +19,19 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronsRight, X } from "lucide-react";
-import Link from "next/link";
+import ContactPopup from "./ContactPopup";
 
 const Loan = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
   const [open, setOpen] = useState(false);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       <div className="grid lg:grid-cols-2 gap-8 items-start">
         {/* Video Player Container */}
         <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-blue-600">
@@ -92,13 +98,15 @@ const Loan = () => {
             >
               GET QUOTE{" "}
             </div>
-            <Link
-              href="/loan"
+            <div
+              onClick={() => {
+                setIsContactPopupOpen(true);
+              }}
               className="flex items-center group hover:cursor-pointer text-green-800 underline"
             >
               Know More{" "}
               <ChevronsRight className="w-5 h-5 group-hover:translate-x-1 transition duration-300" />
-            </Link>
+            </div>
           </div>
 
           {/* popup */}

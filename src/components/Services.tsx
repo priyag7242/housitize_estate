@@ -12,7 +12,8 @@ import {
   UsersRound,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
+import { useState } from "react";
+import ContactPopup from "./ContactPopup";
 
 const services = [
   {
@@ -60,8 +61,13 @@ const services = [
 ];
 
 const Services = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Content */}
@@ -101,13 +107,16 @@ const Services = () => {
           </h1> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -mx-4">
             {services.map((service, index) => (
-              <div key={index} className="">
+              <div
+                key={index}
+                onClick={() => {
+                  setIsContactPopupOpen(true);
+                }}
+                className=""
+              >
                 <Card className="hover:shadow-lg  hover:scale-110 transition duration-300 h-full">
                   <CardContent className="p-0">
-                    <Link
-                      href="/"
-                      className="relative group overflow-hidden p-6 flex flex-col items-start justify-between h-48"
-                    >
+                    <div className="relative hover:cursor-pointer group overflow-hidden p-6 flex flex-col items-start justify-between h-48">
                       <div>
                         <h3 className="mb-1 text-base text-gray-900 text-start">
                           {service.title}
@@ -122,7 +131,7 @@ const Services = () => {
                       <div className=" absolute bottom-0 right-0 translate-x-20 translate-y-20 rounded-full bg-gray-200 pr-24 pb-24 pl-8 pt-8">
                         <service.icon className="h-14 w-14 text-gray-600" />
                       </div>
-                    </Link>
+                    </div>
                   </CardContent>
                 </Card>
               </div>

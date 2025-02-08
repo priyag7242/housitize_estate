@@ -503,7 +503,7 @@ function ResidentialHover({
   return (
     <a
       href={href}
-      className="group my-2 relative flex flex-col items-center justify-center transition-colors"
+      className="group my-2 py-5 relative flex flex-col items-center justify-center transition-colors"
     >
       {tag && (
         <span className="absolute -top-2 rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-900">

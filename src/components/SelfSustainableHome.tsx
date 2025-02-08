@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+import ContactPopup from "./ContactPopup";
 
 const selfSustainableHomeItems = [
   {
@@ -54,6 +54,8 @@ const selfSustainableHomeItems = [
 ];
 
 const SelfSustainableHome = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
   const slider = useRef<Slider | null>(null);
 
   const settings = {
@@ -86,6 +88,10 @@ const SelfSustainableHome = () => {
 
   return (
     <main className="min-h-screen w-full bg-white px-10 pb-28 pt-20 md:px-8 lg:px-16">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       {/* Header Section */}
       <section className="mx-auto max-w-6xl text-center">
         <h2 className="mb-8 text-sm uppercase tracking-widest text-gray-500">
@@ -95,7 +101,12 @@ const SelfSustainableHome = () => {
           Self Sustainable Home
         </h1>
         <p className="mx-auto mb-16 max-w-4xl text-center text-gray-600 md:text-base">
-          Whether you want to <span className="font-bold">rent</span>, <span className="font-bold">lease</span>, <span className="font-bold">buy</span>, <span className="font-bold">sell</span>, or <span className="font-bold">construct</span> a self-sustainable home, contact us today to start your journey towards eco-friendly living.
+          Whether you want to <span className="font-bold">rent</span>,{" "}
+          <span className="font-bold">lease</span>,{" "}
+          <span className="font-bold">buy</span>,{" "}
+          <span className="font-bold">sell</span>, or{" "}
+          <span className="font-bold">construct</span> a self-sustainable home,
+          contact us today to start your journey towards eco-friendly living.
         </p>
       </section>
 
@@ -103,15 +114,10 @@ const SelfSustainableHome = () => {
       <section className="mx-auto max-w-6xl">
         <Slider ref={slider} {...settings}>
           {selfSustainableHomeItems.map((item, index) => (
-            <Link
+            <div
               key={index}
-              href={{
-                pathname: "/know-more",
-                query: {
-                  imageUrl: item.queryImage,
-                  heading: item.queryHeading,
-                  description: item.queryDescription,
-                },
+              onClick={() => {
+                setIsContactPopupOpen(true);
               }}
               className="group relative hover: cursor-pointer h-[300px] w-[300px] sm:h-[400px] overflow-hidden overflow-x-hidden px-2"
             >
@@ -133,7 +139,7 @@ const SelfSustainableHome = () => {
                   </p>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </Slider>
       </section>

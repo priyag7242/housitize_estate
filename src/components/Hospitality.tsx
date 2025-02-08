@@ -5,6 +5,7 @@ import Slider from "react-slick";
 // import "slick-carousel/slick-carousel.css";
 // import "slick-carousel/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ContactPopup from "./ContactPopup";
 // import { type SlideData, type NavItem } from './types/slider'
 
 const slides = [
@@ -59,6 +60,7 @@ const navItems = [
 ];
 
 const Hospitality = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
 
@@ -68,7 +70,7 @@ const Hospitality = () => {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 3000,
-    pauseOnHover: false, 
+    pauseOnHover: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -95,6 +97,10 @@ const Hospitality = () => {
 
   return (
     <div className="w-full px-4 lg:px-24 py-12">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       <div>
         <div className="flex flex-col lg:flex-row md:gap-4 justify-between items-start lg:items-center mb-8">
           <h1 className="text-3xl sm:text-5xl uppercase text-[#57353a] font-thin mb-4 md:mb-0">
@@ -140,11 +146,18 @@ const Hospitality = () => {
                       <h2 className="text-4xl md:text-6xl font-serif mb-4">
                         {slide.title}
                       </h2>
-                      <p className="text-xl italic uppercase mb-4">{slide.subtitle}</p>
+                      <p className="text-xl italic uppercase mb-4">
+                        {slide.subtitle}
+                      </p>
                       <p className="text-lg mb-8 max-w-md">
                         {slide.description}
                       </p>
-                      <button className="border border-white text-white px-8 py-3 inline-flex items-center hover:bg-white hover:text-[#B39B84] transition-colors">
+                      <button
+                        onClick={() => {
+                          setIsContactPopupOpen(true);
+                        }}
+                        className="border border-white text-white px-8 py-3 inline-flex items-center hover:bg-white hover:text-[#B39B84] transition-colors"
+                      >
                         LEARN MORE
                         <span className="ml-2">→</span>
                       </button>

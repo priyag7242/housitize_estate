@@ -6,7 +6,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+import ContactPopup from "./ContactPopup";
+import { useState } from "react";
 
 const carouselItems = [
   {
@@ -63,6 +64,8 @@ const CustomNextArrow = ({ onClick }: { onClick?: () => void }) => (
 );
 
 const FacilityManagement = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -79,14 +82,14 @@ const FacilityManagement = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          dots:true,
+          dots: true,
         },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          dots:true
+          dots: true,
         },
       },
     ],
@@ -94,6 +97,10 @@ const FacilityManagement = () => {
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-24 overflow-hidden">
+      <ContactPopup
+        isContactPopupOpen={isContactPopupOpen}
+        setIsContactPopupOpen={setIsContactPopupOpen}
+      />
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 space-y-6">
           <h2 className="text-xl font-medium">Solutions and Capabilities</h2>
@@ -102,6 +109,9 @@ const FacilityManagement = () => {
               Comprehensive Facility Management Solutions
             </h1>
             <Button
+              onClick={() => {
+                setIsContactPopupOpen(true);
+              }}
               variant="outline"
               className="self-start lg:self-center px-8 border-2 text-gray-800 border-gray-700 rounded-full py-5 text-lg"
             >
@@ -118,7 +128,13 @@ const FacilityManagement = () => {
         <div className="relative px-4">
           <Slider {...settings} className="mx-[-1rem]">
             {carouselItems.map((item, index) => (
-              <Link href="/" key={index} className="px-4 min-h-[500px]">
+              <div
+                onClick={() => {
+                  setIsContactPopupOpen(true);
+                }}
+                key={index}
+                className="px-4 min-h-[500px] hover:cursor-pointer"
+              >
                 <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col min-h-[500px]">
                   <div className="relative h-80">
                     <Image
@@ -135,7 +151,7 @@ const FacilityManagement = () => {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </Slider>
         </div>
