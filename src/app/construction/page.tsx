@@ -247,7 +247,7 @@ const Construction = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/images/construction-hero.jpg"
+            src="/assets/images/construction-hero3.png"
             alt="Background"
             layout="fill"
             fill
@@ -256,7 +256,7 @@ const Construction = () => {
           />
         </div>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center flex-grow text-white px-4">

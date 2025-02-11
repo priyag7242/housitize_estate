@@ -60,17 +60,17 @@ const ContactPopup = ({
       <DialogContent className="sm:max-w-[540px] bg-white border-none">
         <DialogHeader className="space-y-6">
           <div className="space-y-2 text-start">
-            <h2 className="text-5xl font-serif tracking-tight text-gray-700">
-              WE WILL <span className="italic font-light">connect</span>
+            <h2 className="text-5xl font-serif tracking-wide text-gray-700">
+              We will connect
             </h2>
-            <h2 className="text-5xl font-serif tracking-tight text-gray-700">
-              with <span className="italic font-light">YOU</span>
+            <h2 className="text-5xl font-serif tracking-wide text-gray-700">
+              with you
             </h2>
           </div>
           <div className="flex justify-end">
-          <p className="text-gray-700 text-center max-w-[400px] mx-auto">
-            We&apos;ll get in touch with you within <strong>4 hours.</strong>
-          </p>
+            <p className="text-gray-700 text-center max-w-[400px] mx-auto">
+              We&apos;ll get in touch with you within <strong>4 hours.</strong>
+            </p>
           </div>
         </DialogHeader>
 

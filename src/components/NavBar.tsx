@@ -4,7 +4,6 @@ import type { LucideIcon } from "lucide-react";
 import {
   UserCircle,
   Menu,
-  UserRound,
   X,
   Bell,
   BellIcon,
@@ -29,6 +28,7 @@ import Popup from "./Popup";
 import ManualCityPopup from "./ManualCityPopup";
 import { openPopup } from "@/redux/popup/popupSlice";
 import { useDispatch } from "react-redux";
+import Image from "next/image";
 
 const Navbar = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -93,16 +93,11 @@ const Navbar = () => {
           <div className="hidden lg:flex lg:gap-6 text-xs font-normal items-center ">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center px-4 py-2 cursor-pointer space-x-2"
+              className="flex items-center pl-4 py-2 cursor-pointer space-x-2"
             >
               <Menu
                 className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
               />
-              <div className={`${isScrolled ? "text-gray-800 " : ""}`}>
-                <UserRound
-                  className={`h-6 w-6 ${isScrolled ? "text-gray-800 " : ""}`}
-                />
-              </div>
             </button>
 
             {/* Desktop menu, show/hide based on menu state */}
@@ -230,19 +225,14 @@ const Navbar = () => {
                 title: "Commercial",
               },
               {
-                href: "/category",
-                text: "PROPERTIES",
-                title: "Properties",
+                href: "/industries",
+                text: "INDUSTRIES",
+                title: "industries",
               },
               {
-                href: "/market-trends",
-                text: "MARKET TRENDS",
-                title: "Market Trends",
-              },
-              {
-                href: "/blog/resources",
-                text: "BLOG",
-                title: "Blog Resources",
+                href: "/joint-venture",
+                text: "JOINT VENTURE",
+                title: "Joint Venture",
               },
             ].map((link) => (
               <div key={link.text} className="relative group">
@@ -360,9 +350,15 @@ const Navbar = () => {
 
             <div className="h-12 border" />
             <Link href="/" className="text-xs font-bold ">
-              <div>DEMIGOD</div>
+              {/* <div>DEMIGOD</div>
               <div className="">REAL</div>
-              <div className="">ESTATE</div>
+              <div className="">ESTATE</div> */}
+              <Image
+                src="/assets/images/demigod-logo.png"
+                alt="Logo"
+                width={200}
+                height={200}
+              />
             </Link>
           </div>
 
