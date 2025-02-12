@@ -56,7 +56,7 @@ const Industries = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/assets/images/industries-hero.jpeg"
+            src="/assets/images/industries-hero.webp"
             alt="Luxury home with pool"
             fill
             className="object-cover"
@@ -161,7 +161,7 @@ const Industries = () => {
             {/* Large Left Image */}
             <div className="col-span-4 h-full relative">
               <Image
-                src="/assets/images/industries1.jpg"
+                src="/assets/images/industries6.webp"
                 alt="Person working on laptop"
                 fill
                 className="object-cover rounded-3xl"
@@ -174,7 +174,7 @@ const Industries = () => {
             <div className="col-span-2 grid gap-4">
               <div className="relative h-[290px]">
                 <Image
-                  src="/assets/images/industries6.jpeg"
+                  src="/assets/images/industries1.webp"
                   alt="People collaborating"
                   fill
                   className="object-cover rounded-3xl"
@@ -183,7 +183,7 @@ const Industries = () => {
               </div>
               <div className="relative h-[290px]">
                 <Image
-                  src="/assets/images/industries5.jpg"
+                  src="/assets/images/industries5.webp"
                   alt="Person using mobile device"
                   fill
                   className="object-cover rounded-3xl"

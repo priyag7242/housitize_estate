@@ -20,6 +20,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronsRight, X } from "lucide-react";
 import ContactPopup from "./ContactPopup";
+import Link from "next/link";
 
 const Loan = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
@@ -51,7 +52,6 @@ const Loan = () => {
               },
             }}
           />
-          <h3 className="text-red-700">Know More</h3>
         </div>
 
         {/* Content Section */}
@@ -98,15 +98,13 @@ const Loan = () => {
             >
               GET QUOTE{" "}
             </div>
-            <div
-              onClick={() => {
-                setIsContactPopupOpen(true);
-              }}
+            <Link
+              href="/loan"
               className="flex items-center group hover:cursor-pointer text-green-800 underline"
             >
               Know More{" "}
               <ChevronsRight className="w-5 h-5 group-hover:translate-x-1 transition duration-300" />
-            </div>
+            </Link>
           </div>
 
           {/* popup */}

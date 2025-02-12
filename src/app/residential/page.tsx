@@ -50,22 +50,22 @@ const Residential = () => {
   const communityItems = [
     {
       title: "Township",
-      image: "/assets/images/township.jpg",
+      image: "/assets/images/township.webp",
       icon: <Building2 className="w-8 h-8 text-white" />,
     },
     {
       title: "Courtyard",
-      image: "/assets/images/courtyard.jpg",
+      image: "/assets/images/courtyard.webp",
       icon: <Home className="w-8 h-8 text-white" />,
     },
     {
       title: "Dormitory",
-      image: "/assets/images/dormitory.jpg",
+      image: "/assets/images/dormitory.webp",
       icon: <FileText className="w-8 h-8 text-white" />,
     },
     {
       title: "Tower-house",
-      image: "/assets/images/tower-house.avif",
+      image: "/assets/images/tower-house.webp",
       icon: <ChevronUp className="w-8 h-8 text-white" />,
     },
   ];
@@ -73,19 +73,19 @@ const Residential = () => {
   const sustainableLivingItems = [
     {
       name: "Earth Shelter",
-      image: "/assets/images/earth-shelter.jpeg",
+      image: "/assets/images/earth-shelter.webp",
     },
     {
       name: "Self-Sustainable",
-      image: "/assets/images/self-sustainable.jpg",
+      image: "/assets/images/self-sustainable.webp",
     },
     {
       name: "Tent-Structure",
-      image: "/assets/images/tent-structure.avif",
+      image: "/assets/images/tent-structure.webp",
     },
     {
       name: "Pre-fabricate",
-      image: "/assets/images/pre-fabricate.jpg",
+      image: "/assets/images/pre-fabricate.webp",
     },
   ];
 
@@ -452,7 +452,7 @@ const Residential = () => {
             <div className="group cursor-pointer">
               <div className="rounded-2xl overflow-hidden mb-4">
                 <Image
-                  src="/assets/images/time-share.png"
+                  src="/assets/images/time-share.webp"
                   alt="Time share"
                   width={500}
                   height={400}
@@ -478,7 +478,7 @@ const Residential = () => {
             <div className="group cursor-pointer lg:translate-y-16">
               <div className="rounded-2xl overflow-hidden mb-4">
                 <Image
-                  src="/assets/images/holiday-home.jpeg"
+                  src="/assets/images/holiday-home.webp"
                   alt="Modern farmhouse interior"
                   width={500}
                   height={400}
@@ -545,7 +545,7 @@ const Residential = () => {
             <Image
               width={200}
               height={200}
-              src="/assets/images/penthouse.jpg"
+              src="/assets/images/penthouse.webp"
               alt="bg image"
               className="object-cover sm:h-[500px] w-full"
             />
@@ -568,7 +568,7 @@ const Residential = () => {
               <Image
                 width={200}
                 height={200}
-                src="/assets/images/individual-villa.jpg"
+                src="/assets/images/individual-villa.webp"
                 alt="bg image"
                 className="object-cover w-full"
               />
@@ -590,7 +590,7 @@ const Residential = () => {
               <Image
                 width={200}
                 height={200}
-                src="/assets/images/private-dwelling.jpeg"
+                src="/assets/images/private-dwelling.webp"
                 alt="bg image"
                 className="object-cover w-full"
               />
@@ -618,7 +618,7 @@ const Residential = () => {
               <Image
                 width={200}
                 height={200}
-                src="/assets/images/mansion.jpg"
+                src="/assets/images/mansion.webp"
                 alt="bg image"
                 className="object-cover w-full"
               />
@@ -640,7 +640,7 @@ const Residential = () => {
               <Image
                 width={200}
                 height={200}
-                src="/assets/images/apartment.avif"
+                src="/assets/images/apartment.webp"
                 alt="bg image"
                 className="object-cover w-full"
               />
@@ -663,7 +663,7 @@ const Residential = () => {
             <Image
               width={200}
               height={200}
-              src="/assets/images/chateau.jpg"
+              src="/assets/images/chateau.webp"
               alt="bg image"
               className="object-cover sm:h-[800px] w-full"
             />

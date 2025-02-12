@@ -8,48 +8,28 @@ import ContactPopup from "./ContactPopup";
 const selfSustainableHomeItems = [
   {
     title: "Passive Home",
-    image: "/assets/images/passive-home.jpg",
+    image: "/assets/images/passive-home.webp",
     description: "Energy-efficient with airtight insulation",
-    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
-    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
-    queryDescription:
-      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
     title: "Earthship Home",
     image: "/assets/images/earthship-home.webp",
     description: "Built from recycled, self-sustaining materials.",
-    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
-    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
-    queryDescription:
-      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
     title: "Tiny Home (Off-Grid)",
-    image: "/assets/images/tiny-home.jpg",
+    image: "/assets/images/tiny-home.webp",
     description: "Compact, solar-powered, and eco-friendly.",
-    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
-    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
-    queryDescription:
-      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
     title: "Green Roof Home",
-    image: "/assets/images/green-roof.jpg",
+    image: "/assets/images/green-roof.webp",
     description: "Homes with vegetation-covered, insulating roofs.",
-    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
-    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
-    queryDescription:
-      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
   {
     title: "Off-Grid Cabin",
     image: "/assets/images/off-grid-cabin.webp",
     description: "Remote, renewable-powered, and independent.",
-    queryImage: "/assets/images/self-sustainable-home-hero.jpg",
-    queryHeading: "Start Your Journey to a Self-Sustainable Home Today!",
-    queryDescription:
-      "Learn the steps to build an eco-friendly, self-sustaining home by filling out the form below",
   },
 ];
 

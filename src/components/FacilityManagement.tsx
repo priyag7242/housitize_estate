@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -11,32 +10,32 @@ import { useState } from "react";
 
 const carouselItems = [
   {
-    image: "/assets/images/housekeeping.jpg",
+    image: "/assets/images/housekeeping.webp",
     title: "Housekeeping services",
     description:
       "Providing smart, energetic, efficient and courteous personnel trained to handle all tasks related to housekeeping services.",
   },
   {
-    image: "/assets/images/sanitization.jpg",
+    image: "/assets/images/sanitization.webp",
     title: "Sanitization services",
     description:
       "Through proven expertise, leading technology, and industry insights, we drive productivity, efficiency, and documented outcomes in sanitization services.",
   },
   {
-    image: "/assets/images/pantry.png",
+    image: "/assets/images/pantry.webp",
     title: "Pantry services",
     description:
       "Providing centralized and standardized delivery across a dispersed facilities portfolio allows clients to focus on their core business with our pantry services.",
   },
 
   {
-    image: "/assets/images/floor-carpet.jpg",
+    image: "/assets/images/floor-carpet.webp",
     title: "Floor, carpet & upholstery solutions",
     description:
       "Expertise, technology, and insights driving productivity and efficiency in floor, carpet & upholstery solutions.",
   },
   {
-    image: "/assets/images/pantry.png",
+    image: "/assets/images/pantry.webp",
     title: "Guest house management",
     description:
       "Providing smart, energetic, efficient and courteous personnel trained to handle all tasks related to guest house management.",

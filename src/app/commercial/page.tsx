@@ -1,93 +1,15 @@
 "use client";
 
-import { JSX, useState } from "react";
-import CarouselSlider from "react-slick";
+import { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  Search,
-  ChevronDown,
-  ChevronUp,
-  ChevronLeft,
-  ChevronRight,
-  Building2,
-  Home,
-  Newspaper,
-  FileText,
-} from "lucide-react";
+import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import * as Slider from "@radix-ui/react-slider";
-import Link from "next/link";
 import ContactPopup from "@/components/ContactPopup";
-
-interface InsightCard {
-  title: string;
-  description: string;
-  icon: JSX.Element;
-}
-
-const insightCards: InsightCard[] = [
-  {
-    title: "Transaction Prices",
-    description: "Check property transaction values and many more",
-    icon: <Building2 className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "About My Property",
-    description: "Track prices & analyse market demands",
-    icon: <Home className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "Read Latest News",
-    description: "Around real estate and allied industries",
-    icon: <Newspaper className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "Check Articles",
-    description: "On trending topics and policy updates",
-    icon: <FileText className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "About My Property",
-    description: "Track prices & analyse market demands",
-    icon: <Home className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "Read Latest News",
-    description: "Around real estate and allied industries",
-    icon: <Newspaper className="w-8 h-8 text-gray-500" />,
-  },
-  {
-    title: "Check Articles",
-    description: "On trending topics and policy updates",
-    icon: <FileText className="w-8 h-8 text-gray-500" />,
-  },
-];
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const PrevArrow = (props: any) => (
-  <button
-    onClick={props.onClick}
-    className="absolute left-2 z-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 focus:outline-none"
-    aria-label="Previous"
-  >
-    <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
-  </button>
-);
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NextArrow = (props: any) => (
-  <button
-    onClick={props.onClick}
-    className="absolute right-2 z-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 focus:outline-none"
-    aria-label="Next"
-  >
-    <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-600" />
-  </button>
-);
 
 const SearchHero = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
@@ -115,167 +37,6 @@ const SearchHero = () => {
     "Other",
   ];
 
-  const properties = [
-    {
-      title: "Office",
-      count: "4,000+",
-      image: "/assets/images/featured-listing1.jpg",
-      bgColor: "bg-[#FFF8F0]",
-    },
-    {
-      title: "Retail",
-      count: "2,600+",
-      image: "/assets/images/featured-listing2.jpg",
-      bgColor: "bg-[#F0F7FF]",
-    },
-    {
-      title: "Warehouse",
-      count: "2,400+",
-      image: "/assets/images/featured-listing3.jpg",
-      bgColor: "bg-[#F0FFF4]",
-    },
-    {
-      title: "Showroom",
-      count: "4,000+",
-      image: "/assets/images/featured-listing1.jpg",
-      bgColor: "bg-[#FFF8F0]",
-    },
-    {
-      title: "Factory",
-      count: "3,500+",
-      image: "/assets/images/featured-listing4.jpg",
-      bgColor: "bg-[#FFF0F7]",
-    },
-    {
-      title: "Commercial Land",
-      count: "2,400+",
-      image: "/assets/images/featured-listing3.jpg",
-      bgColor: "bg-[#F0FFF4]",
-    },
-  ];
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: false,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-          dots: true,
-        },
-      },
-    ],
-  };
-  const marketTrendSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
-
-  const cities = [
-    {
-      city: "Jaipur",
-      country: "Rajasthan",
-      properties: "300+ Properties",
-      image: "/assets/images/jaipur.jpg",
-    },
-    {
-      city: "Delhi",
-      country: "NCR",
-      properties: "180+ Properties",
-      image: "/assets/images/delhi.jpg",
-    },
-    {
-      city: "Moscow",
-      country: "Russia",
-      properties: "180+ Properties",
-      image: "/assets/images/italy.jpg",
-    },
-    {
-      city: "Beijing",
-      country: "China",
-      properties: "180+ Properties",
-      image: "/assets/images/spain.jpg",
-    },
-    {
-      city: "Berlin",
-      country: "Germany",
-      properties: "180+ Properties",
-      image: "/assets/images/japan.jpg",
-    },
-    {
-      city: "Paris",
-      country: "France",
-      properties: "180+ Properties",
-      image: "/assets/images/france.jpg",
-    },
-    {
-      city: "London",
-      country: "United Kingdom",
-      properties: "180+ Properties",
-      image: "/assets/images/italy.jpg",
-    },
-    {
-      city: "Mumbai",
-      country: "Maharastra",
-      properties: "180+ Properties",
-      image: "/assets/images/mumbai.jpg",
-    },
-  ];
-
   return (
     <div>
       {/* Hero  */}
@@ -285,7 +46,7 @@ const SearchHero = () => {
           fill
           className="absolute inset-0 object-cover bg-center"
           alt="Residential Hero"
-          src="/assets/images/commercial-hero.jpg"
+          src="/assets/images/commercial-hero.webp"
         />
         {/* black overlay for shade */}
         <div className="absolute inset-0 bg-black/30 " />
@@ -615,7 +376,7 @@ const SearchHero = () => {
                 <div className="relative flex-1  min-w-[300px] hover:cursor-pointer hover:scale-105 transition duration-300">
                   <div className="relative h-64 sm:h-52 overflow-hidden rounded-2xl">
                     <Image
-                      src="/assets/images/office.avif"
+                      src="/assets/images/office.webp"
                       alt="Office"
                       fill
                       className="object-cover"
@@ -631,7 +392,7 @@ const SearchHero = () => {
                 <div className="relative flex-1 min-w-[300px] hover:cursor-pointer hover:scale-105 transition duration-300">
                   <div className="relative h-64 sm:h-80 overflow-hidden rounded-2xl">
                     <Image
-                      src="/assets/images/retail.avif"
+                      src="/assets/images/retail.webp"
                       alt="Retail"
                       fill
                       className="object-cover"
@@ -648,7 +409,7 @@ const SearchHero = () => {
               <div className="relative flex-1 flex-shrink hover:cursor-pointer hover:scale-105 transition duration-300">
                 <div className="relative sm:mt-24 h-64 sm:h-[500px] overflow-hidden rounded-2xl">
                   <Image
-                    src="/assets/images/hospitality.jpeg"
+                    src="/assets/images/hospitality.webp"
                     alt="Hospitality"
                     fill
                     className="object-cover"
@@ -682,7 +443,7 @@ const SearchHero = () => {
           {/* First Image */}
           <div className="aspect-[4/3] relative">
             <Image
-              src="/assets/images/industry1.jpg"
+              src="/assets/images/industry1.webp"
               alt="Sliding door installation in concrete interior"
               fill
               className="object-cover rounded-lg"
@@ -692,7 +453,7 @@ const SearchHero = () => {
           {/* Second Image */}
           <div className="aspect-[4/3] relative hidden lg:block">
             <Image
-              src="/assets/images/industry2.jpg"
+              src="/assets/images/industry2.webp"
               alt="Sliding door system showcase"
               fill
               className="object-cover rounded-lg"
@@ -720,7 +481,7 @@ const SearchHero = () => {
           {/* First Image */}
           <div className="aspect-[4/3] relative">
             <Image
-              src="/assets/images/warehouse1.jpg"
+              src="/assets/images/warehouse1.webp"
               alt="Sliding door installation in concrete interior"
               fill
               className="object-cover rounded-lg"
@@ -730,7 +491,7 @@ const SearchHero = () => {
           {/* Second Image */}
           <div className="aspect-[4/3] relative hidden lg:block">
             <Image
-              src="/assets/images/warehouse2.jpg"
+              src="/assets/images/warehouse2.webp"
               alt="Sliding door system showcase"
               fill
               className="object-cover rounded-lg"
@@ -811,7 +572,7 @@ const SearchHero = () => {
                   <Image
                     width={200}
                     height={200}
-                    src="/assets/images/joint-venture.jpg"
+                    src="/assets/images/joint-venture-high-rise.jpg"
                     alt="Modern interior"
                     className="w-full h-full object-cover"
                   />
@@ -838,7 +599,7 @@ const SearchHero = () => {
             <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
               <div className="absolute inset-0 overflow-hidden rounded-full">
                 <Image
-                  src="/assets/images/office.avif"
+                  src="/assets/images/office.webp"
                   alt="Elegant table setting with cutlery and herbs"
                   fill
                   className="object-cover"

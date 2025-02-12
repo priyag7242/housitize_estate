@@ -15,7 +15,7 @@ const slides = [
     subtitle: "Luxury Stay",
     description:
       "Experience world-class hospitality, premium amenities, and a comfortable stay designed for relaxation and convenience",
-    image: "/assets/images/hotel.jpg",
+    image: "/assets/images/hotel.webp",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const slides = [
     subtitle: "Fine Dining",
     description:
       "Enjoy delicious cuisine, expertly crafted dishes, and a welcoming ambiance for a memorable dining experience",
-    image: "/assets/images/restaurant.jpg",
+    image: "/assets/images/restaurant.webp",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const slides = [
     subtitle: "Nature Retreat",
     description:
       "Discover a tranquil escape with luxurious accommodations, breathtaking views, and a variety of outdoor activities",
-    image: "/assets/images/resort.jpg",
+    image: "/assets/images/resort.webp",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const slides = [
     subtitle: "Advanced Care",
     description:
       "Providing expert medical services, state-of-the-art facilities, and compassionate care for better health and well-being",
-    image: "/assets/images/hospital.jpeg",
+    image: "/assets/images/hospital.webp",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const slides = [
     subtitle: "Leisure Hub",
     description:
       "A vibrant space for social gatherings, recreation, and relaxation with top-notch facilities and entertainment options",
-    image: "/assets/images/club-house.jpeg",
+    image: "/assets/images/club-house.webp",
   },
 ];
 
