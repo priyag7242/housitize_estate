@@ -1,9 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  ArrowRight,
+  Users,
+  LineChart,
+  GitCompare,
+  Compass,
+  Award,
+  Lightbulb,
+} from "lucide-react";
 import Image from "next/image";
 import ContactPopup from "@/components/ContactPopup";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const heroImages = [
   "/assets/images/joint-venture-hero1.jpg",
@@ -11,9 +22,58 @@ const heroImages = [
   "/assets/images/joint-venture-hero3.jpg",
 ];
 
+const benefits = [
+  {
+    title: "Personalized Service",
+    icon: Users,
+  },
+  {
+    title: "Market Expertise",
+    icon: LineChart,
+  },
+  {
+    title: "Negotiation Skills",
+    icon: GitCompare,
+  },
+  {
+    title: "Personalized Service",
+    icon: Users,
+  },
+  {
+    title: "Professional Guidance",
+    icon: Compass,
+  },
+  {
+    title: "Client Satisfaction",
+    icon: Award,
+  },
+  {
+    title: "Innovative Solutions",
+    icon: Lightbulb,
+  },
+  {
+    title: "Professional Guidance",
+    icon: Compass,
+  },
+];
+
+const images = [
+  "/assets/images/earth-shelter.webp",
+  "/assets/images/beachfront-hover.jpg",
+  "/assets/images/farm-house.jpg",
+];
+
 const JointVenture = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1.6, 1]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -323,47 +383,6 @@ const JointVenture = () => {
         </div>
       </div>
 
-      {/*Residential joint venture*/}
-      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <Image
-                  src="/assets/images/courtyard.jpg"
-                  alt="Elegant table setting with cutlery and herbs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="text-center lg:text-left space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
-                Residential Venture for Mutual Growth
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Turn your land into profitable <strong>residential</strong>{" "}
-                projects! We build, sell, rent, or lease—you earn. Partner with
-                us and unlock your land’s true potential!
-              </p>
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setIsContactPopupOpen(true);
-                  }}
-                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
-                >
-                  Contact us
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Commercial */}
       <div className="relative min-h-screen w-full overflow-hidden">
         {/* Background Video */}
@@ -464,46 +483,64 @@ const JointVenture = () => {
         </div>
       </div>
 
-      {/*Commercial joint venture*/}
-      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="text-center lg:text-left space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
-                Build Commercial Success Together
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Turn your land into high-value <strong>commercial</strong>{" "}
-                properties! From offices to retail hubs, we develop, lease, or
-                sell—you earn, we grow together!
-              </p>
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setIsContactPopupOpen(true);
-                  }}
-                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
-                >
-                  Contact us
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <Image
-                  src="/assets/images/office.avif"
-                  alt="Elegant table setting with cutlery and herbs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  priority
-                />
-              </div>
-            </div>
+      {/* Key benefits */}
+      <section className="py-16 px-4 bg-[#B2BFC2]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-serif mb-12 text-center text-gray-800">
+            Key Benefits
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card
+                key={index}
+                className="p-6 w-44 h-32 sm:w-56 sm:h-48 rounded-sm flex flex-col items-center border-none text-center bg-[#C7D3D7] hover:scale-110  hover:shadow-lg transition duration-300"
+              >
+                <div className="w-16 h-16 mb-2 p-1 sm:p-3 rounded-md bg-[#cfd9dc] flex items-center justify-center">
+                  <benefit.icon
+                    className="w-8 h-8 text-gray-600"
+                    strokeWidth={1.5}
+                  />
+                </div>
+                <h3 className="text-sm sm:text-xl font-serif mb-2 text-gray-800">
+                  {benefit.title.split(" ")[0]} <br />{" "}
+                  {benefit.title.split(" ")[1]}
+                </h3>
+              </Card>
+            ))}
           </div>
         </div>
-      </section> */}
+      </section>
+
+      {/* Some div */}
+      <section
+        ref={sectionRef}
+        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-12"
+      >
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl text-[#2B4570] font-light mb-8 sm:mb-12">
+          Managing residential and commercial properties
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:px-12 gap-4 mb-36 sm:gap-6 lg:gap-12">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`relative h-[300px] sm:h-[500px] hover:scale-105 transition duration-300 overflow-hidden rounded-lg ${
+                index === 1 ? "translate-y-12" : ""
+              }`}
+            >
+              <motion.div style={{ scale }} className="w-full h-full">
+                <Image
+                  src={image}
+                  alt={`Property Image ${index + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Plotting */}
       <div className="relative min-h-[600px] flex items-center px-4 md:px-8 lg:px-16">
@@ -559,6 +596,89 @@ const JointVenture = () => {
           </div>
         </div>
       </div>
+
+      {/*-------------*/}
+      {/*Residential joint venture*/}
+      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <Image
+                  src="/assets/images/courtyard.jpg"
+                  alt="Elegant table setting with cutlery and herbs"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="text-center lg:text-left space-y-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
+                Residential Venture for Mutual Growth
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Turn your land into profitable <strong>residential</strong>{" "}
+                projects! We build, sell, rent, or lease—you earn. Partner with
+                us and unlock your land’s true potential!
+              </p>
+              <div className="pt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsContactPopupOpen(true);
+                  }}
+                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
+                >
+                  Contact us
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/*Commercial joint venture*/}
+      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+            <div className="text-center lg:text-left space-y-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
+                Build Commercial Success Together
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Turn your land into high-value <strong>commercial</strong>{" "}
+                properties! From offices to retail hubs, we develop, lease, or
+                sell—you earn, we grow together!
+              </p>
+              <div className="pt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsContactPopupOpen(true);
+                  }}
+                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
+                >
+                  Contact us
+                </Button>
+              </div>
+            </div>
+            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <Image
+                  src="/assets/images/office.avif"
+                  alt="Elegant table setting with cutlery and herbs"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
     </div>
   );
 };

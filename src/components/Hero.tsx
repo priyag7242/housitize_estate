@@ -76,7 +76,7 @@ const Hero = () => {
 
   const displayHoverImage = (category: string | null) => {
     switch (category) {
-      case "self sustainable house":
+      case "self-sustainable home":
         return "/assets/images/home-hover.jpg";
       case "construction":
         return "/assets/images/land-hover.jpg";
@@ -124,7 +124,7 @@ const Hero = () => {
   };
 
   const heroItems = [
-    { num: "01", text: "Self Sustainable Home" },
+    { num: "01", text: "Self-Sustainable Home" },
     { num: "02", text: "Construction" },
     { num: "03", text: "Interior" },
     { num: "04", text: "Hospitality" },
@@ -132,7 +132,8 @@ const Hero = () => {
 
   // Function to handle navigation with a dynamic parameter
   const handleBottomNavClick = (category: string) => {
-    router.push(`/${category}`);
+    const formattedCategory = category.replace(/\s+/g, "-");
+    router.push(`/${formattedCategory}`);
   };
 
   return (
