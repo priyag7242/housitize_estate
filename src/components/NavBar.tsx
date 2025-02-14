@@ -46,7 +46,6 @@ const Navbar = () => {
 
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
@@ -240,7 +239,7 @@ const Navbar = () => {
                   key={link.text}
                   href={link.href}
                   title={link.title}
-                  className={`px-4 py-2 flex justify-center items-center hover:text-slate-300  ${
+                  className={`px-4 py-2 text-xs flex justify-center items-center hover:text-slate-300  ${
                     isScrolled ? "text-gray-800 " : ""
                   } `}
                 >

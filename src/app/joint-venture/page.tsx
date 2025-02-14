@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 const heroImages = [
   "/assets/images/joint-venture-hero1.jpg",
@@ -63,18 +64,57 @@ const images = [
   "/assets/images/farm-house.jpg",
 ];
 
+const services = [
+  {
+    id: 1,
+    title: "Buy",
+    subtitle: "Find Your Ideal Property",
+    description:
+      "We specialize in helping you find the perfect property that meets your needs and preferences. Whether you're looking for a cozy apartment, a family home, or an investment property, we'll guide you through the process step by step.",
+  },
+  {
+    id: 2,
+    title: "Sell",
+    subtitle: "Maximize Your Property Value",
+    description:
+      "Selling your property can be a stressful process. Let us handle the details and negotiations to ensure you get the best price for your property. Our expertise in the market will help you achieve your selling goals with ease.",
+  },
+  {
+    id: 3,
+    title: "Rent",
+    subtitle: "Find Your Perfect Rental",
+    description:
+      "Looking for a rental property? We have a wide range of rental listings to choose from. Whether you need a short-term lease or a long-term rental, we'll help you find the right place to call home.",
+  },
+  {
+    id: 4,
+    title: "Invest",
+    subtitle: "Grow Your Real Estate Portfolio",
+    description:
+      "Investing in real estate can be a lucrative opportunity. We provide expert advice on real estate investments, helping you identify profitable opportunities and build a successful real estate portfolio.",
+  },
+];
+
+const categories = [
+  { id: "highrise", label: "Highrise", icon: "Building" },
+  { id: "farmhouse", label: "Farm House", icon: "House" },
+  { id: "plotting", label: "Plot", icon: "LandPlot" },
+  { id: "villas", label: "Villas", icon: "HousePlus" },
+];
+
 const JointVenture = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
+  //FOR IMAGE ZOOM OUT
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1.6, 1]);
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1.6, 1]);
-
+  //Hero Image changing
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % heroImages.length);
@@ -127,103 +167,16 @@ const JointVenture = () => {
       </div>
 
       {/* Services */}
+
       <section className="max-w-[90vw] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-12 md:mb-16">
           Our Services
         </h1>
 
         <div className="space-y-8 md:space-y-12">
-          {/* Buy Service */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-gray-200 pt-8">
-            <div className="md:col-span-2">
-              <span className="inline-block bg-gray-100 rounded-full px-4 py-2 text-gray-700">
-                1. Buy
-              </span>
-            </div>
-            <div className="md:col-span-3">
-              <h2 className="text-xl md:text-2xl font-serif text-gray-800">
-                Find Your Ideal Property
-              </h2>
-            </div>
-            <div className="md:col-span-1"></div>
-            <div className="md:col-span-6">
-              <p className="text-gray-600  leading-relaxed">
-                We specialize in helping you find the perfect property that
-                meets your needs and preferences. Whether you&apos;re looking
-                for a cozy apartment, a family home, or an investment property,
-                we&apos;ll guide you through the process step by step.
-              </p>
-            </div>
-          </div>
-
-          {/* Sell Service */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-gray-200 pt-8">
-            <div className="md:col-span-2">
-              <span className="inline-block bg-gray-100 rounded-full px-4 py-2 text-gray-700">
-                2. Sell
-              </span>
-            </div>
-            <div className="md:col-span-3">
-              <h2 className="text-xl md:text-2xl font-serif text-gray-800">
-                Maximize Your Property Value
-              </h2>
-            </div>
-            <div className="md:col-span-1"></div>
-            <div className="md:col-span-6">
-              <p className="text-gray-600 leading-relaxed">
-                Selling your property can be a stressful process. Let us handle
-                the details and negotiations to ensure you get the best price
-                for your property. Our expertise in the market will help you
-                achieve your selling goals with ease.
-              </p>
-            </div>
-          </div>
-
-          {/* Rent Service */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-gray-200 pt-8">
-            <div className="md:col-span-2">
-              <span className="inline-block bg-gray-100 rounded-full px-4 py-2 text-gray-700">
-                3. Rent
-              </span>
-            </div>
-            <div className="md:col-span-3">
-              <h2 className="text-xl md:text-2xl font-serif text-gray-800">
-                Find Your Perfect Rental
-              </h2>
-            </div>
-            <div className="md:col-span-1"></div>
-            <div className="md:col-span-6">
-              <p className="text-gray-600 leading-relaxed">
-                Looking for a rental property? We have a wide range of rental
-                listings to choose from. Whether you need a short-term lease or
-                a long-term rental, we&apos;ll help you find the right place to
-                call home.
-              </p>
-            </div>
-          </div>
-
-          {/* Invest Service */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-gray-200 pt-8">
-            <div className="md:col-span-2">
-              <span className="inline-block bg-gray-100 rounded-full px-4 py-2 text-gray-700">
-                3. Invest
-              </span>
-            </div>
-            <div className="md:col-span-3">
-              <h2 className="text-xl md:text-2xl font-serif text-gray-800">
-                Grow Your Real Estate Portfolio
-              </h2>
-            </div>
-            <div className="md:col-span-1"></div>
-            <div className="md:col-span-6">
-              <p className="text-gray-600 leading-relaxed">
-                Investing in real estate can be a lucrative opportunity. We
-                provide expert advice on real estate investments, helping you
-                identify profitable opportunities and build a successful real
-                estate portfolio.
-              </p>
-            </div>
-          </div>
+          {services.map((service) => (
+            <ServiceItem key={service.id} service={service} />
+          ))}
         </div>
       </section>
 
@@ -240,50 +193,47 @@ const JointVenture = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Left Column - Tall Image */}
-          <div
-            onClick={() => {
-              setIsContactPopupOpen(true);
+          <Link
+            href={{
+              pathname: "/category",
+              query: { data: JSON.stringify(categories) },
             }}
-            className="relative overflow-hidden rounded-lg group hover:cursor-pointer"
           >
-            <Image
-              src="/assets/images/joint-venture-high-rise.jpg"
-              alt="AFEELA 1 Car"
-              width={800}
-              height={1200}
-              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent">
-              <div className="absolute bottom-0 left-0 p-6 flex items-center justify-between w-full">
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  High-rise
-                </h3>
-                <div className="rounded-full p-2 border border-white/30 backdrop-blur-sm">
-                  <svg
-                    className="w-6 h-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+            <div className="relative overflow-hidden h-full rounded-lg group hover:cursor-pointer">
+              <Image
+                src="/assets/images/joint-venture-high-rise.jpg"
+                alt="AFEELA 1 Car"
+                width={800}
+                height={1200}
+                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent">
+                <div className="absolute bottom-0 left-0 p-6 flex items-center justify-between w-full">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">
+                    High-rise
+                  </h3>
+                  <div className="rounded-full p-2 border border-white/30 backdrop-blur-sm">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* Right Column */}
           <div className="grid grid-cols-1 gap-4">
             {/* Top Two Images */}
             <div className="grid grid-cols-2 gap-4">
               {/* farm house Card */}
-              <div
-                onClick={() => {
-                  setIsContactPopupOpen(true);
-                }}
-                className="relative overflow-hidden rounded-lg group hover:cursor-pointer"
-              >
+              <div className="relative overflow-hidden rounded-lg group hover:cursor-pointer">
                 <Image
                   src="/assets/images/joint-venture-farmhouse.avif"
                   alt="How to order"
@@ -312,12 +262,7 @@ const JointVenture = () => {
               </div>
 
               {/* Plotting Card */}
-              <div
-                onClick={() => {
-                  setIsContactPopupOpen(true);
-                }}
-                className="relative  overflow-hidden rounded-lg group hover:cursor-pointer"
-              >
+              <div className="relative  overflow-hidden rounded-lg group hover:cursor-pointer">
                 <Image
                   src="/assets/images/joint-venture-plotting.avif"
                   alt="Vehicle Support"
@@ -596,91 +541,63 @@ const JointVenture = () => {
           </div>
         </div>
       </div>
-
-      {/*-------------*/}
-      {/*Residential joint venture*/}
-      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <Image
-                  src="/assets/images/courtyard.jpg"
-                  alt="Elegant table setting with cutlery and herbs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="text-center lg:text-left space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
-                Residential Venture for Mutual Growth
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Turn your land into profitable <strong>residential</strong>{" "}
-                projects! We build, sell, rent, or lease—you earn. Partner with
-                us and unlock your land’s true potential!
-              </p>
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setIsContactPopupOpen(true);
-                  }}
-                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
-                >
-                  Contact us
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/*Commercial joint venture*/}
-      {/* <section className="min-h-[50vh] md:min-h-[80vh] flex justify-center items-center bg-[#f5f5f3] px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="text-center lg:text-left space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-gray-800">
-                Build Commercial Success Together
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Turn your land into high-value <strong>commercial</strong>{" "}
-                properties! From offices to retail hubs, we develop, lease, or
-                sell—you earn, we grow together!
-              </p>
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setIsContactPopupOpen(true);
-                  }}
-                  className="rounded-full px-8 py-6 text-base border-gray-400 bg-gray-200 hover:bg-gray-300 transition-colors"
-                >
-                  Contact us
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-[200px] md:h-[300px] lg:h-[400px]">
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <Image
-                  src="/assets/images/office.avif"
-                  alt="Elegant table setting with cutlery and herbs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };
 
 export default JointVenture;
+
+// Separate component for each service item with scroll animation
+interface Service {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+}
+function ServiceItem({ service }: { service: Service }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center start"], // Animate when it enters viewport
+  });
+
+  // Shared animations for fade-in and move-up effect
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [20, 0]);
+
+  return (
+    <div
+      ref={ref}
+      className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start border-t border-gray-200 pt-8"
+    >
+      {/* Subtitle (ID + Title) */}
+      <motion.div style={{ opacity, y: translateY }} className="md:col-span-2">
+        <span className="inline-block bg-gray-100 rounded-full px-4 py-2 text-gray-700">
+          {service.id}. {service.title}
+        </span>
+      </motion.div>
+
+      {/* Title */}
+      <motion.div
+        style={{ opacity, y: translateY }}
+        transition={{ delay: 0.1 }}
+        className="md:col-span-3"
+      >
+        <h2 className="text-xl md:text-2xl font-serif text-gray-800">
+          {service.subtitle}
+        </h2>
+      </motion.div>
+
+      <div className="md:col-span-1"></div>
+
+      {/* Description */}
+      <motion.div
+        style={{ opacity, y: translateY }}
+        transition={{ delay: 0.2 }} // Slight delay for staggered effect
+        className="md:col-span-5"
+      >
+        <p className="text-gray-600 leading-relaxed">{service.description}</p>
+      </motion.div>
+    </div>
+  );
+}

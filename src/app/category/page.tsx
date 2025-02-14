@@ -4,64 +4,44 @@ import React, { FormEvent, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PropertyHeroCarousel from "@/components/reusable-component/PropertyHeroCarousel";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Search,
-  X,
-  Minus,
-  Plus,
-  Heart,
-  SlidersHorizontal,
-} from "lucide-react";
+import { X, Minus, Plus, SlidersHorizontal, HelpCircle } from "lucide-react";
+import { Building, House, LandPlot, HousePlus } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+
+import { useRouter } from "next/navigation";
+
+const iconMap: Record<string, React.ElementType> = {
+  Building,
+  House,
+  LandPlot,
+  HousePlus,
+};
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Mountain,
-  LandPlot,
-  University,
-  PocketIcon as Pool,
-  Home,
-  Palmtree,
-  Castle,
-} from "lucide-react";
-import CategoryProperties from "@/components/CategoryProperties";
+// import CategoryProperties from "@/components/CategoryProperties";
+import { useSearchParams } from "next/navigation";
 
 interface Category {
   id: string;
   label: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: string; // Icon name as a string
 }
-                   
-const categories: Category[] = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "land", label: "Land", icon: LandPlot },
-  { id: "school", label: "School", icon: University },
-  { id: "beachfront", label: "Beachfront", icon: Palmtree },
-  { id: "castle", label: "Castle", icon: Castle },
+
+const categories = [
+  { id: "highrise", label: "Highrise", icon: "Building" },
+  { id: "farmhouse", label: "Farm House", icon: "House" },
+  { id: "plotting", label: "Plot", icon: "LandPlot" },
+  { id: "villas", label: "Villas", icon: "HousePlus" },
 ];
 
 const Category = () => {
-  const [category, setCategory] = useState("home");
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const categoryFromUrl = searchParams.get("category");
+  
 
-    if (categoryFromUrl) {
-      setCategory(categoryFromUrl);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (category) {
-      setSelectedCategory(category);
-    }
-  }, [category]);
+  
 
   const images = [
     "/assets/images/school-property/property-carousel-img4.jpg",
@@ -94,30 +74,34 @@ const Category = () => {
     };
   }, [isOpen]);
 
-
   return (
     <div className="min-h-screen bg-white">
       <PropertyHeroCarousel images={images} />
 
       <div className="container mx-auto max-w-[1400px] px-4 py-6 pt-24">
         {/* Category Bar */}
-        <div className="sticky top-[95px] pt-4 z-10 bg-white flex items-center gap-8 overflow-x-auto pb-4 md:pb-6 no-scrollbar shadow-md">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`flex flex-col items-center gap-2 min-w-[64px] transition-colors ${
-                selectedCategory === category.id
-                  ? "text-gray-700 border-b-2 border-gray-700"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              <category.icon className="w-6 h-6" />
-              <span className="text-xs font-medium whitespace-nowrap">
-                {category.label}
-              </span>
-            </button>
-          ))}
+        <div className="sticky top-0 pt-4 z-10 bg-white flex items-center gap-8 overflow-x-auto pb-4 md:pb-6 no-scrollbar shadow-md">
+          {categories.map((category) => {
+            console.log("Category icon:", category.icon); // Debugging
+            const IconComponent = iconMap[category.icon] || HelpCircle;
+            return (
+              <button
+                key={category.id}
+                className="flex flex-col items-center gap-2"
+                //   className={`flex flex-col items-center gap-2 min-w-[64px] transition-colors ${
+                //   selectedCategory === category.id
+                //     ? "text-gray-700 border-b-2 border-gray-700"
+                //     : "text-gray-500 hover:text-gray-700"
+                // }`}
+              >
+                <IconComponent className="w-6 h-6 text-gray-700" />
+                <span className="text-xs font-medium whitespace-nowrap">
+                  {category.label}
+                </span>
+              </button>
+            );
+          })}
+          
           <button
             onClick={() => setIsOpen(true)}
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm text-gray-600 shadow-sm border-2 border-gray-200 hover:bg-gray-100 transition-colors"
@@ -128,7 +112,7 @@ const Category = () => {
         </div>
 
         {/* Category Properties */}
-        <CategoryProperties selectedCategory={selectedCategory} />
+        {/* <CategoryProperties selectedCategory={selectedCategory} /> */}
       </div>
 
       {/* Filter Modal */}
