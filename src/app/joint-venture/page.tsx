@@ -233,7 +233,13 @@ const JointVenture = () => {
             {/* Top Two Images */}
             <div className="grid grid-cols-2 gap-4">
               {/* farm house Card */}
-              <div className="relative overflow-hidden rounded-lg group hover:cursor-pointer">
+              <Link
+                href={{
+                  pathname: "/category",
+                  query: { data: JSON.stringify(categories) },
+                }}
+                className="relative overflow-hidden rounded-lg group hover:cursor-pointer"
+              >
                 <Image
                   src="/assets/images/joint-venture-farmhouse.avif"
                   alt="How to order"
@@ -259,10 +265,16 @@ const JointVenture = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               {/* Plotting Card */}
-              <div className="relative  overflow-hidden rounded-lg group hover:cursor-pointer">
+              <Link
+                href={{
+                  pathname: "/category",
+                  query: { data: JSON.stringify(categories) },
+                }}
+                className="relative  overflow-hidden rounded-lg group hover:cursor-pointer"
+              >
                 <Image
                   src="/assets/images/joint-venture-plotting.avif"
                   alt="Vehicle Support"
@@ -288,13 +300,14 @@ const JointVenture = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Bottom Wide Image */}
-            <div
-              onClick={() => {
-                setIsContactPopupOpen(true);
+            <Link
+              href={{
+                pathname: "/category",
+                query: { data: JSON.stringify(categories) },
               }}
               className="relative overflow-hidden rounded-lg group hover:cursor-pointer"
             >
@@ -323,7 +336,7 @@ const JointVenture = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

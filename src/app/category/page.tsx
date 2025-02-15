@@ -4,13 +4,13 @@ import React, { FormEvent, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PropertyHeroCarousel from "@/components/reusable-component/PropertyHeroCarousel";
-import { X, Minus, Plus, SlidersHorizontal, HelpCircle } from "lucide-react";
+import { X, Minus, Plus, SlidersHorizontal } from "lucide-react";
 import { Building, House, LandPlot, HousePlus } from "lucide-react";
-import * as LucideIcons from "lucide-react";
 
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-const iconMap: Record<string, React.ElementType> = {
+// Map icon names (as strings) to actual React components
+const iconMap = {
   Building,
   House,
   LandPlot,
@@ -20,28 +20,32 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import CategoryProperties from "@/components/CategoryProperties";
-import { useSearchParams } from "next/navigation";
-
-interface Category {
-  id: string;
-  label: string;
-  icon: string; // Icon name as a string
-}
-
-const categories = [
-  { id: "highrise", label: "Highrise", icon: "Building" },
-  { id: "farmhouse", label: "Farm House", icon: "House" },
-  { id: "plotting", label: "Plot", icon: "LandPlot" },
-  { id: "villas", label: "Villas", icon: "HousePlus" },
-];
+import CategoryProperties from "@/components/CategoryProperties";
 
 const Category = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  
+  const searchParams = useSearchParams();
+  const [categories, setCategories] = useState([]);
 
-  
+  useEffect(() => {
+    const data = searchParams.get("data");
+
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data);
+        const mappedData = parsedData.map((category) => ({
+          ...category,
+          icon: iconMap[category.icon] || null,
+        }));
+        setCategories(mappedData);
+        setSelectedCategory(parsedData[0].id);
+      } catch (error) {
+        console.error("Invalid JSON data:", error);
+      }
+    }
+  }, [searchParams]);
 
   const images = [
     "/assets/images/school-property/property-carousel-img4.jpg",
@@ -81,27 +85,29 @@ const Category = () => {
       <div className="container mx-auto max-w-[1400px] px-4 py-6 pt-24">
         {/* Category Bar */}
         <div className="sticky top-0 pt-4 z-10 bg-white flex items-center gap-8 overflow-x-auto pb-4 md:pb-6 no-scrollbar shadow-md">
-          {categories.map((category) => {
-            console.log("Category icon:", category.icon); // Debugging
-            const IconComponent = iconMap[category.icon] || HelpCircle;
-            return (
-              <button
-                key={category.id}
-                className="flex flex-col items-center gap-2"
-                //   className={`flex flex-col items-center gap-2 min-w-[64px] transition-colors ${
-                //   selectedCategory === category.id
-                //     ? "text-gray-700 border-b-2 border-gray-700"
-                //     : "text-gray-500 hover:text-gray-700"
-                // }`}
-              >
-                <IconComponent className="w-6 h-6 text-gray-700" />
-                <span className="text-xs font-medium whitespace-nowrap">
-                  {category.label}
-                </span>
-              </button>
-            );
-          })}
-          
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`flex flex-col items-center gap-2 min-w-[64px] transition-colors ${
+                selectedCategory === category.id
+                  ? "text-gray-700 border-b-2 border-gray-700"
+                  : "text-gray-600 hover:text-gray-600"
+              }`}
+            >
+              <category.icon
+                className={`w-6 h-6 text-gray-700 ${
+                  selectedCategory === category.id
+                    ? "text-gray-700"
+                    : "text-gray-600"
+                }`}
+              />
+              <span className="text-sm font-medium whitespace-nowrap">
+                {category.label}
+              </span>
+            </button>
+          ))}
+
           <button
             onClick={() => setIsOpen(true)}
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm text-gray-600 shadow-sm border-2 border-gray-200 hover:bg-gray-100 transition-colors"
@@ -112,7 +118,7 @@ const Category = () => {
         </div>
 
         {/* Category Properties */}
-        {/* <CategoryProperties selectedCategory={selectedCategory} /> */}
+        <CategoryProperties selectedCategory={selectedCategory} />
       </div>
 
       {/* Filter Modal */}

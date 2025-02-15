@@ -493,128 +493,7 @@ const beachfront = [
     isFavourite: false,
   },
 ];
-const castleProperties = [
-  {
-    id: 1,
-    images: ["/assets/images/category/similar-listing4.jpg"],
-    location: "Mahagaon",
-    country: "India",
-    description: "Mountain and valley views",
-    price: 3000000,
-    rating: 4.89,
-    isFavourite: false,
-  },
-  {
-    id: 2,
-    images: ["/assets/images/category/similar-listing5.jpg"],
-    location: "Jaipur",
-    country: "India",
-    description: "Palace views",
-    price: 3500000,
-    rating: 4.95,
-    isFavourite: false,
-  },
-  {
-    id: 3,
-    images: ["/assets/images/category/similar-listing6.jpg"],
-    location: "Kolhapur",
-    country: "India",
-    description: "City views",
-    price: 4000000,
-    rating: 4.9,
-    isFavourite: false,
-  },
-  {
-    id: 4,
-    images: ["/assets/images/category/similar-listing7.jpg"],
-    location: "Pune",
-    country: "India",
-    description: "City views",
-    price: 4500000,
-    rating: 5.0,
-    isFavourite: false,
-  },
-  {
-    id: 5,
-    images: ["/assets/images/category/similar-listing8.jpg"],
-    location: "Pimplad Nasik",
-    country: "India",
-    description: "Lake and garden views",
-    price: 5000000,
-    rating: 5.0,
-    isFavourite: false,
-  },
-  {
-    id: 6,
-    images: ["/assets/images/category/similar-listing1.jpg"],
-    location: "Udaipur",
-    country: "India",
-    description: "City views",
-    price: 1500000,
-    rating: 5.0,
-    isFavourite: false,
-  },
-  {
-    id: 7,
-    images: ["/assets/images/category/similar-listing2.jpg"],
-    location: "Dhalewadi",
-    country: "India",
-    description: "77 kilometres away",
-    price: 2000000,
-    rating: 4.88,
-    isFavourite: false,
-  },
-  {
-    id: 8,
-    images: ["/assets/images/category/similar-listing3.jpg"],
-    location: "Pimplad Nasik",
-    country: "India",
-    description: "Lake and garden views",
-    price: 2500000,
-    rating: 5.0,
-    isFavourite: false,
-  },
-  {
-    id: 9,
-    images: ["/assets/images/category/similar-listing9.jpg"],
-    location: "Mahagaon",
-    country: "India",
-    description: "Mountain and valley views",
-    price: 5500000,
-    rating: 4.89,
-    isFavourite: false,
-  },
-  {
-    id: 10,
-    images: ["/assets/images/category/similar-listing10.jpg"],
-    location: "Jaipur",
-    country: "India",
-    description: "Palace views",
-    price: 6000000,
-    rating: 4.95,
-    isFavourite: false,
-  },
-  {
-    id: 11,
-    images: ["/assets/images/category/similar-listing11.jpg"],
-    location: "Kolhapur",
-    country: "India",
-    description: "City views",
-    price: 7000000,
-    rating: 4.9,
-    isFavourite: false,
-  },
-  {
-    id: 12,
-    images: ["/assets/images/category/similar-listing12.jpg"],
-    location: "Pune",
-    country: "India",
-    description: "City views",
-    price: 8000000,
-    rating: 5.0,
-    isFavourite: false,
-  },
-];
+
 
 const CategoryProperties = ({
   selectedCategory,
@@ -625,20 +504,17 @@ const CategoryProperties = ({
 
   useEffect(() => {
     switch (selectedCategory) {
-      case "home":
+      case "highrise":
         setPropertyList(houseProperties);
         break;
-      case "land":
+      case "farmhouse":
         setPropertyList(landProperties);
         break;
-      case "school":
+      case "plotting":
         setPropertyList(schoolProperties);
         break;
-      case "beachfront":
+      case "villas":
         setPropertyList(beachfront);
-        break;
-      case "castle":
-        setPropertyList(castleProperties);
         break;
       default:
         setPropertyList([]);
