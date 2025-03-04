@@ -28,10 +28,7 @@ const ManualCityPopup = () => {
     { name: "Italy", image: "/assets/images/city-scapes/italy.jpg" },
     { name: "Japan", image: "/assets/images/city-scapes/japan.jpg" },
     { name: "Mexico", image: "/assets/images/city-scapes/mexico.jpg" },
-    {
-      name: "Netherlands",
-      image: "/assets/images/city-scapes/netherlands.jpg",
-    },
+    { name: "Netherlands", image: "/assets/images/city-scapes/netherlands.jpg",},
     { name: "New Zealand", image: "/assets/images/city-scapes/newzealand.jpg" },
     { name: "Russia", image: "/assets/images/city-scapes/russia.jpg" },
     { name: "Singapore", image: "/assets/images/city-scapes/singapore.jpg" },
@@ -41,10 +38,7 @@ const ManualCityPopup = () => {
     { name: "Switzerland", image: "/assets/images/city-scapes/france.jpg" },
     { name: "Thailand", image: "/assets/images/city-scapes/italy.jpg" },
     { name: "Turkey", image: "/assets/images/city-scapes/singapore.jpg" },
-    {
-      name: "United Arab Emirates",
-      image: "/assets/images/city-scapes/china.jpg",
-    },
+    { name: "United Arab Emirates",image: "/assets/images/city-scapes/china.jpg",},
     { name: "United Kingdom", image: "/assets/images/city-scapes/canada.jpg" },
     { name: "United States", image: "/assets/images/city-scapes/greece.jpg" },
   ];

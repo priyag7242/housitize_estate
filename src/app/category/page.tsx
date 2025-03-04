@@ -15,7 +15,9 @@ const iconMap = {
   House,
   LandPlot,
   HousePlus,
-};
+} as const;
+
+type IconMapKey = keyof typeof iconMap;
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,14 +32,14 @@ const Category = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const data = searchParams.get("data");
+    const data = searchParams?.get("data");
 
     if (data) {
       try {
         const parsedData = JSON.parse(data);
-        const mappedData = parsedData.map((category) => ({
+        const mappedData = parsedData.map((category: any) => ({
           ...category,
-          icon: iconMap[category.icon] || null,
+          icon: iconMap[category.icon as IconMapKey] || null,
         }));
         setCategories(mappedData);
         setSelectedCategory(parsedData[0].id);
@@ -160,70 +162,62 @@ const Category = () => {
               <div className="space-y-2">
                 <Label>Price Range</Label>
 
-                {/*safe*/}
-                <div className="relative h-1.5 mt-[88px]">
-                  <div className="absolute inset-0 bg-gray-200 rounded-full" />
-                  <div
-                    className="absolute h-full bg-rose-500 rounded-full"
-                    style={{
-                      left: `${
-                        ((filterData.priceRange[0] - 500000) /
-                          (10000000 - 500000)) *
-                        100
-                      }%`,
-                      right: `${
-                        100 -
-                        ((filterData.priceRange[1] - 500000) /
-                          (10000000 - 500000)) *
-                          100
-                      }%`,
-                    }}
-                  />
-
-                  <input
-                    type="range"
-                    min={500000}
-                    max={10000000}
-                    value={filterData.priceRange[0]}
-                    onChange={(e) => {
-                      const newValue = parseInt(e.target.value);
-                      if (newValue <= filterData.priceRange[1]) {
-                        setFilterData((prev) => ({
-                          ...prev,
-                          priceRange: [newValue, prev.priceRange[1]],
-                        }));
-                      }
-                    }}
-                    className="absolute w-full h-1.5 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-rose-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-rose-500 [&::-moz-range-thumb]:cursor-pointer"
-                  />
-                  <input
-                    type="range"
-                    min={500000}
-                    max={10000000}
-                    value={filterData.priceRange[1]}
-                    onChange={(e) => {
-                      const newValue = parseInt(e.target.value);
-                      if (newValue >= filterData.priceRange[0]) {
-                        setFilterData((prev) => ({
-                          ...prev,
-                          priceRange: [prev.priceRange[0], newValue],
-                        }));
-                      }
-                    }}
-                    className="absolute w-full h-1.5 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-rose-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-rose-500 [&::-moz-range-thumb]:cursor-pointer"
-                  />
-                </div>
-
-                {/*showing price*/}
-                <div className="flex justify-between">
-                  <div className="rounded-full border px-4 py-2 text-sm">
-                    ₹{filterData.priceRange[0].toLocaleString("en-IN")}
+                {/* Completely revised price range slider */}
+                <div className="pt-8 pb-8">
+                  <div className="relative h-1.5">
+                    <div className="absolute inset-0 bg-gray-200 rounded-full"></div>
+                    <div 
+                      className="absolute h-full bg-rose-500 rounded-full"
+                      style={{
+                        left: `${((filterData.priceRange[0] - 500000) / 9500000) * 100}%`,
+                        width: `${((filterData.priceRange[1] - filterData.priceRange[0]) / 9500000) * 100}%`
+                      }}
+                    ></div>
+                    <input
+                      type="range"
+                      min="500000"
+                      max="10000000"
+                      step="100000"
+                      value={filterData.priceRange[0]}
+                      onChange={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value < filterData.priceRange[1]) {
+                          setFilterData(prev => ({ 
+                            ...prev, 
+                            priceRange: [value, prev.priceRange[1]] 
+                          }));
+                        }
+                      }}
+                      className="absolute w-full h-1.5 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-rose-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-rose-500 [&::-moz-range-thumb]:cursor-pointer"
+                    />
+                    <input
+                      type="range"
+                      min="500000"
+                      max="10000000"
+                      step="100000"
+                      value={filterData.priceRange[1]}
+                      onChange={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value > filterData.priceRange[0]) {
+                          setFilterData(prev => ({
+                            ...prev,
+                            priceRange: [prev.priceRange[0], value]
+                          }));
+                        }
+                      }}
+                      className="absolute w-full h-1.5 bg-transparent appearance-none pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-rose-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-rose-500 [&::-moz-range-thumb]:cursor-pointer"
+                    />
                   </div>
-                  <div className="rounded-full border px-4 py-2 text-sm">
-                    ₹{filterData.priceRange[1].toLocaleString("en-IN")}
+
+                  <div className="flex justify-between mt-4">
+                    <div className="rounded-full border px-4 py-2 text-sm">
+                      ₹{filterData.priceRange[0].toLocaleString("en-IN")}
+                    </div>
+                    <div className="rounded-full border px-4 py-2 text-sm">
+                      ₹{filterData.priceRange[1].toLocaleString("en-IN")}
+                    </div>
                   </div>
                 </div>
-              </div>
 
               <div className="space-y-2">
                 <Label>Bedrooms</Label>

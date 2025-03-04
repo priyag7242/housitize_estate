@@ -10,11 +10,11 @@ import {
 
 const HowWeOperate = () => {
   const steps = [
-    { icon: Search, title: "SELECT PROPERTY" },
+    { icon: Search, title: "SEARCH PROPERTY" },
     { icon: FileCheck, title: "SUBMIT YOUR ENQUIRY" },
     { icon: Award, title: "MEET OUR EXPERT" },
     { icon: Shield, title: "VISIT PROPERTY" },
-    { icon: Home, title: "BUY PROPERTY" },
+    { icon: Home, title: "CLOSE DEAL" },
     { icon: Coins, title: "LOAN ASSISTANCE" },
     { icon: UserCheck, title: "CUSTOMER SUPPORT" },
   ];
@@ -23,10 +23,11 @@ const HowWeOperate = () => {
     <div className="w-full max-w-7xl mx-auto px-4 pb-12 pt-12 md:pt-16 lg:pt-40">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          How We Operate
+        Our Property Buying Process
         </h2>
-        <p className="text-xl md:text-2xl text-gray-600">360° Framework</p>
+        <p className="text-xl md:text-2xl text-gray-600">Simple 7-Step Journey</p>
       </div>
+
 
       <div className="relative">
         {/* Connecting line */}

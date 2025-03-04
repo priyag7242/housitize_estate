@@ -1,26 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import type { LucideIcon } from "lucide-react";
-import {
-  UserCircle,
-  Menu,
-  X,
-  Bell,
-  BellIcon,
-  Flag,
-  PackageOpen,
-  ChartNoAxesCombined,
-  Building2,
-  Album,
-  Building,
-  Phone,
-  Home,
-  PaintBucket,
-  ChevronDown,
-  HandCoins,
-  HousePlus,
-  HousePlug,
-} from "lucide-react";
+import { UserCircle, Menu, X, Bell, BellIcon, Flag, PackageOpen, ChartNoAxesCombined, Building2, Album, Building, Phone, Home, PaintBucket, ChevronDown, HandCoins, HousePlus, HousePlug } from "lucide-react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
@@ -31,7 +12,7 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 
 const Navbar = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const dispatch = useDispatch();
@@ -459,7 +440,8 @@ const Navbar = () => {
                 <Flag className="h-5 w-5" />
                 Help & Support
               </Link>
-              {/* {isLoggedIn ? (
+              {
+              isLoggedIn ? (
                       <Link
                         href="/dashboard"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
@@ -473,7 +455,7 @@ const Navbar = () => {
                       >
                         Login/Signup
                       </Link>
-                    )} */}
+                    )}
             </div>
           </div>
         </div>

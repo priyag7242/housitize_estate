@@ -4,11 +4,11 @@ import { useState } from "react";
 const ArchitectureSection = () => {
   const [activeCategory, setActiveCategory] = useState<
     | "architecture"
-    | "heading2"
-    | "heading1"
-    | "heading3"
-    | "heading4"
-    | "heading5"
+    | "sustainableDesign"
+    | "urbanPlanning"
+    | "historicPreservation"
+    | "constructionTech"
+    | "collaboration"
   >("architecture");
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -19,7 +19,7 @@ const ArchitectureSection = () => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const heading1 = {
+  const sustainableDesign = {
     title: "Innovative Design and Sustainable Solutions",
     description:
       "At DEMIGOD, we prioritize innovative design and sustainable solutions that not only meet the aesthetic and functional needs of our clients but also contribute to the well-being of our environment. Our approach integrates cutting-edge technology with eco-friendly practices to create spaces that are both beautiful and responsible.",
@@ -50,7 +50,7 @@ const ArchitectureSection = () => {
   const heading5 = {
     title: "Collaborative Design Process",
     description:
-      "We believe that the best designs emerge from collaboration. Our design process involves close collaboration with clients, stakeholders, and multidisciplinary teams to ensure that every project meets the highest standards of excellence and functionality.",
+      "We believe that the best designs emerge from c</div>ollaboration. Our design process involves close collaboration with clients, stakeholders, and multidisciplinary teams to ensure that every</div> project meets the highest standards of excellence and functionality.",
   };
 
   return (
@@ -103,59 +103,59 @@ const ArchitectureSection = () => {
                 <span>Architecture</span>
               </div>
               <div
-                onClick={() => setActiveCategory("heading1")}
+                onClick={() => setActiveCategory("sustainableDesign")}
                 className={`flex items-center cursor-pointer hover:text-gray-700 transition-colors ${
-                  activeCategory === "heading1"
+                  activeCategory === "sustainableDesign"
                     ? "text-gray-700"
                     : "text-gray-500"
                 }`}
               >
                 <span className="mr-2">→</span>
-                <span>Heading 1</span>
+                <span>sustainableDesign</span>
               </div>
               <div
-                onClick={() => setActiveCategory("heading2")}
+                onClick={() => setActiveCategory("urbanPlanning")}
                 className={`flex items-center cursor-pointer hover:text-gray-700 transition-colors ${
-                  activeCategory === "heading2"
+                  activeCategory === "urbanPlanning"
                     ? "text-gray-700"
                     : "text-gray-500"
                 }`}
               >
                 <span className="mr-2">→</span>
-                <span>Heading 2</span>
+                <span>urbanPlanning</span>
               </div>
               <div
-                onClick={() => setActiveCategory("heading3")}
+                onClick={() => setActiveCategory("historicPreservation")}
                 className={`flex items-center cursor-pointer hover:text-gray-700 transition-colors ${
-                  activeCategory === "heading3"
+                  activeCategory === "historicPreservation"
                     ? "text-gray-700"
                     : "text-gray-500"
                 }`}
               >
                 <span className="mr-2">→</span>
-                <span>Heading 3</span>
+                <span>historicPreservation</span>
               </div>
               <div
-                onClick={() => setActiveCategory("heading4")}
+                onClick={() => setActiveCategory("constructionTech")}
                 className={`flex items-center cursor-pointer hover:text-gray-700 transition-colors ${
-                  activeCategory === "heading4"
+                  activeCategory === "constructionTech"
                     ? "text-gray-700"
                     : "text-gray-500"
                 }`}
               >
                 <span className="mr-2">→</span>
-                <span>Heading 4</span>
+                <span>constructionTech</span>
               </div>
               <div
-                onClick={() => setActiveCategory("heading5")}
+                onClick={() => setActiveCategory("collaboration")}
                 className={`flex items-center cursor-pointer hover:text-gray-700 transition-colors ${
-                  activeCategory === "heading5"
+                  activeCategory === "collaboration"
                     ? "text-gray-700"
                     : "text-gray-500"
                 }`}
               >
                 <span className="mr-2">→</span>
-                <span>Heading 5</span>
+                <span>collaboration</span>
               </div>
             </div>
           </div>

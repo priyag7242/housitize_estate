@@ -6,33 +6,33 @@ import { useEffect, useState } from "react";
 const steps = [
   {
     number: 1,
-    title: "Discover Needs",
+    title: "Property Assessment",
     description:
-      "We understand your vision, preferences, and budget to provide personalized property solutions",
+      "We conduct thorough evaluations of your property requirements, budget constraints, and location preferences",
   },
   {
     number: 2,
-    title: "Analyze Market",
+    title: "Market Research",
     description:
-      "Get expert insights on market trends, pricing, and the best investment opportunities",
+      "Detailed analysis of current real estate market conditions, property valuations, and neighborhood insights",
   },
   {
     number: 3,
-    title: "Evaluate Options",
+    title: "Property Selection",
     description:
-      "We assess properties based on value, location, and future potential to match your goals",
+      "Curating a selection of properties that match your criteria, with virtual or in-person viewing arrangements",
   },
   {
     number: 4,
-    title: "Smart Strategies",
+    title: "Investment Advisory",
     description:
-      "Receive strategic advice on buying, selling, or investing for maximum returns",
+      "Expert guidance on property investment potential, ROI analysis, and long-term value appreciation",
   },
   {
     number: 5,
-    title: "Seamless Decisions",
+    title: "Transaction Support",
     description:
-      "We guide you through negotiations, paperwork, and final choices with confidence",
+      "Complete assistance with negotiations, legal documentation, and closing processes for smooth property deals",
   },
 ];
 
@@ -48,7 +48,7 @@ const PropertyConsulting = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="grid md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1 m-24">
           <Image
             layout="responsive"
