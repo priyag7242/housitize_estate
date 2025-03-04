@@ -1,5 +1,5 @@
 {
-  "name": "demigod_estate",
+  "name": "housitize_estate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,5 +51,22 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.3"
-  }
+  },
+  "description": "real estate web to deploy",
+  "main": "index.js",
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/priyag7242/housitize_estate.git"
+  },
+  "keywords": [
+    "node",
+    "estate"
+  ],
+  "author": "\"Priya Goyal\"",
+  "license": "ISC",
+  "bugs": {
+  "url": "https://github.com/priyag7242/housitize_estate/issues"
+},
+"homepage": "https://github.com/priyag7242/housitize_estate#readme"
 }
+
