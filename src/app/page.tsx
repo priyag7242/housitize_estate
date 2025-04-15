@@ -15,8 +15,7 @@ import PropertyConsulting from "@/components/PropertyConsulting";
 import Architecture from "@/components/Architecture";
 import FacilityManagement from "@/components/FacilityManagement";
 import HeroSectionV2 from "@/components/Hero_2";
-import HousingPremiumCard from "@/components/belowHeroItems";
-// import BelowHeroItems from "@/components/belowHeroItems";
+import BelowHeroItems from "@/components/belowHeroItems";
 
 
 const Home = () => {
@@ -36,8 +35,7 @@ const Home = () => {
       >
         {/* <Hero/> */}
         <HeroSectionV2/>
-        {/* <BelowHeroItems/> */}
-        <HousingPremiumCard/>
+        <BelowHeroItems/>
         <HowWeOperate />
         <SelfSustainableHome />
         <Hospitality />

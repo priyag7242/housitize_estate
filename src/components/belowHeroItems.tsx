@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BelowHeroItems() {
   return (
@@ -31,10 +32,10 @@ export default function BelowHeroItems() {
           <h1 className="text-xl font-bold text-black">Self-Sustainable Home</h1>
           <p className="text-lg text-black">Instant access to zero brokerage properties</p>
         </div>
-        
+      <Link href="/self-sustainable-home">
         <button className="mt-4 bg-white text-red-700 hover:bg-red-700 hover:text-white border-red-700 border font-medium py-2 px-6 rounded-full transition-colors duration-200">
           View More
-        </button>
+        </button></Link>      
       </div>
     </div>
 
@@ -57,10 +58,10 @@ export default function BelowHeroItems() {
           <h1 className="text-xl font-bold text-black">Construction</h1>
           <p className="text-lg text-black">Instant access to zero brokerage properties</p>
         </div>
-        
+        <Link href="/construction">
         <button className="mt-4 bg-white text-red-700 hover:bg-red-700 hover:text-white border-red-700 border font-medium py-2 px-6 rounded-full transition-colors duration-200">
           View More
-        </button>
+        </button></Link>
       </div>
     </div>
 
@@ -83,10 +84,10 @@ export default function BelowHeroItems() {
           <h1 className="text-xl font-bold text-black">Interior</h1>
           <p className="text-lg text-black">Instant access to zero brokerage properties</p>
         </div>
-        
+        <Link href="/interior">
         <button className="mt-4 bg-white text-red-700 hover:bg-red-700 hover:text-white border-red-700 border font-medium py-2 px-6 rounded-full transition-colors duration-200">
           View More
-        </button>
+        </button></Link>
       </div>
     </div>
 
@@ -109,10 +110,10 @@ export default function BelowHeroItems() {
           <h1 className="text-xl font-bold text-black">Hospitality</h1>
           <p className="text-lg text-black">Instant access to zero brokerage properties</p>
         </div>
-        
+        <Link href="/hospitality">
         <button className="mt-4 bg-white text-red-700 hover:bg-red-700 hover:text-white border-red-700 border font-medium py-2 px-6 rounded-full transition-colors duration-200">
           View More
-        </button>
+        </button></Link>
       </div>
     </div>
       
