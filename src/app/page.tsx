@@ -1,6 +1,6 @@
 "use client";
 import ManualCityPopup from "../components/ManualCityPopup";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 import Popup from "@/components/Popup";
 import SelfSustainableHome from "@/components/SelfSustainableHome";
 import Services from "@/components/Services";
@@ -14,6 +14,10 @@ import Commercial from "@/components/Commercial";
 import PropertyConsulting from "@/components/PropertyConsulting";
 import Architecture from "@/components/Architecture";
 import FacilityManagement from "@/components/FacilityManagement";
+import HeroSectionV2 from "@/components/Hero_2";
+import HousingPremiumCard from "@/components/belowHeroItems";
+// import BelowHeroItems from "@/components/belowHeroItems";
+
 
 const Home = () => {
   const showPopup = useSelector((state: RootState) => state.popup.showPopup);
@@ -30,7 +34,10 @@ const Home = () => {
           showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
         }
       >
-        <Hero />
+        {/* <Hero/> */}
+        <HeroSectionV2/>
+        {/* <BelowHeroItems/> */}
+        <HousingPremiumCard/>
         <HowWeOperate />
         <SelfSustainableHome />
         <Hospitality />

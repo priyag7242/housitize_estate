@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import type { LucideIcon } from "lucide-react";
 import { UserCircle, Menu, X, Bell, BellIcon, Flag, PackageOpen, ChartNoAxesCombined, Building2, Album, Building, Phone, Home, PaintBucket, ChevronDown, HandCoins, HousePlus, HousePlug } from "lucide-react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
@@ -12,6 +11,8 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import ToggleButton from "./ui/toggleButton";
 import { User } from "lucide-react"
+import LoginPopup from "./LoginPopup";
+import SignupPopup from "./SignupPopup";
 
 const Navbar = () => {
   const [isLoggedIn] = useState(false);
@@ -19,6 +20,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const dispatch = useDispatch();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [isSignupPopupOpen, setIsSignupPopupOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
   const selectedLocation = useSelector(
@@ -93,7 +96,7 @@ const Navbar = () => {
       <div className="max-w-8xl xl:mx-20 px-2 xl:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Navigation Items Left side - Desktop */}
-          <div className="hidden lg:flex lg:gap-6 text-xs font-normal items-center ">
+          <div className="hidden lg:flex lg:gap-6 text-base font-normal items-center ">
           
 
             {/* Logo Image and Name */}
@@ -225,130 +228,11 @@ const Navbar = () => {
               </div>
             )}
 
-            {/* {[
-              {
-                href: "/",
-                text: "HOME",
-                title: "Home",
-              },
-              {
-                href: "/residential",
-                text: "RESIDENTIAL",
-                title: "Residential",
-              },
-              {
-                href: "/commercial",
-                text: "COMMERCIAL",
-                title: "Commercial",
-              },
-              {
-                href: "/industries",
-                text: "INDUSTRIES",
-                title: "industries",
-              },
-              {
-                href: "/joint-venture",
-                text: "JOINT VENTURE",
-                title: "Joint Venture",
-              },
-            ].map((link) => (
-              <div key={link.text} className="relative group">
-                <Link
-                  key={link.text}
-                  href={link.href}
-                  title={link.title}
-                  className={`px-4 py-2 text-xs flex justify-center items-center hover:text-slate-300  ${
-                    isScrolled ? "text-gray-800 " : ""
-                  } `}
-                >
-                  {link.text}
-                  {link.text === "RESIDENTIAL" && (
-                    <ChevronDown className="h-4 w-4 inline-block" />
-                  )}
-                  {link.text === "COMMERCIAL" && (
-                    <ChevronDown className="h-4 w-4 inline-block" />
-                  )}
-                </Link>
-                {link.text === "RESIDENTIAL" && (
-                  <div className="absolute -left-[100px] w-[50vw] hidden group-hover:block">
-                    <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg gap-10 p-4 sm:grid-cols-3 md:grid-cols-5">
-                      <ResidentialHover
-                        href="#"
-                        icon={Home}
-                        title="Buy A Home"
-                        tag="New"
-                      />
-                      <ResidentialHover
-                        href="#"
-                        icon={HousePlus}
-                        title="Rent A Home"
-                        tag="New"
-                      />
-
-                      <ResidentialHover
-                        href="#"
-                        icon={HousePlug}
-                        title="Lease"
-                      />
-
-                      <ResidentialHover
-                        href="#"
-                        icon={PaintBucket}
-                        title="Home Interiors"
-                        tag="Sale is live"
-                      />
-                      <ResidentialHover
-                        href="#"
-                        icon={HandCoins}
-                        title="Avail Home Loan"
-                      />
-                    </div>
-                  </div>
-                )}
-                {link.text === "COMMERCIAL" && (
-                  <div className="absolute -left-[200px] w-[50vw] hidden group-hover:block">
-                    <div className="grid grid-cols-2 bg-black/20 rounded-full backdrop-blur-lg p-4 gap-10 sm:grid-cols-3 md:grid-cols-5">
-                      <ResidentialHover
-                        href="#"
-                        icon={Home}
-                        title="Buy A Commercial"
-                        tag="New"
-                      />
-                      <ResidentialHover
-                        href="#"
-                        icon={HousePlus}
-                        title="Rent A Commercial"
-                      />
-
-                      <ResidentialHover
-                        href="#"
-                        icon={HousePlug}
-                        title="Lease"
-                      />
-
-                      <ResidentialHover
-                        href="#"
-                        icon={PaintBucket}
-                        title="Interiors"
-                        tag="10% off"
-                      />
-                      <ResidentialHover
-                        href="#"
-                        icon={HandCoins}
-                        title="Avail Commercial Loan"
-                        tag="lowest rate"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))} */}
-          </div>
-
-          {/* PG/Real Estate Toggle Button */}
-              <div className="ml-52">
+            {/* PG/Real Estate Toggle Button */}
+              <div className="ml-96">
                 <ToggleButton leftOption="PG" rightOption="Real Estate" initialState="right" onChange={handleToggleChange} />
               </div> 
+          </div> {/* This closing div was missing, causing the layout error */}
 
           {/* Navbar Links */}
           <div
@@ -466,84 +350,157 @@ const Navbar = () => {
              </div>
              
              {isProfileOpen && (
-               <div className="absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg py-2 z-50">
-                 {/* Profile header */}
-                 <div className="px-4 py-3 border-b">
-                   <div className="flex items-center">
-                     <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-3">
-                       P
+               <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-4 z-50">
+                 {/* Header */}
+                 <div className="px-4 pb-4">
+                   <div className="flex items-center gap-2 mb-4">
+                     <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                       <img src="/assets/images/avatar-placeholder.png" alt="User" className="w-full h-full rounded-full object-cover" />
                      </div>
-                     <div className="flex-grow">
-                       <div className="flex justify-between items-center">
-                         <span className="font-medium text-gray-800">Priya Goyal</span>
-                         <button className="text-purple-600 text-xs">Edit</button>
+                     <div>
+                       <div className="text-base font-medium">Hello 👋</div>
+                       <div className="flex items-center gap-1">
+                         <div className="flex items-center gap-1 text-xs text-gray-600">
+                           <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                           Easy Contact with sellers
+                         </div>
                        </div>
-                       <div className="text-sm text-gray-500">igoyal.priya@gmail.com</div>
+                       <div className="flex items-center gap-1 text-xs text-gray-600">
+                         <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                         Personalized experience
+                       </div>
                      </div>
-                   </div>
-                   <button className="w-full bg-purple-600 text-white rounded-md py-2 mt-3 text-sm font-medium">
-                     Upgrade to Premium
-                   </button>
-                 </div>
-                 
-                 {/* Activity section */}
-                 <div className="border-b pb-2">
-                   <div className="px-4 pt-3 pb-2 flex justify-between items-center">
-                     <span className="text-gray-700 text-sm">My Activity</span>
-                     <button className="text-purple-600 text-xs">View All</button>
-                   </div>
-                   
-                   <div className="grid grid-cols-2 px-4">
-                     <div className="py-2 text-center">
-                       <div className="text-purple-600 font-medium">0</div>
-                       <div className="text-gray-500 text-xs">Contacted</div>
-                     </div>
-                     <div className="py-2 text-center">
-                       <div className="text-purple-600 font-medium">1</div>
-                       <div className="text-gray-500 text-xs">Viewed</div>
-                     </div>
-                     <div className="py-2 text-center">
-                       <div className="text-purple-600 font-medium">0</div>
-                       <div className="text-gray-500 text-xs">Saved</div>
-                     </div>
-                     <div className="py-2 text-center">
-                       <div className="text-purple-600 font-medium">0</div>
-                       <div className="text-gray-500 text-xs">Searches</div>
-                     </div>
-                   </div>
-                 </div>
-                 
-                 {/* Menu options */}
-                 <div>
-                   <div className="px-4 py-2 flex justify-between items-center hover:bg-gray-50">
-                     <span className="text-gray-700">Post Property</span>
-                     <span className="text-purple-600 text-xs font-medium">FREE</span>
-                   </div>
-                   
-                   <Link href="/my-properties">
-                     <div className="px-4 py-2 text-gray-700 hover:bg-gray-50">My Properties</div>
-                   </Link>
-                   
-                   <Link href="/shortlisted">
-                     <div className="px-4 py-2 text-gray-700 hover:bg-gray-50">Shortlisted</div>
-                   </Link>
-                   
-                   <Link href="/contacted">
-                     <div className="px-4 py-2 text-gray-700 hover:bg-gray-50">Contacted</div>
-                   </Link>
-                   
-                   <Link href="/account-settings">
-                     <div className="px-4 py-2 text-gray-700 hover:bg-gray-50">Account Settings</div>
-                   </Link>
-                   
-                   <Link href="/help-center">
-                     <div className="px-4 py-2 text-gray-700 hover:bg-gray-50">Help Center</div>
-                   </Link>
-                   
-                   <div className="border-t mt-1">
-                     <button className="px-4 py-2 text-red-500 hover:bg-gray-50 w-full text-left">
-                       Log Out
+                     <button 
+                       onClick={() => {
+                         setIsProfileOpen(false);
+                         setIsLoginPopupOpen(true);
+                         setIsSignupPopupOpen(false);
+                       }}
+                       className="ml-auto bg-emerald-500 text-white px-4 py-1.5 rounded-md text-sm"
+                     >
+                       Login
                      </button>
+                   </div>
+
+                   {/* Activity Section */}
+                   <div className="mb-6">
+                     <h3 className="text-sm font-medium mb-3">My Activity</h3>
+                     <div className="grid grid-cols-4 gap-2">
+                       <div className="flex flex-col items-center p-2 rounded-lg hover:bg-purple-50 cursor-pointer">
+                         <div className="w-6 h-6 mb-1">
+                           <svg viewBox="0 0 24 24" className="w-full h-full text-purple-600">
+                             <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/>
+                           </svg>
+                         </div>
+                         <span className="text-xs text-gray-600">Contacted</span>
+                         <span className="text-xs font-medium">00</span>
+                       </div>
+                       <div className="flex flex-col items-center p-2 bg-purple-50 rounded-lg cursor-pointer">
+                         <div className="w-6 h-6 mb-1">
+                           <svg viewBox="0 0 24 24" className="w-full h-full text-purple-600">
+                             <path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                           </svg>
+                         </div>
+                         <span className="text-xs text-gray-600">Seen</span>
+                         <span className="text-xs font-medium">00</span>
+                       </div>
+                       <div className="flex flex-col items-center p-2 rounded-lg hover:bg-purple-50 cursor-pointer">
+                         <div className="w-6 h-6 mb-1">
+                           <svg viewBox="0 0 24 24" className="w-full h-full text-purple-600">
+                             <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                           </svg>
+                         </div>
+                         <span className="text-xs text-gray-600">Saved</span>
+                         <span className="text-xs font-medium">00</span>
+                       </div>
+                       <div className="flex flex-col items-center p-2 rounded-lg hover:bg-purple-50 cursor-pointer">
+                         <div className="w-6 h-6 mb-1">
+                           <svg viewBox="0 0 24 24" className="w-full h-full text-purple-600">
+                             <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                           </svg>
+                         </div>
+                         <span className="text-xs text-gray-600">Recent</span>
+                         <span className="text-xs font-medium">00</span>
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* Post Property Card */}
+                   <div className="bg-orange-50 rounded-lg p-4 flex items-center gap-4 mb-6">
+                     <div className="w-12 h-12">
+                       <img src="/assets/images/house-icon.png" alt="House" className="w-full h-full" />
+                     </div>
+                     <div className="flex-1">
+                       <h3 className="text-sm font-medium">Looking to sell / rent your property?</h3>
+                       <button className="text-sm text-purple-600 font-medium">Post property for FREE</button>
+                     </div>
+                   </div>
+
+                   {/* Menu Links */}
+                   <div className="space-y-3">
+                     <Link href="/zero-brokerage" className="flex items-center gap-3 text-sm text-gray-700">
+                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                       </svg>
+                       Zero Brokerage Properties
+                     </Link>
+                     <Link href="/transactions" className="flex items-center gap-3 text-sm text-gray-700">
+                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                         <path d="M9 17l-5-5 5-5m6 10l5-5-5-5"/>
+                       </svg>
+                       My Transactions
+                     </Link>
+                     <div className="flex items-center gap-3 text-sm text-gray-700">
+                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                         <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                       </svg>
+                       My Reviews
+                       <span className="ml-1 bg-red-500 text-white text-xs px-1.5 rounded">NEW</span>
+                     </div>
+                     <div className="flex items-center justify-between text-sm text-gray-700">
+                       <div className="flex items-center gap-3">
+                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                           <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                         </svg>
+                         Quick Links
+                       </div>
+                       <ChevronDown className="w-4 h-4" />
+                     </div>
+                     <div className="flex items-center justify-between text-sm text-gray-700">
+                       <div className="flex items-center gap-3">
+                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                           <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+                         </svg>
+                         Residential Packages
+                       </div>
+                       <ChevronDown className="w-4 h-4" />
+                     </div>
+                     <div className="flex items-center justify-between text-sm text-gray-700">
+                       <div className="flex items-center gap-3">
+                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                           <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                         </svg>
+                         Housing Edge
+                       </div>
+                       <ChevronDown className="w-4 h-4" />
+                     </div>
+
+                     <Link href="/help-center" className="flex items-center gap-3 text-purple-600 text-sm">
+                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                       </svg>
+                       Visit Help Center
+                     </Link>
+
+                     {/* Download App Section */}
+                     <div className="pt-4 border-t">
+                       <p className="text-sm text-gray-600 mb-2">Download Housing App</p>
+                       <div className="flex items-center gap-2">
+                         <img src="/assets/images/app-store.png" alt="App Store" className="h-8" />
+                         <img src="/assets/images/play-store.png" alt="Play Store" className="h-8" />
+                         <img src="/assets/images/qr-code.png" alt="QR Code" className="h-8 w-8" />
+                       </div>
+                     </div>
                    </div>
                  </div>
                </div>
@@ -569,6 +526,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
@@ -668,45 +626,29 @@ const Navbar = () => {
                         Login/Signup
                       </Link>
                     )}
+                    
             </div>
           </div>
         </div>
+        
       )}
+
+      {showPopup && <Popup />}
+      {showManualPopup && <ManualCityPopup />}
+      <LoginPopup 
+        isOpen={isLoginPopupOpen} 
+        onClose={() => setIsLoginPopupOpen(false)} 
+      />
+      <SignupPopup 
+        isOpen={isSignupPopupOpen} 
+        onClose={() => setIsSignupPopupOpen(false)}
+        onLoginClick={() => {
+          setIsSignupPopupOpen(false);
+          setIsLoginPopupOpen(true);
+        }}
+      />
     </nav>
   );
 };
-
-interface residentialHoverProps {
-  icon: LucideIcon;
-  title: string;
-  tag?: string;
-  href: string;
-}
-
-function ResidentialHover({
-  icon: Icon,
-  title,
-  tag,
-  href,
-}: residentialHoverProps) {
-  return (
-    <a
-      href={href}
-      className="group my-2 py-5 relative flex flex-col items-center justify-center transition-colors"
-    >
-      {tag && (
-        <span className="absolute -top-2 rounded-full bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-900">
-          {tag}
-        </span>
-      )}
-      <div className="mb-2 flex h-6 w-6 items-center justify-center rounded-lg bg-black/10 text-white  ">
-        <Icon className="h-5 w-5" />
-      </div>
-      <span className="text-xs font-medium w-full text-center text-white ">
-        {title}
-      </span>
-    </a>
-  );
-}
 
 export default Navbar;
