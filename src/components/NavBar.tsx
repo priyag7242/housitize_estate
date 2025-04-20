@@ -24,9 +24,11 @@ const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
+  const [isPackagesMenuOpen, setIsPackagesMenuOpen] = useState(false);
   
   // Refs
   const profileRef = useRef<HTMLDivElement>(null);
+  const packagesMenuRef = useRef<HTMLDivElement>(null);
   
   // Redux
   const dispatch = useDispatch();
@@ -43,6 +45,29 @@ const Navbar = () => {
   const handleToggleChange = (state: "left" | "right") => {
     // Implementation will be added later when needed
   };
+
+  const togglePackagesMenu = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent event from bubbling up
+    setIsPackagesMenuOpen(!isPackagesMenuOpen);
+  };
+
+  // Close packages menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        packagesMenuRef.current && 
+        !packagesMenuRef.current.contains(event.target as Node) &&
+        isPackagesMenuOpen
+      ) {
+        setIsPackagesMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isPackagesMenuOpen]);
 
   // Effects
   useEffect(() => {
@@ -69,19 +94,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScrollBackground);
     return () => window.removeEventListener("scroll", handleScrollBackground);
   }, []);
-
-  // Removed the click-outside effect since we don't want it anymore
-  // useEffect(() => {
-  //   // Close profile sidebar when clicking outside
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
-  //       setIsProfileSidebarOpen(false);
-  //     }
-  //   };
-  //
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => document.removeEventListener("mousedown", handleClickOutside);
-  // }, []);
 
   return (
     <nav
@@ -158,7 +170,7 @@ const Navbar = () => {
             </button>
 
             {/* Saved Button */}
-            <button className="text-white text-sm flex items-center gap-1">
+            <button className={`text-sm flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -176,27 +188,53 @@ const Navbar = () => {
               Saved
             </button>
 
-            {/* Packages Button */}
-            <button className="text-white text-sm flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-package"
+            {/* Packages Button with Click-to-Open Submenu */}
+            <div 
+              className="relative"
+              ref={packagesMenuRef}
+            >
+              <button 
+                onClick={togglePackagesMenu}
+                className={`text-sm flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"}`}
               >
-                <path d="m7.5 4.27 9 5.15" />
-                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-                <path d="m3.3 7 8.7 5 8.7-5" />
-                <path d="M12 22V12" />
-              </svg>
-              Packages <ChevronDown className="h-4 w-4" />
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-package"
+                >
+                  <path d="m7.5 4.27 9 5.15" />
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                  <path d="m3.3 7 8.7 5 8.7-5" />
+                  <path d="M12 22V12" />
+                </svg>
+                Packages <ChevronDown className={`h-4 w-4 transition-transform ${isPackagesMenuOpen ? "rotate-180" : ""}`} />
+              </button>
+              
+              {/* Submenu - Now opens on click and stays open until click outside */}
+              {isPackagesMenuOpen && (
+                <div className="absolute left-0 mt-2 w-40 bg-white rounded-md shadow-lg py-1 z-50">
+                  <Link href="/developers" className="block px-4 py-2 text-sm text-gray-500 hover:bg-purple-50 hover:text-purple-500 border-b border-gray-100">
+                    For Developers
+                  </Link>
+                  <Link href="/broker" className="block px-4 py-2 text-sm text-gray-500 hover:bg-purple-50 hover:text-purple-500 border-b border-gray-100">
+                    For Brokers
+                  </Link>
+                  <Link href="/owners" className="block px-4 py-2 text-sm text-gray-500 hover:bg-purple-50 hover:text-purple-500 border-b border-gray-100">
+                    For Owners
+                  </Link>
+                  <Link href="/housingpremium" className="block px-4 py-2 text-sm text-gray-500 hover:bg-purple-50 hover:text-purple-500">
+                    Housitize Premium
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* Housitize Connect Button */}
             <button className="bg-red-500 text-white px-3 py-1 rounded-md text-sm flex items-center gap-1">
@@ -204,19 +242,20 @@ const Navbar = () => {
             </button>
 
             {/* User and Menu Button */}
-            <div className="h-12 w-24 border border-white spacing-x-0.5 hidden lg:flex lg:gap-3 text-xs font-normal bg-white/40 rounded-full items-center justify-center">
+            <div onClick={() => setIsProfileSidebarOpen(true)}
+            className={`h-10 w-18 p-2 border spacing-x-0.5 hidden lg:flex lg:gap-1 text-xs font-normal bg-white rounded-full items-center justify-center ${isScrolled ? "border-gray-300" : "border-white"}`}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex items-center pl-4 py-2 cursor-pointer space-x-2"
+                className="flex items-center  py-2 cursor-pointer text-black space-x-2"
               >
-                <Menu className={`h-6 w-6 ${isScrolled ? "text-gray-800" : ""}`} />
+                <Menu className={`h-5 w-5 ${isScrolled ? "text-gray-800" : ""}`} />
               </button>
               <div className="relative" ref={profileRef}>
                 <div 
-                  onClick={() => setIsProfileSidebarOpen(true)}
-                  className="w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer"
+                  
+                  className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center cursor-pointer"
                 >
-                  <User className="h-5 w-5 text-purple-700 cursor-pointer" />
+                  <User className="h-5 w-5 text-white cursor-pointer" />
                 </div>
               </div>
             </div>
@@ -226,7 +265,7 @@ const Navbar = () => {
           <div className="flex lg:hidden items-center space-x-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center z-50 p-2 text-white font-bold"
+              className={`inline-flex items-center justify-center z-50 p-2 font-bold ${isScrolled ? "text-gray-700" : "text-white"}`}
             >
               {isMenuOpen ? (
                 <X className="block h-4 w-4" aria-hidden="true" />

@@ -58,7 +58,7 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
       {/* Sidebar - removed click handler that stopped propagation */}
       <div 
         className={`
-          fixed top-0 right-0 h-screen w-[30%] min-w-[320px]
+          fixed top-0 right-0 h-screen w-[20%] min-w-[320px]
           bg-white shadow-2xl z-50 overflow-y-auto
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
