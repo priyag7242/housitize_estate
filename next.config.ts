@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 
 module.exports = {
   images: {
-    domains: ['images.unsplash.com', 'www.flaticon.com', 'cdn-icons-png.flaticon.com', 'cdn-icons-png.flaticon.com'],
+    domains: ['images.unsplash.com', 'www.flaticon.com', 'cdn-icons-png.flaticon.com', 'cdn-icons-png.flaticon.com', 'plus.unsplash.com'],
   
   },
 };
