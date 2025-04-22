@@ -4,7 +4,7 @@ import {
   Menu, 
   X, 
   ChevronDown,
-  User
+  // User
 } from "lucide-react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
@@ -255,7 +255,8 @@ const Navbar = () => {
                   
                   className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center cursor-pointer"
                 >
-                  <User className="h-5 w-5 text-white cursor-pointer" />
+                  {/* <User className="h-5 w-5 text-white cursor-pointer" /> */}
+                  <img className="h-5 w-5 text-white cursor-pointer" src="../app/tenant-avatar.cedc2f44.png" alt="profile" width={5} height={5}/>
                 </div>
               </div>
             </div>
