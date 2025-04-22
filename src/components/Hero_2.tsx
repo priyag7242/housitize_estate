@@ -4,11 +4,16 @@ import Image from "next/image"
 import { Search } from "lucide-react"
 import PopularLocalities from "./ui/popularLocalities"
 import { useState } from "react"
+import { RootState } from "@/redux/store"
+import { useSelector } from "react-redux"
 // import ToggleButton from "./toggle-button"
 
 export default function HeroSectionV2() {
   const [activeTab, setActiveTab] = useState("BUY")
 
+  const selectedLocation = useSelector(
+    (state: RootState) => state.selectedLocation.selectedLocation
+  );
 
   const backgroundImages = {
     BUY: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -44,7 +49,7 @@ export default function HeroSectionV2() {
       
 
         <h1 className="text-white text-4xl font-bold text-center mt-6">
-          Properties to {activeTab.toLowerCase()} in Bhopal
+          Properties to {activeTab.toLowerCase()} {`${selectedLocation}`}
         </h1>
         <p className="text-white text-lg mt-2 text-center">11K+ listings added daily and 65K+ total verified</p>
 

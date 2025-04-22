@@ -54,7 +54,7 @@ const Popup = () => {
         {/* Top Div */}
         <div className="w-full text-center">
           <h2 className="text-base text-gray-700 font-semibold mb-4">
-            Select your country
+            Select your city
           </h2>
         </div>
 
@@ -93,7 +93,7 @@ const Popup = () => {
                 Select Manually
               </h3>
               <p className="text-sm text-gray-600 text-center sm:text-left mb-4">
-                Search by your Country
+                Search by your City
               </p>
               <button
                 className="bg-orange-500 text-white font-medium py-2 px-4 rounded-full hover:bg-orange-600 transition"

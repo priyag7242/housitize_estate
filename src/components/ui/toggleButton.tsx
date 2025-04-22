@@ -20,14 +20,14 @@ export default function ToggleButton({ leftOption, rightOption, initialState = "
 
   return (
     <div
-      className="bg-white/90 rounded-full p-1 w-64 h-14 flex items-center cursor-pointer shadow-lg"
+      className="bg-white/50 rounded-full p-1 w-48 h-12 flex items-center cursor-pointer shadow-lg"
       onClick={handleToggle}
       style={{ boxShadow: "0 0 15px rgba(0,0,0,0.3)" }}
     >
       <div className="relative w-full h-12 flex items-center">
         {/* Toggle Knob */}
         <div
-          className={`absolute h-12 w-1/2 bg-white rounded-full shadow-md transition-all duration-300 ease-in-out ${
+          className={`absolute h-10 w-[49%] bg-white/70 rounded-full shadow-md transition-all duration-300 ease-in-out ${
             state === "left" ? "left-0" : "left-1/2"
           }`}
           style={{ boxShadow: "0 2px 5px rgba(0,0,0,0.2)" }}
@@ -35,10 +35,10 @@ export default function ToggleButton({ leftOption, rightOption, initialState = "
 
         {/* Labels */}
         <div className="flex w-full">
-          <div className={`w-1/2 text-center z-10 font-bold ${state === "left" ? "text-red-700" : "text-black"}`}>
+          <div className={`w-1/2 text-center text-sm z-10 font-bold ${state === "left" ? "text-red-700" : "text-black"}`}>
             {leftOption}
           </div>
-          <div className={`w-1/2 text-center z-10 font-bold ${state === "right" ? "text-red-700" : "text-black"}`}>
+          <div className={`w-1/2 text-center text-sm z-10 font-bold ${state === "right" ? "text-red-700" : "text-black"}`}>
             {rightOption}
           </div>
         </div>

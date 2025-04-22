@@ -4,7 +4,7 @@ import {
   Menu, 
   X, 
   ChevronDown,
-  // User
+  User    
 } from "lucide-react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
@@ -32,9 +32,11 @@ const Navbar = () => {
   
   // Redux
   const dispatch = useDispatch();
+
   const selectedLocation = useSelector(
     (state: RootState) => state.selectedLocation.selectedLocation
   );
+
   const showPopup = useSelector((state: RootState) => state.popup.showPopup);
   const showManualPopup = useSelector(
     (state: RootState) => state.popup.showManualPopup
@@ -97,24 +99,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`
-        fixed w-screen top-0 text-white z-50 
-        transition-all duration-300
-        ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}
-        transition-transform duration-500 
-        ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      `}
+  className={`fixed w-screen h-16 top-0 bg-black/50 backdrop-blur-sm text-white z-50 transition-all duration-300 `}
+      // className={`
+      //   fixed w-screen top-0 text-white z-50 
+      //   transition-all duration-300
+      //   ${isScrolled ? "bg-black/40 shadow-md" : "bg-transparent"}
+      //   transition-transform duration-500 
+      //   ${isVisible ? "translate-y-0" : "-translate-y-full"}
+      // `}
     >
-      <div className="max-w-8xl xl:mx-20 px-2 xl:px-8">
-        <div className="flex justify-between items-center h-24">
+      <div className="max-w-8xl xl:mx-20 px-1 xl:px-4 p-1">
+        <div className="flex justify-between items-center h-14">
           {/* Logo and Toggle - Desktop */}
           <div className="hidden lg:flex lg:gap-6 text-base font-normal items-center">
             {/* Logo Image and Name */}
             <Link href="/"> 
               <div className="flex items-center gap-2">
-                <div className="relative h-12 w-12">
+                <div className="relative h-10 w-10">
                   <Image
-                    src="/assets/images/logo.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Housing.com%27s_logo.png"
                     alt="Housitize Logo"
                     width={50}
                     height={50}
@@ -122,14 +125,14 @@ const Navbar = () => {
                     priority
                   />
                 </div>
-                <span className={`font-bold text-lg ${isScrolled ? "text-gray-800" : "text-white"}`}>
-                  HOUSITIZE
+                <span className={`font-bold font-sans md-hidden text-lg`}>
+                  HOUSITIZE.com
                 </span>
               </div>
             </Link>
 
             {/* PG/Real Estate Toggle Button */}
-            <div className="ml-96">
+            <div className="ml-[55vh]">
               <ToggleButton 
                 leftOption="Real Estate" 
                 rightOption="Hospitality" 
@@ -140,20 +143,20 @@ const Navbar = () => {
           </div>
 
           {/* Navbar Links */}
-          <div className={`flex items-center gap-6 ${isScrolled ? "text-gray-700" : ""}`}>
+          <div className={`flex items-center gap-4`}>
             {/* Location selector */}
             <button
               onClick={() => dispatch(openPopup())}
               className={`
-                text-sm gap-1 px-2 py-1 rounded-sm 
+                text-5  p-1 rounded-sm 
                 flex items-center justify-center w-fit uppercase
-                ${isScrolled ? "text-gray-700 border border-gray-700" : "border border-white"}
+                "}
               `}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -165,12 +168,12 @@ const Navbar = () => {
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              {selectedLocation || "Mars"}
+              {/* {selectedLocation || "Mars"} */}
               <ChevronDown className="h-4 w-4" /> 
             </button>
 
             {/* Saved Button */}
-            <button className={`text-sm flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"}`}>
+            <button className={`text-xs font-bold flex items-center gap-1 ${isScrolled ? "text-white" : "text-white"}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -195,7 +198,7 @@ const Navbar = () => {
             >
               <button 
                 onClick={togglePackagesMenu}
-                className={`text-sm flex items-center gap-1 ${isScrolled ? "text-gray-700" : "text-white"}`}
+                className={`text-xs font-bold flex items-center ${isScrolled ? "text-white" : "text-white"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -237,33 +240,33 @@ const Navbar = () => {
             </div>
 
             {/* Housitize Connect Button */}
-            <button className="bg-red-500 text-white px-3 py-1 rounded-md text-sm flex items-center gap-1">
-              Housitise connect <span className="text-xs bg-white text-red-500 px-1 rounded">FREE</span>
+            <button className=" text-white font-bold rounded-md text-xs flex items-center gap-1">
+              Housitise connect <span className="text-xs bg-red-500 font-light text-white px-1 rounded">FREE</span>
             </button>
 
             {/* User and Menu Button */}
             <div onClick={() => setIsProfileSidebarOpen(true)}
-            className={`h-10 w-18 p-2 border spacing-x-0.5 hidden lg:flex lg:gap-1 text-xs font-normal bg-white rounded-full items-center justify-center ${isScrolled ? "border-gray-300" : "border-white"}`}>
+            className={`h-8 w-16 p-1 border spacing-x-0.5 hidden lg:flex lg:gap-1 text-xs font-normal bg-white rounded-full items-center justify-center ${isScrolled ? "border-gray-300" : "border-white"}`}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex items-center  py-2 cursor-pointer text-black space-x-2"
+                className="flex items-center cursor-pointer text-black space-x-2"
               >
-                <Menu className={`h-5 w-5 ${isScrolled ? "text-gray-800" : ""}`} />
+                <Menu className={`h-4 w-4 ${isScrolled ? "text-gray-800" : ""}`} />
               </button>
               <div className="relative" ref={profileRef}>
                 <div 
                   
-                  className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center cursor-pointer"
+                  className="w-6 h-6 bg-violet-500 rounded-full flex items-center justify-center cursor-pointer"
                 >
-                  {/* <User className="h-5 w-5 text-white cursor-pointer" /> */}
-                  <img className="h-5 w-5 text-white cursor-pointer" src="../app/tenant-avatar.cedc2f44.png" alt="profile" width={5} height={5}/>
+                  <User className="h-5 w-5 text-white cursor-pointer" />
+                
                 </div>
               </div>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center space-x-4">
+          {/* <div className="flex lg:hidden items-center space-x-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`inline-flex items-center justify-center z-50 p-2 font-bold ${isScrolled ? "text-gray-700" : "text-white"}`}
@@ -274,7 +277,7 @@ const Navbar = () => {
                 <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
