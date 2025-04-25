@@ -46,6 +46,9 @@ const PropertyConsulting = () => {
     return () => clearInterval(interval);
   }, []);
 
+  
+
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
       <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -99,7 +102,7 @@ const PropertyConsulting = () => {
                   </div>
                 </div>
               ))}
-              <div className="hidden xl:block absolute h-[1px] bg-gray-200 w-[500px] translate-x-[35px] -translate-y-[15px]  -z-10" />
+              <div className="hidden xl:block absolute h-[1px] bg-gray-200 w-[500px] translate-x-[35px] -translate-y-[23px]  -z-10" />
             </div>
 
             <div className="max-w-md">

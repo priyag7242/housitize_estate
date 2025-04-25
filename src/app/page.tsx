@@ -16,27 +16,32 @@ import Architecture from "@/components/Architecture";
 import FacilityManagement from "@/components/FacilityManagement";
 import HeroSectionV2 from "@/components/Hero_2";
 import BelowHeroItems from "@/components/belowHeroItems";
+import HeroSection from "./test/page";
 // import BuyComponent from "@/components/BuyComponent";
 // import PGComponent from "@/components/PGComponent";
 
 
 const Home = () => {
-  const showPopup = useSelector((state: RootState) => state.popup.showPopup);
-  const showManualPopup = useSelector(
-    (state: RootState) => state.popup.showManualPopup
-  );
+  // const showPopup = useSelector((state: RootState) => state.popup.showPopup);
+  // const showManualPopup = useSelector(
+  //   (state: RootState) => state.popup.showManualPopup
+  // );
 
   return (
     <div>
-      {showPopup && <Popup />}
-      {showManualPopup && <ManualCityPopup />}
-      <div
+      {/* {showPopup && <Popup />}
+      {showManualPopup && <ManualCityPopup />} */}
+      {/* <div
         className={
           showPopup || showManualPopup ? "blur-sm  pointer-events-none" : ""
         }
-      >
+      > */}
         {/* <Hero/> */}
-        <HeroSectionV2/>
+        {/* <HeroSectionV2/> */}
+
+        <HeroSection />
+
+        
         {/* <BuyComponent/> */}
         {/* <PGComponent/> */}
         <BelowHeroItems/>
@@ -50,7 +55,7 @@ const Home = () => {
         <Commercial />
         <Architecture />
         <FacilityManagement />
-      </div>
+      {/* </div> */}
     </div>
   );
 };

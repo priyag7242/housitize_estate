@@ -68,7 +68,7 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
         <button 
           onClick={onClose}
           aria-label="Close sidebar"
-          className="absolute top-6 right-6 text-gray-500 hover:text-gray-700 z-10"
+          className="absolute top-5 right-6 text-gray-500 hover:text-gray-700 z-10"
         >
           <X size={24} strokeWidth={2} />
         </button>

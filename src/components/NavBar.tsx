@@ -282,8 +282,8 @@ const Navbar = () => {
       </div>
 
       {/* Popups */}
-      {showPopup && <Popup />}
-      {showManualPopup && <ManualCityPopup />}
+      {/* {showPopup && <Popup />}
+      {showManualPopup && <ManualCityPopup />} */}
       
       {/* Profile Sidebar */}
       <ProfileSidebar 
