@@ -25,8 +25,8 @@ const HeroSection = () => {
     <div className="min-h-screen bg-[#f9fdfc] flex flex-col justify-center items-center p-8 relative">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-2">Find Anything Real Estate.</h1>
-        <p className="text-lg font-medium text-gray-600">No Middlemen. Just Results.</p>
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-xl font-medium text-gray-600">No Middlemen. Just Results.</p>
+        <p className=" text-gray-500 mt-2">
           Explore homes, offices, PGs, legal help, interiors, and more.
         </p>
       </div>
@@ -46,9 +46,7 @@ const HeroSection = () => {
       </div>
 
       <div className="bg-white shadow-md rounded-lg p-4 w-full max-w-4xl flex flex-wrap gap-4 items-center justify-between z-20">
-        <Select >
-            
-        </Select>
+       
         <input
           type="text"
           placeholder="Service"

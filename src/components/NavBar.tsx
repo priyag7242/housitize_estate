@@ -289,10 +289,9 @@ const Navbar = () => {
       <ProfileSidebar 
         isOpen={isProfileSidebarOpen}
         onClose={() => setIsProfileSidebarOpen(false)}
-        onLoginClick={() => {
-          setIsProfileSidebarOpen(false);
-          // You might want to add your login logic here
-        }}
+        // onLoginClick={() => {
+        //   setIsProfileSidebarOpen(false);
+        // }}
       />
     </nav>
   );
