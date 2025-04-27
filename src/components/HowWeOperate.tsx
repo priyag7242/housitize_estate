@@ -7,6 +7,7 @@ import {
   Coins,
   UserCheck,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const HowWeOperate = () => {
   const steps = [
@@ -19,8 +20,19 @@ const HowWeOperate = () => {
     { icon: UserCheck, title: "CUSTOMER SUPPORT" },
   ];
 
+
+  const [activeStep, setActiveStep] = useState(0);
+  
+    useEffect(()=>{
+      const interval = setInterval(()=>{
+        setActiveStep((current)=> (current + 1) % steps.length)
+      } , 2000)
+      return () => clearInterval(interval)
+    } , [])
+
+
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 pb-12 pt-12 md:pt-16 lg:pt-40">
+    <div className="w-full max-w-7xl mx-auto px-4 pb-12 pt-12 md:pt-8 lg:pt-20">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Our Property Buying Process
@@ -38,8 +50,8 @@ const HowWeOperate = () => {
             <div key={index} className="flex flex-col items-center text-center">
               {/* Icon container */}
               <div className="relative mb-4">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center relative z-10">
-                  <step.icon className="w-8 h-8 md:w-10 md:h-10 text-gray-700" />
+                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 flex items-center justify-center relative z-10 ${activeStep == index ? "bg-yellow-400" : "bg-white" } `}>
+                  <step.icon className={`w-7 h-7 md:w-9 md:h-9  ${activeStep === index ? "text-white ":  "text-gray-700" }`  }/>
                 </div>
               </div>
 

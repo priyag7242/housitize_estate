@@ -54,27 +54,27 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f9fdfc]  flex flex-col justify-center items-center p-8 relative">
+    <div className="h-[80dvh] bg-[#f9fdfc]  flex flex-col gap-2 justify-center items-center p-8 relative ">
   
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-2">
+      <div className="text-center mb-5 mt-10">
+        <h1 className="text-3xl font-bold mb-2">
         <TypeWriterText text={"Find Anything Real Estate."} speed={50} />
           </h1>
-        <p className="text-xl font-medium text-gray-600">
+        <p className="text-lg font-medium text-gray-600">
           No Middlemen. Just Results.
         </p>
-        <p className=" text-gray-500 mt-2">
+        <p className=" text-gray-500 ">
           Explore homes, offices, PGs, legal help, interiors, and more.
         </p>
       </div>
 
-      <div className="flex gap-6 mb-10 flex-wrap justify-center">
+      <div className="flex gap-6  flex-wrap justify-center z-20">
         {services.map((service) => (
           <div
             key={service.label}
             className="flex flex-col items-center gap-2 text-center hover:-translate-y-1.5 transition-all duration-200 ease-in cursor-pointer"
           >
-           <Link href={service.link}> <div className="bg-teal-600 hover:bg-teal-500 text-white p-4 rounded-full">
+           <Link href={service.link}> <div className="bg-teal-600 hover:bg-teal-500 text-white p-3 rounded-full">
               {service.icon}
             </div> </Link>
             <span className="text-sm font-medium">{service.label}</span>
@@ -82,7 +82,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className=" w-full max-w-4xl z-20 -mt-3">
+      <div className=" w-full max-w-4xl z-20">
         <div className="rounded-lg bg-white p-4 shadow-2xl">
           {/* Navigation Tabs */}
           <div className="mb-4 flex flex-wrap gap-8 border-b">
@@ -105,7 +105,7 @@ const HeroSection = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 ">
             <div className="relative flex">
               {(activeTab === "Buy" || activeTab === "Rent") && (
                 <Button
@@ -202,44 +202,18 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* <div className="bg-white shadow-md rounded-lg p-4 w-full max-w-4xl flex flex-wrap gap-4 items-center justify-between z-20">
-       
-        <input
-          type="text"
-          placeholder="Service"
-          className="flex-1 min-w-[150px] px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-        <input
-          type="text"
-          placeholder="Location"
-          className="flex-1 min-w-[150px] px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-        <input
-          type="text"
-          placeholder="Property Type"
-          className="flex-1 min-w-[150px] px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-        <input
-          type="text"
-          placeholder="Budget"
-          className="flex-1 min-w-[150px] px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-        />
-        <button className="bg-teal-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition">
-          Search
-        </button>
-      </div> */}
-      <img
+        <img
         src="/assets/images/building.jpeg"
         alt="Cityscape"
-        className="w-full max-w-5xl bottom-0 object-contain absolute mix-blend-multiply z-0"
+        className="w-full max-w-5xl -bottom-2 object-contain absolute  z-0"
       />
 
-      <div className="bg-black/40 backdrop-blur-md rounded-t-full gap-1 px-6 py-2 dark:text-white text-white text-md absolute bottom-1 border border-white/10 shadow-lg flex items-center">
+      <div className="bg-black/40 backdrop-blur-md  rounded-t-full gap-1 px-6 py-1.5 dark:text-white text-white text-sm absolute -bottom-1 border border-white/10 shadow-lg flex items-center">
         <div className="relative animate-bounce-slow">
-          <img src="/assets/images/diamond.svg" className="h-3 animate-glow" />
+          <img src="/assets/images/diamond.svg" className="h-2.5 animate-glow" />
           <img
             src="/assets/images/diamond.svg"
-            className="absolute -left-2 h-2 animate-glow"
+            className="absolute -left-2 h-1.5 animate-glow"
           />
         </div>
         Are you a Property Owner?{" "}
@@ -247,8 +221,12 @@ const HeroSection = () => {
           Sell / Rent for FREE
         </a>
       </div>
+     
     </div>
   );
 };
 
 export default HeroSection;
+
+
+

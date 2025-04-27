@@ -250,7 +250,7 @@ const Commercial = () => {
 
         {/* Nav Buttons */}
         <div className="flex flex-col justify-center gap-4 mb-8">
-          <div className="flex justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             <Button
               variant={activeTab === "sale" ? "default" : "outline"}
               onClick={() => setActiveTab("sale")}
@@ -283,7 +283,7 @@ const Commercial = () => {
             </Button>
           </div>
 
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button
               variant={activeTab === "most popular" ? "default" : "outline"}
               onClick={() => setActiveTab("most popular")}

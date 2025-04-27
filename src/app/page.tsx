@@ -43,20 +43,21 @@ const Home = () => {
 
         <HeroSection />
 
+
         
         {/* <BuyComponent/> */}
         {/* <PGComponent/> */}
         {/* <BelowHeroItems/> */}
         <HowWeOperate />
-        <SelfSustainableHome />
-        <Hospitality />
+        {/* <SelfSustainableHome /> */}
+        {/* <Hospitality /> */}
         <Services />
         <PropertyConsulting />
-        <Loan />
+        {/* <Loan /> */}
         <Interior />
         <Commercial />
-        <Architecture />
-        <FacilityManagement />
+        {/* <Architecture /> */}
+        {/* <FacilityManagement /> */}
       {/* </div> */}
     </div>
   );

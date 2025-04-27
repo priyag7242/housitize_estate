@@ -85,9 +85,9 @@ const Services = () => {
           </div>
 
           {/* Top Right side */}
-          <div className="relative shadow-2xl overflow-hidden">
+          <div className="relative shadow-2xl overflow-hidden rounded-md">
             <div className="relative aspect-video overflow-hidden shadow-lg">
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center ">
                 <video
                   src="/assets/service-video.mp4"
                   autoPlay
@@ -114,11 +114,11 @@ const Services = () => {
                 }}
                 className=""
               >
-                <Card className="hover:shadow-lg  hover:scale-110 transition duration-300 h-full">
+                <Card className="hover:shadow-lg  hover:scale-105 transition duration-300 h-full">
                   <CardContent className="p-0">
                     <div className="relative hover:cursor-pointer group overflow-hidden p-6 flex flex-col items-start justify-between h-48">
                       <div>
-                        <h3 className="mb-1 text-base text-gray-900 text-start">
+                        <h3 className="mb-1 text-lg font-semibold text-gray-600 text-start">
                           {service.title}
                         </h3>
                         <p className="text-sm text-gray-600 tracking-[1px]">
@@ -129,7 +129,7 @@ const Services = () => {
                         Read More
                       </Button>
                       <div className=" absolute bottom-0 right-0 translate-x-20 translate-y-20 rounded-full bg-gray-200 pr-24 pb-24 pl-8 pt-8">
-                        <service.icon className="h-14 w-14 text-gray-600" />
+                        <service.icon className="h-9 w-9 text-gray-600" />
                       </div>
                     </div>
                   </CardContent>
