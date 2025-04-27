@@ -102,7 +102,7 @@ const FacilityManagement = () => {
       />
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 space-y-6">
-          <h2 className="text-xl font-medium">Solutions and Capabilities</h2>
+          <h2 className="text-xl font-medium">Services and Capabilities</h2>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif max-w-3xl">
               Comprehensive Facility Management Solutions
@@ -112,7 +112,7 @@ const FacilityManagement = () => {
                 setIsContactPopupOpen(true);
               }}
               variant="outline"
-              className="self-start lg:self-center px-8 border-2 text-gray-800 border-gray-700 rounded-full py-5 text-lg"
+              className="self-start lg:self-center px-8 border-2 text-gray-800 border-gray-700 hover:bg-black hover:text-white rounded-full py-5 text"
             >
               LEARN MORE
             </Button>
@@ -144,7 +144,7 @@ const FacilityManagement = () => {
                     />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-2xl font-serif">{item.title}</h3>
+                    <h3 className="text-3xl font-serif mb-3">{item.title}</h3>
                     <p className="text-gray-600 flex-grow">
                       {item.description}
                     </p>

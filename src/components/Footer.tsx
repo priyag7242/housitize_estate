@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'luc
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-gray-600 py-8 sm:py-24 lg:py-32">
+    <footer className="bg-gray-100 text-gray-600 py-8 sm:py-24 lg:py-16  ">
       <div className="container text-center mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Info */}

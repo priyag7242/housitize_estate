@@ -17,6 +17,8 @@ import FacilityManagement from "@/components/FacilityManagement";
 import HeroSectionV2 from "@/components/Hero_2";
 import BelowHeroItems from "@/components/belowHeroItems";
 import HeroSection from "./test/page";
+import PGComponent from "@/components/PGComponent";
+import BuyComponent from "@/components/BuyComponent";
 // import BuyComponent from "@/components/BuyComponent";
 // import PGComponent from "@/components/PGComponent";
 
@@ -44,7 +46,7 @@ const Home = () => {
         
         {/* <BuyComponent/> */}
         {/* <PGComponent/> */}
-        <BelowHeroItems/>
+        {/* <BelowHeroItems/> */}
         <HowWeOperate />
         <SelfSustainableHome />
         <Hospitality />
