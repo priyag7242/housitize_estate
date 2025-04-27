@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import ToggleButton from "./ui/toggleButton";
 import ProfileSidebar from "./ui/profilesidebar";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   // State management
@@ -25,7 +26,9 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
   const [isPackagesMenuOpen, setIsPackagesMenuOpen] = useState(false);
+
   
+
   // Refs
   const profileRef = useRef<HTMLDivElement>(null);
   const packagesMenuRef = useRef<HTMLDivElement>(null);
@@ -42,10 +45,16 @@ const Navbar = () => {
     (state: RootState) => state.popup.showManualPopup
   );
 
-  // Handlers
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const router = useRouter();
+ 
   const handleToggleChange = (state: "left" | "right") => {
-    // Implementation will be added later when needed
+    if (state === "left") {
+      router.push("/"); 
+    } else {
+      router.push("/hospitality"); 
+    }
+  
+  
   };
 
   const togglePackagesMenu = (e: React.MouseEvent) => {
@@ -137,6 +146,7 @@ const Navbar = () => {
                 leftOption="Real Estate" 
                 rightOption="Hospitality" 
                 initialState="right" 
+        
                 onChange={handleToggleChange} 
               />
             </div> 
@@ -285,7 +295,6 @@ const Navbar = () => {
       {/* {showPopup && <Popup />}
       {showManualPopup && <ManualCityPopup />} */}
       
-      {/* Profile Sidebar */}
       <ProfileSidebar 
         isOpen={isProfileSidebarOpen}
         onClose={() => setIsProfileSidebarOpen(false)}

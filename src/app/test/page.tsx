@@ -228,7 +228,6 @@ const HeroSection = () => {
           Search
         </button>
       </div> */}
-ho
       <img
         src="/assets/images/building.jpeg"
         alt="Cityscape"
