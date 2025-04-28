@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import TypeWriterText from "@/components/reusable-component/TypeWriterText";
+import Image from "next/image";
 
 const HeroSection = () => {
   const services = [
@@ -54,6 +55,7 @@ const HeroSection = () => {
   ];
 
   return (
+    <>
     <div className="h-[80dvh] bg-[#f9fdfc]  flex flex-col gap-2 justify-center items-center p-8 relative ">
   
       <div className="text-center mb-5 mt-10">
@@ -223,6 +225,8 @@ const HeroSection = () => {
       </div>
      
     </div>
+   
+  </>
   );
 };
 

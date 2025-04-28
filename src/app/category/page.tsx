@@ -218,6 +218,7 @@ const Category = () => {
                     </div>
                   </div>
                 </div>
+                </div>
 
               <div className="space-y-2">
                 <Label>Bedrooms</Label>

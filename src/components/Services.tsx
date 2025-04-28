@@ -63,7 +63,8 @@ const services = [
 const Services = () => {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <>
+    <div className="bg-white py-8 px-4 sm:px-6 lg:px-8">
       <ContactPopup
         isContactPopupOpen={isContactPopupOpen}
         setIsContactPopupOpen={setIsContactPopupOpen}
@@ -134,12 +135,51 @@ const Services = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+              </div> 
             ))}
           </div>
         </div>
       </div>
     </div>
+
+
+    <div className="flex justify-center items-center w-full">
+        <div className="bg-[#E9C46A] rounded-xl max-w-7xl  w-full m-4 md:m-24 p-8 md:px-12 md:py-16">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+            {/*left content*/}
+            <div className="space-y-2 mb-6 sm:mb-0">
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
+                Take a look at our numbers
+              </h2>
+              <p className="text-sm md:text-base text-black/80">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+            {/*right content*/}
+            <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="space-y-2">
+                <div className="text-3xl md:text-4xl font-bold text-black">
+                  99%
+                </div>
+                <p className="text-sm text-black/80">Customer satisfaction</p>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl md:text-4xl font-bold text-black">
+                  50M+
+                </div>
+                <p className="text-sm text-black/80">In property sales</p>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl md:text-4xl font-bold text-black">
+                  2,600+
+                </div>
+                <p className="text-sm text-black/80">Successful sales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </>
   );
 };
 

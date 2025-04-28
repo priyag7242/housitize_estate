@@ -19,6 +19,8 @@ import BelowHeroItems from "@/components/belowHeroItems";
 import HeroSection from "./test/page";
 import PGComponent from "@/components/PGComponent";
 import BuyComponent from "@/components/BuyComponent";
+import QuickPicks from "@/components/QuickPicks";
+import OurWorkSection from "@/components/reusable-component/OurWorkSection";
 // import BuyComponent from "@/components/BuyComponent";
 // import PGComponent from "@/components/PGComponent";
 
@@ -44,14 +46,19 @@ const Home = () => {
         <HeroSection />
 
 
-        
+        <OurWorkSection />
         {/* <BuyComponent/> */}
         {/* <PGComponent/> */}
         {/* <BelowHeroItems/> */}
         <HowWeOperate />
+        <QuickPicks/>
+
+        
         {/* <SelfSustainableHome /> */}
         {/* <Hospitality /> */}
         <Services />
+
+        
         <PropertyConsulting />
         {/* <Loan /> */}
         <Interior />

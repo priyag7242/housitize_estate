@@ -1,5 +1,6 @@
 "use client";
 
+import SiteFilters from "@/components/SiteFilters";
 import React from "react";
 
 const GuestFav = [
@@ -180,8 +181,9 @@ function ListingsSection() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbfbfb] font-sans">
+    <div className="min-h-screen flex flex-col bg-[#fbfbfb] font-sans ">
       <Header />
+      <SiteFilters />
       <Banner />
       <ListingsSection />
     </div>
