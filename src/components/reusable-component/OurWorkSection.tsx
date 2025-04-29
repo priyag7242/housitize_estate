@@ -5,7 +5,7 @@ import React from "react";
 
 const OurWorkSection = () => {
   return (
-    <div className="bg-slate-50 p-4 min-h-screen relative overflow-hidden">
+    <div className="bg-slate-50 md:py-16 py-10 relative overflow-hidden flex flex-col justify-center">
       {/* Background Gradients */}
       <div
         aria-hidden="true"
@@ -31,14 +31,14 @@ const OurWorkSection = () => {
             />
           </svg>
 
-          <h2 className="my-5 text-3xl font-bold text-black/75 md:text-4xl">Our Vision</h2>
+          <h2 className=" text-3xl font-bold text-black/75 md:text-4xl">Our Vision</h2>
           <p className="text-gray-900">
             We have built many products and some of them are below
           </p>
         </div>
 
         {/* Cards */}
-        <div className="mt-16 grid divide-x divide-y divide-gray-700 overflow-hidden rounded-3xl border border-gray-700 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+        <div className="mt-8 grid divide-x divide-y divide-gray-700 overflow-hidden rounded-3xl border border-gray-700 text-gray-600 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
           {projects.map((project, index) => (
             <div
               key={index}

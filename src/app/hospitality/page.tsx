@@ -1,6 +1,7 @@
 "use client";
 
 import SiteFilters from "@/components/SiteFilters";
+import Image from "next/image";
 import React from "react";
 
 const GuestFav = [
@@ -179,13 +180,75 @@ function ListingsSection() {
   );
 }
 
+function AboutSection () {
+    return (
+        <section className="container mx-auto px-4 py-12 md:py-16 lg:py-20">
+            <h2 className="text-4xl  font-semibold text-center py-4">Our Hospitailies</h2>
+        <div className="grid gap-8 lg:grid-cols-2 items-center py-12">
+          {/* Text Content */}
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
+              <span className="text-[#e2a22b]">Buy</span> Industrial Land &
+              Build Your Future
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Looking for industrial land to buy? We offer prime locations for
+              factories, warehouses, and manufacturing units. Invest in the
+              perfect space for your growth!
+            </p>
+            
+          </div>
+
+          {/* Image Collage */}
+          <div className="relative grid grid-cols-6 gap-4  px-4">
+            {/* Large Left Image */}
+            <div className="col-span-4 h-[450px] relative">
+              <Image
+                src="/assets/images/industries6.webp"
+                alt="Person working on laptop"
+                fill
+                className="object-cover rounded-3xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+
+            {/* Right Column Images */}
+            <div className="col-span-2 flex flex-col gap-5 ">
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries1.webp"
+                  alt="People collaborating"
+                  fill
+                  className="object-cover rounded-3xl"
+                 
+                />
+              </div>
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries5.webp"
+                  alt="Person using mobile device"
+                  fill
+                  className="object-cover rounded-3xl"
+                  
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      );
+
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#fbfbfb] font-sans ">
       <Header />
       <SiteFilters />
       <Banner />
-      <ListingsSection />
+      <AboutSection />
+      {/* <ListingsSection /> */}
     </div>
   );
 }

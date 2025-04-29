@@ -50,7 +50,7 @@ const HowWeOperate = () => {
             <div key={index} className="flex flex-col items-center text-center">
               {/* Icon container */}
               <div className="relative mb-4">
-                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 flex items-center justify-center relative z-10 ${activeStep == index ? "bg-yellow-400" : "bg-white" } `}>
+                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-300 flex items-center justify-center relative z-10 ${activeStep == index ? "bg-yellow-500" : "bg-white" } `}>
                   <step.icon className={`w-7 h-7 md:w-9 md:h-9  ${activeStep === index ? "text-white ":  "text-gray-700" }`  }/>
                 </div>
               </div>

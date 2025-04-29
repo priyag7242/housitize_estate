@@ -21,6 +21,9 @@ import PGComponent from "@/components/PGComponent";
 import BuyComponent from "@/components/BuyComponent";
 import QuickPicks from "@/components/QuickPicks";
 import OurWorkSection from "@/components/reusable-component/OurWorkSection";
+import VisionMissionValues from "@/components/VisionMissionValues";
+import HomeFaq from "@/components/HomeFaq";
+import TestimonialsCarousel from "@/components/Testimonial";
 // import BuyComponent from "@/components/BuyComponent";
 // import PGComponent from "@/components/PGComponent";
 
@@ -46,7 +49,8 @@ const Home = () => {
         <HeroSection />
 
 
-        <OurWorkSection />
+        {/* <OurWorkSection /> */}
+        <VisionMissionValues/>
         {/* <BuyComponent/> */}
         {/* <PGComponent/> */}
         {/* <BelowHeroItems/> */}
@@ -56,13 +60,15 @@ const Home = () => {
         
         {/* <SelfSustainableHome /> */}
         {/* <Hospitality /> */}
-        <Services />
+        {/* <Services /> */}
 
         
         <PropertyConsulting />
         {/* <Loan /> */}
-        <Interior />
+        {/* <Interior /> */}
         <Commercial />
+        <TestimonialsCarousel/>
+        <HomeFaq/>
         {/* <Architecture /> */}
         {/* <FacilityManagement /> */}
       {/* </div> */}

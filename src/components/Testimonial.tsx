@@ -52,7 +52,7 @@ const TestimonialsCarousel = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
     autoplay: true,
     autoplaySpeed: 1000,
     arrows: false,
@@ -77,58 +77,60 @@ const TestimonialsCarousel = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto sm:mt-10 sm:mb-10">
         <div className="text-center mb-12">
-          <p className="text-xl mb-8 text-gray-600">
-            Join thousands of satisfied users who have found their perfect
-            properties with AI.
+          <p className="text-4xl font-bold mb-4 text-gray-600">
+            Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-2xl font-semibold text-yellow-600 mb-4">
             What Our Users Are Saying
           </h2>
         </div>
 
-        <Slider {...settings} className="testimonial-slider">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-2">
-              <div className="bg-white shadow-md p-6 h-[300px] flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 mr-4 object-cover rounded-full"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-gray-700">{testimonial.content}</p>
-                </div>
-                <div className="flex items-center mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${
-                        i < testimonial.rating
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
+        <Slider {...settings} className="testimonial-slide">
+  {testimonials.map((testimonial, index) => (
+    <div key={index} className="px-2 flex justify-center py-2">
+      <div className="bg-white rounded-lg shadow-md p-6 relative text-center w-full max-w-sm mt-12">
+        {/* Floating Avatar */}
+        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            width={80}
+            height={80}
+            className="w-20 h-20 rounded-full border-4 border-white shadow-md object-cover"
+          />
+        </div>
+
+        {/* Card Content */}
+        <div className="pt-12">
+          <p className="text-gray-700 mb-4">
+            "{testimonial.content}"
+            <a href="#" className="text-blue-600 hover:underline"> read more</a>
+          </p>
+          <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+          <p className="text-sm text-gray-500">{testimonial.role}</p>
+
+          {/* Rating */}
+          <div className="flex justify-center mt-4">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className={`w-5 h-5 ${
+                  i < testimonial.rating
+                    ? "text-yellow-400 fill-current"
+                    : "text-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</Slider>
+
       </div>
     </section>
   );
