@@ -40,7 +40,7 @@ const HeroSection = () => {
 
   return (
     <section>
-      <div className="h-[75dvh] bg-[#f9fdfc]   flex flex-col gap-2 justify-center items-center p-8 relative ">
+      <div className="h-[80dvh] bg-[#f9fdfc]   flex flex-col gap-2 justify-center items-center p-8 relative ">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
           src="/assets/hero-vid3.mp4"

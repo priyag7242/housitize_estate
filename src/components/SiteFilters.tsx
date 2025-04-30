@@ -121,7 +121,7 @@
 //   )
 // }
 
-import { CableCar, CableIcon, ChevronLeftCircle, ChevronRightCircle, HotelIcon, MountainSnow, RocketIcon, School, StarIcon, TentTree, Tractor, TreePalm, WavesLadder } from "lucide-react";
+import { CableCar, CableIcon, ChevronLeftCircle, ChevronRightCircle, HotelIcon, MountainSnow, RocketIcon, School, StarIcon, TagIcon, TentTree, Tractor, TreePalm, WavesLadder } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 
@@ -188,12 +188,12 @@ export default function SiteFilters() {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-6 flex items-center  gap-4">
         
         {/* Left Arrow */}
         <button
           onClick={handleScrollLeft}
-          className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gray-100 p-2 mb-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={!canScrollLeft}
         >
           <ChevronLeftCircle />
@@ -202,7 +202,7 @@ export default function SiteFilters() {
         {/* Categories */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto w-full scroll-smooth no-scrollbar"
+          className="flex gap-6 overflow-x-auto md:w-2/3 w-60 scroll-smooth no-scrollbar "
         >
           {categories.map((category) => (
             <button
@@ -222,7 +222,7 @@ export default function SiteFilters() {
         {/* Right Arrow */}
         <button
           onClick={handleScrollRight}
-          className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gray-100 p-2 mb-2 rounded-full hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={!canScrollRight}
         >
           <ChevronRightCircle />
@@ -230,7 +230,10 @@ export default function SiteFilters() {
 
         {/* Fees Text */}
         <div className="text-sm text-gray-500 hidden md:block">
-          Prices include all fees
+            <div className="flex gap-4">
+            <TagIcon /> <span>Prices include all fees</span> 
+            </div>
+       
         </div>
       </div>
     </div>
