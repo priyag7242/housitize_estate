@@ -185,7 +185,8 @@ function ListingsSection() {
 
 function AboutSection() {
   return (
-    <section className="max-w-7xl mx-auto  px-6 py-12 md:py-16 lg:py-20 hospitality ">
+    <div className="testing z-20">
+    <section className="max-w-7xl mx-auto  px-6 py-12 md:py-16 lg:py-20  ">
       <h2 className="flex gap-responsive-xl-24 items-center text-center dark:text-white max-w-5xl mx-auto mb-4">
         <span className="border-t border-yellow-500 grow h-0 min-w-50"></span>
         <span className="text-4xl  font-bold px-2">Our Hospitailies</span>
@@ -359,6 +360,7 @@ function AboutSection() {
         
       </div>
     </section>
+    </div>
   );
 }
 
@@ -492,7 +494,7 @@ const secondDivSettings = {
 function SliderContent() {
   const slider = useRef<Slider | null>(null);
   return (
-    <div className="container py-10 max-w-7xl mx-auto px-6 overflow-hidden">
+    <div className="container py-10 max-w-7xl mx-auto px-6  overflow-hidden">
       <div className="text-center flex flex-col justify-center py-10">
         <h2 className=" text-center dark:text-white  mb-2">
           <span className="text-4xl  font-bold px-2">
@@ -555,77 +557,59 @@ function SliderContent() {
 
 function FingerTipsSection (){
     return (
-<section className="bg-[#f8ba1c29]  px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 py-20 px-6">
-          {/* Text Content */}
-          <div className=" ">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              Always have us <br />
-              <span className="text-yellow-600">at your fingertips</span>
-            </h2>
+<section className="bg-[#f8ba1c29] px-4">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 py-24 px-6">
+    {/* Text Content */}
+    <div>
+     
+      <div className="mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+          Always have us <br />
+          <span className="text-yellow-600">at your fingertips</span>
+        </h2>
+      </div>
 
+      {/* Scrollable Content */}
+      <div className="h-[40vh] overflow-scroll scrollbar-hide pr-2">
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">
+          All payments and dues, in one place
+        </h3>
+        <div className="h-1 w-10 bg-yellow-600 mb-4" />
+        <p className="text-gray-700 text-base leading-relaxed mb-4">
+          No running around here and there paying all your bills. While paying,
+          tracking and managing your rent and other expenses on your app, the
+          only thing that'll move would be your fingertips.
+        </p>
+
+        {/* Repeatable Content */}
+        {[...Array(2)].map((_, i) => (
+          <div key={i}>
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               All payments and dues, in one place
             </h3>
-
             <div className="h-1 w-10 bg-yellow-600 mb-4" />
-
-            <p className="text-gray-700 text-base leading-relaxed ">
+            <p className="text-gray-700 text-base leading-relaxed mb-4">
               No running around here and there paying all your bills. While
-              paying, tracking and managing your rent and other expenses on your
-              app, the only thing that'll move would be your fingertips.
+              paying, tracking and managing your rent and other expenses on
+              your app, the only thing that'll move would be your fingertips.
             </p>
-
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                All payments and dues, in one place
-              </h3>
-
-              <div className="h-1 w-10 bg-yellow-600 mb-4" />
-
-              <p className="text-gray-700 text-base leading-relaxed ">
-                No running around here and there paying all your bills. While
-                paying, tracking and managing your rent and other expenses on
-                your app, the only thing that'll move would be your fingertips.
-              </p>
-            </div>
-            <div className="h-1 w-10 bg-yellow-600 mb-4" />
-
-            <p className="text-gray-700 text-base leading-relaxed ">
-              No running around here and there paying all your bills. While
-              paying, tracking and managing your rent and other expenses on your
-              app, the only thing that'll move would be your fingertips.
-            </p>
-
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                All payments and dues, in one place
-              </h3>
-
-              <div className="h-1 w-10 bg-yellow-600 mb-4" />
-
-              <p className="text-gray-700 text-base leading-relaxed ">
-                No running around here and there paying all your bills. While
-                paying, tracking and managing your rent and other expenses on
-                your app, the only thing that'll move would be your fingertips.
-              </p>
-            </div>
           </div>
+        ))}
+      </div>
+    </div>
 
-          {/* Image Content */}
-          <div className="relative flex justify-center">
-            {/* Decorative background circle */}
-            <div className="absolute bg-yellow-600 w-52 h-52 rounded-full z-0 top-8 left-3/4  transform -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+    {/* Image Content */}
+    <div className="relative flex justify-center">
+      <div className="absolute bg-yellow-600 w-52 h-52 rounded-full z-0 top-8 left-3/4 transform -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+      <img
+        src="/assets/images/mobile.jpg"
+        alt="App Screenshot"
+        className="relative z-10 object-cover w-[350px] h-[450px] rounded-lg"
+      />
+    </div>
+  </div>
+</section>
 
-            {/* Phone mockup */}
-            <img
-              src="/assets/images/mobile.jpg"
-              alt="App Screenshot"
-              className="relative z-10 object-cover w-[350px] h-[450px] rounded-lg"
-            />
-          </div>
-        </div>
-      </section>
 
     )
 }

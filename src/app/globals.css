@@ -132,3 +132,38 @@ body {
   height: 100%;
   z-index: 0;
 }
+
+.testing {
+  position: relative;
+  overflow: hidden;
+
+  
+}
+/* 
+.testing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(rgb(226, 242, 240) 13.14%, rgba(226, 242, 240, 0) 100%);
+  clip-path: polygon(0% 0%, 100% 46%, 100% 100%, 3% 100%, 0% 100%);
+  display: block;
+} */
+.testing:before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(#ffe48d1c 1.14%, #ffe48d1c 6%);
+  clip-path: polygon(0% 0%, 102% 26%, 80% 69%, 3% 100%, 0% 100%);
+  display: block;
+}
+.scrollbar-hide::-webkit-scrollbar{
+  display: none;
+}

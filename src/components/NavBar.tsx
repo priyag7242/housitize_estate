@@ -104,7 +104,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-screen h-16 top-0 bg-black/50 backdrop-blur-sm text-white z-50 transition-all duration-300`}
+      className={`fixed w-screen h-16 top-0 bg-black/50 backdrop-blur-sm text-white z-[100] transition-all duration-300`}
     >
       <div className="max-w-8xl xl:mx-20 px-1 xl:px-4 p-1">
         <div className="flex justify-between items-center h-14">
