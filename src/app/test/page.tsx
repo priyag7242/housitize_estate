@@ -10,6 +10,7 @@ import {
   HomeIcon,
   Search,
 } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const HeroSection = () => {
@@ -40,7 +41,7 @@ const HeroSection = () => {
 
   return (
     <section>
-      <div className="h-[80dvh] bg-[#f9fdfc]   flex flex-col gap-2 justify-center items-center p-8 relative ">
+      <div className="h-[95dvh] bg-[#f9fdfc]   flex flex-col gap-2 justify-center items-center p-8 relative ">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
           src="/assets/hero-vid3.mp4"
@@ -49,6 +50,26 @@ const HeroSection = () => {
           muted
           playsInline
         ></video>
+
+<div
+          className="bg-black/50 animate-bounce-slow backdrop-blur-md rounded-full gap-1 px-6 py-2 z-50 dark:text-white text-white/90 text-sm absolute right-24 bottom-16  -translate-y-2.5 border border-white/10 
+      shadow-lg flex items-center"
+        >
+          <div className="relative ">
+            <img
+              src="/assets/images/diamond.svg"
+              className="h-2.5 animate-glow"
+            />
+            <img
+              src="/assets/images/diamond.svg"
+              className="absolute -left-2 h-1.5 animate-glow"
+            />
+          </div>
+          Are you a Property Owner?{" "}
+          <a className="font-semibold hover:underline" href="#">
+            Sell / Rent for FREE
+          </a>
+        </div>
 
         {/* Black overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-20" />
@@ -66,19 +87,24 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* <div className="flex gap-6  flex-wrap justify-center z-20">
-        {services.map((service) => (
-          <div
-            key={service.label}
-            className="flex flex-col items-center gap-2 text-center hover:-translate-y-1.5 transition-all duration-200 ease-in cursor-pointer"
-          >
-           <Link href={service.link}> <div className="bg-teal-600 hover:bg-teal-500 text-white p-3 rounded-full">
-              {service.icon}
-            </div> </Link>
-            <span className="text-sm font-medium">{service.label}</span>
+          <div className="flex gap-6  flex-wrap justify-center z-20">
+            {services.map((service) => (
+              <div
+                key={service.label}
+                className="flex flex-col items-center gap-2 text-center hover:-translate-y-1.5 transition-all duration-200 ease-in cursor-pointer py-3"
+              >
+                <Link href={service.link}>
+                  {" "}
+                  <div className="bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full">
+                    {service.icon}
+                  </div>{" "}
+                </Link>
+                <span className="text-sm font-medium text-white">
+                  {service.label}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div> */}
 
           <div className=" w-full max-w-4xl ">
             <div className="rounded-lg bg-white p-4 shadow-2xl">
@@ -200,25 +226,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div
-          className="bg-black/40 backdrop-blur-md  rounded-t-full gap-1 px-6 py-1.5 dark:text-white text-white text-sm absolute -bottom-1 border border-white/10 
-      shadow-lg flex items-center"
-        >
-          <div className="relative animate-bounce-slow">
-            <img
-              src="/assets/images/diamond.svg"
-              className="h-2.5 animate-glow"
-            />
-            <img
-              src="/assets/images/diamond.svg"
-              className="absolute -left-2 h-1.5 animate-glow"
-            />
-          </div>
-          Are you a Property Owner?{" "}
-          <a className="font-semibold hover:underline" href="#">
-            Sell / Rent for FREE
-          </a>
-        </div>
+       
 
         <div className="absolute -bottom-10 left-0 right-0 z-40">
           <svg

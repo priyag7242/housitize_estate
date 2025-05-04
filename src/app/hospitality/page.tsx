@@ -1,8 +1,12 @@
 "use client";
 
 import SiteFilters from "@/components/SiteFilters";
+import { Search, Share2, X } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import Marquee from "react-fast-marquee";
+import FacebookPlayer from "react-player/facebook";
+import Slider from "react-slick";
 
 const GuestFav = [
   {
@@ -144,8 +148,8 @@ function Header() {
 
 function Banner() {
   return (
-    <section className="pt-8 px-4 md:px-0 w-full flex justify-center">
-      <div className="rounded-3xl md:rounded-[40px] overflow-hidden w-full max-w-7xl relative">
+    <section className="pt-8 px-4 md:px-4 w-full flex justify-center">
+      <div className="rounded-3xl md:rounded-[40px] overflow-hidden w-full max-w-7xl relative ">
         <img
           src="https://ext.same-assets.com/3017561144/2244626118.jpeg"
           alt="Airbnb Hero"
@@ -181,218 +185,449 @@ function ListingsSection() {
 
 function AboutSection() {
   return (
-   
-    <section className="max-w-7xl mx-auto md:px-0 px-4 py-12 md:py-16 lg:py-20 hospitality">
-     
-      <h2
-        className="flex gap-responsive-xl-24 items-center text-center dark:text-white max-w-5xl mx-auto mb-4"
-       
-      >
+    <section className="max-w-7xl mx-auto  px-6 py-12 md:py-16 lg:py-20 hospitality ">
+      <h2 className="flex gap-responsive-xl-24 items-center text-center dark:text-white max-w-5xl mx-auto mb-4">
         <span className="border-t border-yellow-500 grow h-0 min-w-50"></span>
-        <span className="text-4xl  font-semibold px-2">Our Hospitailies</span>
+        <span className="text-4xl  font-bold px-2">Our Hospitailies</span>
         <span className="border-t border-yellow-500 grow h-0 min-w-50"></span>
       </h2>
-      <div className="d-flex flex-col md:gap-10"></div>
-      <div className="grid gap-8 lg:grid-cols-2 items-center py-12">
-        {/* Text Content */}
-        <div className="max-w-xl">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
-            <span className="text-[#e2a22b]">Buy</span> Industrial Land & Build
-            Your Future
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Looking for industrial land to buy? We offer prime locations for
-            factories, warehouses, and manufacturing units. Invest in the
-            perfect space for your growth!
-          </p>
-        </div>
-
-        {/* Image Collage */}
-        <div className="relative grid grid-cols-6 gap-4  px-4">
-          {/* Large Left Image */}
-          <div className="col-span-4 h-[450px] relative">
-            <Image
-              src="/assets/images/industries6.webp"
-              alt="Person working on laptop"
-              fill
-              className="object-cover rounded-3xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
+      <div className="flex flex-col md:gap-20">
+        <div className="grid gap-8 lg:grid-cols-2  items-center py-12">
+          {/* Text Content */}
+          <div className="max-w-xl ">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
+              <span className="text-[#e2a22b]">Buy</span> Industrial Land &
+              Build Your Future
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Looking for industrial land to buy? We offer prime locations for
+              factories, warehouses, and manufacturing units. Invest in the
+              perfect space for your growth!
+            </p>
           </div>
 
-          {/* Right Column Images */}
-          <div className="col-span-2 flex flex-col gap-5 ">
-            <div className="relative h-[215px]">
+          {/* Image Collage */}
+          <div className="relative grid  grid-cols-6 gap-4  px-4">
+            {/* Large Left Image */}
+            <div className="col-span-4 h-[450px] relative">
               <Image
+                src="/assets/images/industries6.webp"
+                alt="Person working on laptop"
+                fill
+                className="object-cover rounded-3xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+
+            {/* Right Column Images */}
+            <div className="col-span-2  flex flex-col gap-5 ">
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries1.webp"
+                  alt="People collaborating"
+                  fill
+                  className="object-cover rounded-3xl"
+                />
+              </div>
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries5.webp"
+                  alt="Person using mobile device"
+                  fill
+                  className="object-cover rounded-3xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-2 items-center py-12">
+          {/* Image Collage */}
+          <div className="relative grid grid-cols-6 gap-4  px-4">
+            <div className="rounded-lg overflow-hidden shadow-md w-[330px]">
+              <img
+                src="/assets/images/industries6.webp"
+                alt="Laundry"
+                className=" h-[450px]"
+              />
+            </div>
+
+            <div className="absolute top-28 left-1/2 transform -translate-x-1/3 rounded-lg overflow-hidden shadow-lg border-8 border-white">
+              <img
                 src="/assets/images/industries1.webp"
-                alt="People collaborating"
-                fill
-                className="object-cover rounded-3xl"
+                className="w-full h-[220px] object-cover"
               />
             </div>
-            <div className="relative h-[215px]">
+          </div>
+          {/* Text Content */}
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
+              <span className="text-[#e2a22b]">Buy</span> Industrial Land &
+              Build Your Future
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Looking for industrial land to buy? We offer prime locations for
+              factories, warehouses, and manufacturing units. Invest in the
+              perfect space for your growth!
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2 items-center py-12">
+          {/* Text Content */}
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
+              <span className="text-[#e2a22b]">Buy</span> Industrial Land &
+              Build Your Future
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Looking for industrial land to buy? We offer prime locations for
+              factories, warehouses, and manufacturing units. Invest in the
+              perfect space for your growth!
+            </p>
+          </div>
+
+          {/* Image Collage */}
+          <div className="relative grid grid-cols-6 gap-4  px-4">
+            {/* Right Column Images */}
+            <div className="col-span-2 flex flex-col gap-5 ">
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries1.webp"
+                  alt="People collaborating"
+                  fill
+                  className="object-cover rounded-3xl"
+                />
+              </div>
+              <div className="relative h-[215px]">
+                <Image
+                  src="/assets/images/industries5.webp"
+                  alt="Person using mobile device"
+                  fill
+                  className="object-cover rounded-3xl"
+                />
+              </div>
+            </div>
+            <div className="col-span-4 h-[450px] relative">
               <Image
-                src="/assets/images/industries5.webp"
-                alt="Person using mobile device"
+                src="/assets/images/industries6.webp"
+                alt="Person working on laptop"
                 fill
                 className="object-cover rounded-3xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
         </div>
-      </div>
-      <div className="grid gap-8 lg:grid-cols-2 order-2 items-center py-12">
-        {/* Text Content */}
-        <div className="max-w-xl order-2">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
-            <span className="text-[#e2a22b]">Buy</span> Industrial Land & Build
-            Your Future
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Looking for industrial land to buy? We offer prime locations for
-            factories, warehouses, and manufacturing units. Invest in the
-            perfect space for your growth!
-          </p>
-        </div>
 
-        {/* Image Collage */}
-        <div className="relative grid order-1 grid-cols-6 gap-4  px-4">
-          {/* Large Left Image */}
-          <div className="col-span-4 h-[450px] relative">
-            <Image
-              src="/assets/images/industries6.webp"
-              alt="Person working on laptop"
-              fill
-              className="object-cover rounded-3xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-          </div>
+        <div className="grid gap-8 lg:grid-cols-2 i`tems-center py-12">
+          {/* Image Collage */}
+          <div className="relative grid grid-cols-6 gap-4  px-4">
+            <div className="">
+              <div className="rounded-lg overflow-hidden shadow-md w-[330px]">
+                <img
+                  src="/assets/images/industries6.webp"
+                  alt="Laundry"
+                  className=" h-[450px]"
+                />
+              </div>
 
-          {/* Right Column Images */}
-          <div className="col-span-2  flex flex-col gap-5 ">
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries1.webp"
-                alt="People collaborating"
-                fill
-                className="object-cover rounded-3xl"
-              />
-            </div>
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries5.webp"
-                alt="Person using mobile device"
-                fill
-                className="object-cover rounded-3xl"
-              />
+              <div className="absolute top-28 left-1/2 transform -translate-x-1/3 rounded-lg overflow-hidden shadow-lg border-8 border-white">
+                <img
+                  src="/assets/images/industries1.webp"
+                  className="w-full h-[220px] object-cover"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="grid gap-8 lg:grid-cols-2 items-center py-12">
-        {/* Text Content */}
-        <div className="max-w-xl">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
-            <span className="text-[#e2a22b]">Buy</span> Industrial Land & Build
-            Your Future
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Looking for industrial land to buy? We offer prime locations for
-            factories, warehouses, and manufacturing units. Invest in the
-            perfect space for your growth!
-          </p>
-        </div>
-
-        {/* Image Collage */}
-        <div className="relative grid grid-cols-6 gap-4  px-4">
-          {/* Large Left Image */}
-          <div className="col-span-4 h-[450px] relative">
-            <Image
-              src="/assets/images/industries6.webp"
-              alt="Person working on laptop"
-              fill
-              className="object-cover rounded-3xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-          </div>
-
-          {/* Right Column Images */}
-          <div className="col-span-2 flex flex-col gap-5 ">
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries1.webp"
-                alt="People collaborating"
-                fill
-                className="object-cover rounded-3xl"
-              />
-            </div>
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries5.webp"
-                alt="Person using mobile device"
-                fill
-                className="object-cover rounded-3xl"
-              />
-            </div>
+          {/* Text Content */}
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
+              <span className="text-[#e2a22b]">Buy</span> Industrial Land &
+              Build Your Future
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Looking for industrial land to buy? We offer prime locations for
+              factories, warehouses, and manufacturing units. Invest in the
+              perfect space for your growth!
+            </p>
           </div>
         </div>
-      </div>
 
-      <div className="grid gap-8 lg:grid-cols-2 order-2 items-center py-12">
-        {/* Text Content */}
-        <div className="max-w-xl order-2">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-700 mb-6">
-            <span className="text-[#e2a22b]">Buy</span> Industrial Land & Build
-            Your Future
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Looking for industrial land to buy? We offer prime locations for
-            factories, warehouses, and manufacturing units. Invest in the
-            perfect space for your growth!
-          </p>
-        </div>
 
-        {/* Image Collage */}
-        <div className="relative grid order-1 grid-cols-6 gap-4  px-4">
-          {/* Large Left Image */}
-          <div className="col-span-4 h-[450px] relative">
-            <Image
-              src="/assets/images/industries6.webp"
-              alt="Person working on laptop"
-              fill
-              className="object-cover rounded-3xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-          </div>
-
-          {/* Right Column Images */}
-          <div className="col-span-2  flex flex-col gap-5 ">
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries1.webp"
-                alt="People collaborating"
-                fill
-                className="object-cover rounded-3xl"
-              />
-            </div>
-            <div className="relative h-[215px]">
-              <Image
-                src="/assets/images/industries5.webp"
-                alt="Person using mobile device"
-                fill
-                className="object-cover rounded-3xl"
-              />
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
+}
+
+const logos = [
+  "/assets/images/nestle-logo.png",
+  "/assets/images/nissan-logo.webp",
+  "/assets/images/mercedes-logo.webp",
+  "/assets/images/ibm-logo.png",
+  "/assets/images/demigod-logo.webp",
+  "/assets/images/apple-logo.webp",
+];
+
+function Spotlight() {
+  return (
+    <section className="bg-gray-100 py-16 text-center md:mt-20 mt-10">
+      <h2 className="text-4xl font-bold">
+        The <span className="text-yellow-600">spotlight</span> on us
+      </h2>
+      <p className="mt-3 text-lg text-gray-600">
+        We don't just make second homes. We make headlines as well.
+      </p>
+
+      <div className="py-12 max-w-6xl mx-auto">
+        <Marquee gradient={false} speed={40}>
+          {logos.map((src, idx) => (
+            <div key={idx} className="mx-8">
+              <img
+                src={src}
+                alt={`Logo ${idx}`}
+                className="h-16 grayscale opacity-70 hover:opacity-100 transition mix-blend-multiply"
+              />
+            </div>
+          ))}
+          {logos.map((src, idx) => (
+            <div key={idx} className="mx-8">
+              <img
+                src={src}
+                alt={`Logo ${idx}`}
+                className="h-16 grayscale opacity-70 hover:opacity-100 transition mix-blend-multiply"
+              />
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
+      <button className="mt-10 bg-yellow-600 text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
+        Read More
+      </button>
+    </section>
+  );
+}
+
+const cardsData = [
+  {
+    imageSrc: "/assets/images/construction-aboutus.jpg",
+    imageAlt: "Construction professionals reviewing plans",
+    title: "Why Choose Us?",
+    description:
+      "Structure personnel participate in ethics training as part of our best practices program, and each employee is provided with a skill set that helps them make the best decisions.",
+    buttonText: "Read More",
+  },
+  {
+    imageSrc: "/assets/images/construction-best-facade-renovation.jpg",
+    imageAlt: "Yellow excavator at construction site",
+    title: "Best Facade Renovation",
+    description:
+      "We are here to help you from the initial phase to the final construction phase. Our mission is to provide you the highest quality work that meets your expectation.",
+    buttonText: "Our Price",
+  },
+  {
+    imageSrc: "/assets/images/construction-structure.jpg",
+    imageAlt: "Construction team members",
+    title: "About Structure Ltd.",
+    description:
+      "We are here to help you from the initial phase to the final construction phase. Our mission is to provide you the highest quality work that meets your expectation.",
+    buttonText: "Read More",
+  },
+  {
+    imageSrc: "/assets/images/construction-best-facade-renovation.jpg",
+    imageAlt: "Yellow excavator at construction site",
+    title: "Best Facade Renovation",
+    description:
+      "We are here to help you from the initial phase to the final construction phase. Our mission is to provide you the highest quality work that meets your expectation.",
+    buttonText: "Our Price",
+  },
+  {
+    imageSrc: "/assets/images/construction-best-facade-renovation.jpg",
+    imageAlt: "Yellow excavator at construction site",
+    title: "Best Facade Renovation",
+    description:
+      "We are here to help you from the initial phase to the final construction phase. Our mission is to provide you the highest quality work that meets your expectation.",
+    buttonText: "Our Price",
+  },
+  {
+    imageSrc: "/assets/images/construction-best-facade-renovation.jpg",
+    imageAlt: "Yellow excavator at construction site",
+    title: "Best Facade Renovation",
+    description:
+      "We are here to help you from the initial phase to the final construction phase. Our mission is to provide you the highest quality work that meets your expectation.",
+    buttonText: "Our Price",
+  },
+];
+const secondDivSettings = {
+  dots: false,
+  infinite: true,
+  arrows: false,
+  pauseOnHover: false,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
+function SliderContent() {
+  const slider = useRef<Slider | null>(null);
+  return (
+    <div className="container py-10 max-w-7xl mx-auto px-6 overflow-hidden">
+      <div className="text-center flex flex-col justify-center py-10">
+        <h2 className=" text-center dark:text-white  mb-2">
+          <span className="text-4xl  font-bold px-2">
+            <span className="text-yellow-600">Never</span> a Dull Moment
+          </span>
+        </h2>
+        <p className="text-lg">
+          In your story, your stay with us will be the most memorable chapter.
+        </p>
+      </div>
+
+      <Slider ref={slider} {...secondDivSettings} className=" mx-auto">
+        {cardsData.map((card, index) => (
+          <div key={index} className="">
+            <div className="relative group">
+              <div className="w-full h-[300px] relative overflow-hidden">
+                <Image
+                  fill
+                  src={card.imageSrc || "/placeholder.svg"}
+                  alt={card.imageAlt}
+                  className="object-cover"
+                />
+                {/* Hover Overlay */}
+
+                <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center h-full bg-gray-800/80 transform translate-y-full opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="mx-auto px-6 text-white/100 mb-4 text-center">
+                    {card.description}
+                  </div>
+                  <div className="flex space-x-4 mb-4 absolute bottom-0">
+                    <a
+                      href="#"
+                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center hover:bg-white/20 transition"
+                    >
+                      <Search className="w-4 h-4 text-white" />
+                    </a>
+
+                    <a
+                      href="#"
+                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center hover:bg-white/20 transition"
+                    >
+                      <X className="w-4 h-4 text-white" />
+                    </a>
+
+                    <a
+                      href="#"
+                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center hover:bg-white/20 transition"
+                    >
+                      <Share2 className="w-4 h-4 text-white" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+}
+
+function FingerTipsSection (){
+    return (
+<section className="bg-[#f8ba1c29]  px-4">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 py-20 px-6">
+          {/* Text Content */}
+          <div className=" ">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+              Always have us <br />
+              <span className="text-yellow-600">at your fingertips</span>
+            </h2>
+
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              All payments and dues, in one place
+            </h3>
+
+            <div className="h-1 w-10 bg-yellow-600 mb-4" />
+
+            <p className="text-gray-700 text-base leading-relaxed ">
+              No running around here and there paying all your bills. While
+              paying, tracking and managing your rent and other expenses on your
+              app, the only thing that'll move would be your fingertips.
+            </p>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                All payments and dues, in one place
+              </h3>
+
+              <div className="h-1 w-10 bg-yellow-600 mb-4" />
+
+              <p className="text-gray-700 text-base leading-relaxed ">
+                No running around here and there paying all your bills. While
+                paying, tracking and managing your rent and other expenses on
+                your app, the only thing that'll move would be your fingertips.
+              </p>
+            </div>
+            <div className="h-1 w-10 bg-yellow-600 mb-4" />
+
+            <p className="text-gray-700 text-base leading-relaxed ">
+              No running around here and there paying all your bills. While
+              paying, tracking and managing your rent and other expenses on your
+              app, the only thing that'll move would be your fingertips.
+            </p>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                All payments and dues, in one place
+              </h3>
+
+              <div className="h-1 w-10 bg-yellow-600 mb-4" />
+
+              <p className="text-gray-700 text-base leading-relaxed ">
+                No running around here and there paying all your bills. While
+                paying, tracking and managing your rent and other expenses on
+                your app, the only thing that'll move would be your fingertips.
+              </p>
+            </div>
+          </div>
+
+          {/* Image Content */}
+          <div className="relative flex justify-center">
+            {/* Decorative background circle */}
+            <div className="absolute bg-yellow-600 w-52 h-52 rounded-full z-0 top-8 left-3/4  transform -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+
+            {/* Phone mockup */}
+            <img
+              src="/assets/images/mobile.jpg"
+              alt="App Screenshot"
+              className="relative z-10 object-cover w-[350px] h-[450px] rounded-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+    )
 }
 
 export default function Home() {
@@ -402,43 +637,10 @@ export default function Home() {
       <SiteFilters />
       <Banner />
       <AboutSection />
-      <section className="bg-[#d8f1ef]  px-4">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 py-20">
-        {/* Text Content */}
-        <div className="text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            Always have us <br />
-            <span className="text-[#3eb3a5]">at your fingertips</span>
-          </h2>
+      <FingerTipsSection/>
+      <SliderContent />
+      <Spotlight />
 
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">
-            All payments and dues, in one place
-          </h3>
-
-          <div className="h-1 w-10 bg-[#3eb3a5] mb-4" />
-
-          <p className="text-gray-700 text-base leading-relaxed ">
-            No running around here and there paying all your bills. While paying,
-            tracking and managing your rent and other expenses on your app, the only
-            thing that'll move would be your fingertips.
-          </p>
-        </div>
-
-        {/* Image Content */}
-        <div className="relative flex justify-center">
-          {/* Decorative background circle */}
-          <div className="absolute bg-[#3eb3a5] w-52 h-52 rounded-full z-0 top-8 left-3/4  transform -translate-x-1/2 -translate-y-1/2 opacity-20">
-          </div>
-
-          {/* Phone mockup */}
-          <img
-            src="/assets/images/mobile.jpg"
-            alt="App Screenshot"
-            className="relative z-10 object-cover w-[350px] h-[450px] rounded-lg"
-          />
-        </div>
-      </div>
-    </section>
       {/* <ListingsSection /> */}
     </div>
   );
