@@ -105,7 +105,6 @@ const Loan = () => {
                 type="text"
                 placeholder="Pin code"
                 className="w-full text-gray-400 border-t-0 border-x-0 border-b border-gray-200 rounded-none focus:border-none px-4"
-                priority
               />
 
               <div className="space-y-3">
