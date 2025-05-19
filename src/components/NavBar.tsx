@@ -334,7 +334,7 @@ const Navbar = () => {
               <div className="">REAL</div>
               <div className="">ESTATE</div> */}
               <Image
-                src="/assets/images/demigod-logo.png"
+                 src="/assets/images/housitize-estate-logo.jpg"
                 alt="Logo"
                 width={200}
                 height={200}
