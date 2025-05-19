@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader , DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -59,14 +59,17 @@ const ContactPopup = ({
     >
       <DialogContent className="sm:max-w-[540px] bg-white border-none">
         <DialogHeader className="space-y-6">
-          <div className="space-y-2 text-start">
-            <h2 className="text-5xl font-serif tracking-wide text-gray-700">
-              We will connect
-            </h2>
-            <h2 className="text-5xl font-serif tracking-wide text-gray-700">
-              with you
-            </h2>
-          </div>
+          <DialogTitle asChild>
+            <div className="space-y-2 text-start">
+              <h2 className="text-5xl font-serif tracking-wide text-gray-700">
+                We will connect
+              </h2>
+              <h2 className="text-5xl font-serif tracking-wide text-gray-700">
+                with you
+              </h2>
+            </div>
+          </DialogTitle>
+
           <div className="flex justify-end">
             <p className="text-gray-700 text-center max-w-[400px] mx-auto">
               We&apos;ll get in touch with you within <strong>4 hours.</strong>
