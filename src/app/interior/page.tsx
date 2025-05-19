@@ -248,9 +248,9 @@ const Interior = () => {
       name: "IBM",
       logo: "/assets/images/ibm-logo.png",
     },
-    {
-      name: "Deloitte",
-      logo: "/assets/images/demigod-logo.webp",
+     {
+      name: "Housitize",
+      logo: "/assets/images/housitize-estate-logo.jpg",
     },
     {
       name: "Apple",
