@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -36,21 +37,11 @@ const Loan = () => {
       <div className="grid lg:grid-cols-2 gap-8 items-start">
         {/* Video Player Container */}
         <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-blue-600">
-          <ReactPlayer
-            url="/assets/loan-video.mp4"
-            width="100%"
-            height="100%"
-            controls={true}
-            light={false}
-            playing={true}
-            config={{
-              file: {
-                attributes: {
-                  controlsList: "nodownload",
-                  disablePictureInPicture: true,
-                },
-              },
-            }}
+          <Image
+            src="/assets/images/loan-photo.png"
+            alt="Image"
+            fill
+            className="object-cover"
           />
         </div>
 
